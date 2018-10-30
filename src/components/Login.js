@@ -7,15 +7,15 @@ import Header from './Header';
 /**
  * @desc renders home page
  */
-class Home extends Component{
+class Login extends Component{
   render() {
     return (
       <div>
         <Header />
-        <h1>Welcome to Author's Haven</h1>
+        <h1>Login...</h1>
       </div>
     )
   }
 }
 
-export default Home;
+export default Login;
