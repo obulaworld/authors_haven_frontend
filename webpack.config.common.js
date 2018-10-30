@@ -8,12 +8,15 @@ module.exports = {
   entry: {
     app: './src/index.js'
   },
+  devServer: {
+    historyApiFallback: true
+  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './public/index.html'
-    })
+    }),
   ],
   module: {
     rules: [
