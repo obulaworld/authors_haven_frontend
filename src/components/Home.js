@@ -12,7 +12,7 @@ class Home extends Component{
     return (
       <div>
         <Header />
-        <h1>Welcome to Author's Haven</h1>
+        <h1>Welcome to Author's Haven, Everyone</h1>
       </div>
     )
   }
