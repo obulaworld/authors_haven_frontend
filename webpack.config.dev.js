@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import path from 'path';
 
 // webpack common configuration
-const common = require('./webpack.config.common.js');
+import common from './webpack.config.common.js';
 
 /**
  * @desc development configuration

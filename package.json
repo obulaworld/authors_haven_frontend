@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src/ --fix",
-    "build": "webpack --config webpack.config.prod.js",
+    "build": "babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.prod.js",
     "start:dev": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.config.dev.js --hot --color --open",
     "test": "jest",
     "test:watch": "jest --watch",
