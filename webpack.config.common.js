@@ -1,49 +1,49 @@
-// libraries
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+// third-party libraries
+import Path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-// common configuration
+/**
+ * @desc Common configuration
+ */
 module.exports = {
-  entry: {
-    app: './src/index.js'
+  entry: Path.join(__dirname, 'src', 'index.js'),
+  output: {
+    path: Path.join(__dirname, 'build'),
+    filename: 'index.bundle.js'
+  },
+  resolve: {
+    modules: [Path.resolve(__dirname, 'src'), 'node_modules'],
+    extensions: ['.js', '.jsx']
   },
   devServer: {
+    contentBase: Path.join(__dirname, 'src'),
     historyApiFallback: true
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './public/index.html'
-    }),
+      template: Path.join(__dirname,'src', 'index.html')
+    })
   ],
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
         test: /\.(js|jsx)$/,
-        use: ['babel-loader'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: ['babel-loader']
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader']
+        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+        loaders: [
+          'file-loader',
+        ]
       }
     ]
-  },
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, './dist')
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
   }
-};
+}

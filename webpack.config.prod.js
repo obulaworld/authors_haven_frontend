@@ -1,10 +1,10 @@
 // third-party libraries
-const merge = require('webpack-merge');
-const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+import merge from 'webpack-merge';
+import webpack from 'webpack';
+import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 
 // common configuration
-const common = require('./webpack.config.common.js');
+import common from './webpack.config.common.js';
 
 /**
  * @desc production configuration

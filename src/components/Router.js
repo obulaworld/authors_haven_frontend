@@ -2,7 +2,7 @@
 import React from 'react';
 
 // third party library
-import { Switch, Route, BrowserRouter  } from 'react-router-dom';
+import { Switch, Route, Router  } from 'react-router-dom';
 
 // Moduler Importations
 import Home from './Home';
@@ -16,15 +16,15 @@ const history = createBrowserHistory();
 /**
  * desc handles routing
  */
-const Router = () => (
-  <BrowserRouter history={ history }>
+const AppRouter = () => (
+  <Router history={history}>
     <Switch>
       <Route exact path='/' component={Home} />
       <Route exact path='/login' component={Login} />
       <AuthenticatedRoute exact path='/auth' component={Auth} />
       <Route component={NotFound} />
     </Switch>
-  </BrowserRouter>
+  </Router>
 );
 
-export default Router;
+export default AppRouter;

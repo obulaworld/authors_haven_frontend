@@ -1,16 +1,13 @@
-// react libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider} from 'react-redux';
-import configureStore from '../src/store/configureStore'
 
-// components
-import Router from './components/Router';
+// IMPORT STYLESHEET
+// import './index.scss';
 
-const store = configureStore();
+// IMPORT COMPONENTS
+import AppRouter from './components/Router';
 
-ReactDOM.render((
-    <Provider store={store}>
-    <Router />
-    </Provider>),
-   document.getElementById('root'));
+ReactDOM.render(
+  <AppRouter />,
+  document.getElementById('root')
+);

@@ -1,7 +1,7 @@
 // third-party libraries
-const merge = require('webpack-merge');
-const webpack = require('webpack');
-const path = require('path');
+import merge from 'webpack-merge';
+import webpack from 'webpack';
+import path from 'path';
 
 // webpack common configuration
 const common = require('./webpack.config.common.js');
@@ -11,11 +11,7 @@ const common = require('./webpack.config.common.js');
  */
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'inline-source-map',
-  devServer: {
-    hot: true,
-    contentBase: path.resolve(__dirname, 'dist')
-  },
+  devtool: 'eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
