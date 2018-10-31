@@ -1,10 +1,16 @@
 // modular importation
 import initialState from '../store/initialState';
-import * as types from "../actionTypes/sample";
+import { SAMPLE_LOGIN_SUCCESS } from "../actionTypes/sample";
 
+/**
+ * 
+ * @param {object} state 
+ * @param {string} action 
+ * @desc sample of a reducer
+ */
   export const reducer = (state = initialState, action) => {
     switch (action.type) {
-      case types.SAMPLE_LOGIN_SUCCESS:
+      case SAMPLE_LOGIN_SUCCESS:
         return {
           ...state,
           ...action.payload
@@ -13,5 +19,5 @@ import * as types from "../actionTypes/sample";
         return state;
     }
   };
-  export default reducer;
   
+  export default reducer;

@@ -10,6 +10,9 @@ const logger = createLogger({
   collapsed: true,
 });
 
+/**
+ * @desc setup redux store
+*/
 const configureStore = () => createStore(
   rootReducer,
   compose(
