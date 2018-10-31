@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// IMPORT STYLESHEET
-// import './index.scss';
-
 // IMPORT COMPONENTS
 import AppRouter from './components/Router';
 
