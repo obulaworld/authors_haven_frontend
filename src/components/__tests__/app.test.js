@@ -1,3 +1,4 @@
+// React Libraries
 import React from 'react';
 
 // third-party libraries
@@ -17,10 +18,11 @@ describe('App', () => {
     expect(component).toMatchSnapshot();
   });
 
-
   it('should render banner text correctly with given strings', () => {
     const strings = ['one', 'two'];
     const component = shallow(<Home list={strings} />);
     expect(component).toMatchSnapshot();
   });
 });
+
+
