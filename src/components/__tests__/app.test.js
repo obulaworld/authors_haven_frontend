@@ -10,7 +10,6 @@ import Home from '../Home';
 
 configure({ adapter: new Adapter() });
 
-
 //SnapShot Test
 describe('App', () => {
   it('should render correctly in "debug" mode', () => {
@@ -24,5 +23,3 @@ describe('App', () => {
     expect(component).toMatchSnapshot();
   });
 });
-
-
