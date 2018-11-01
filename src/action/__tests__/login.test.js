@@ -29,7 +29,7 @@ describe('Actions related with login', () => {
     mock.reset();
   });
   it('User login is successful', () => {
-    mock.onPost('https://lotus-ah-staging.herokuapp.com/api/v1/login')
+    mock.onPost(`${process.env.SERVER_URL}/api/v1/login`)
       .reply(200, {
         user,
         status: 'success',
@@ -56,7 +56,7 @@ describe('Actions related with login', () => {
       });
   });
   it('User login is unsuccessful', () => {
-    mock.onPost('https://lotus-ah-staging.herokuapp.com/api/v1/login')
+    mock.onPost(`${process.env.SERVER_URL}/api/v1/login`)
       .reply(401, {
         status: 'failed',
         message,

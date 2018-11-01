@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 // components
 import SocialSignIn from '../SocailLogin/SocialSignIn';
-import ReuseableInput from '../reusables/reuseableInput';
+import ReuseableInput from '../reusables/input/ReuseableInput';
 import LoginGroupInput from './LoginGroupInput';
 
 /**
@@ -44,11 +44,25 @@ class LoginForm extends Component {
                         <div className="input-wrap">
                         <div className="input-group">
                               <LoginGroupInput icon="fas fa-user"/>
-                              <ReuseableInput type="text" id="email" name="email" value={this.state.email} onChange={this.onChange} placeholder="Enter your email"/>
+                              <ReuseableInput
+                                type="text"
+                                id="email"
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.onChange}
+                                placeholder="Enter your email"
+                              />
                         </div>
                         <div className="input-group">
                               <LoginGroupInput icon="fas fa-lock"/>
-                              <ReuseableInput type="password" id="password" name="password" value={this.state.password} onChange={this.onChange} placeholder="password"/>
+                              <ReuseableInput
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={this.state.password}
+                                onChange={this.onChange}
+                                placeholder="password"
+                              />
                          </div>
                       </div>
                     <button className="btn">Sign in</button>

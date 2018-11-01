@@ -3,6 +3,7 @@ import initialState from '../store/initialState';
 
 // reducer
 import loginReducer from './login';
+import signupReducer from './signup/updateUser';
 
 // action types
 import {
@@ -11,12 +12,12 @@ import {
 }
   from '../actionTypes/auth';
 
+
 /**
- *
  * @param {object} state
  * @param {string} action
-  * @desc login reducer
- * @returns {object} type
+ * @desc authentication reducer
+ * @returns plain object
  */
 const authReducer = (state = initialState.auth, action) => {
   switch (action.type) {
@@ -35,7 +36,8 @@ const authReducer = (state = initialState.auth, action) => {
     default:
       return {
         ...state,
-        login: loginReducer(state.login, action)
+        login: loginReducer(state.login, action),
+        signup: signupReducer(state.signup, action)
       };
   }
 };

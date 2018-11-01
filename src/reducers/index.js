@@ -3,6 +3,9 @@ import { combineReducers } from 'redux';
 
 // reducers
 import login from './login';
+import signup from './signup/signup';
+import activateAccount from './signup/verifyEmail';
+import updateAccount from './signup/updateUser';
 import auth from './auth';
 
 /**
@@ -10,5 +13,8 @@ import auth from './auth';
 */
 export default combineReducers({
   login,
+  signup,
+  activateAccount,
+  updateAccount,
   auth
 });

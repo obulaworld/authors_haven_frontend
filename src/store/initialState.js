@@ -5,10 +5,14 @@ const initialState = {
   auth: {
     login: {
       processing: false,
-      error: '',
+      error: ''
     },
     signup: {
-
+      isAuth: false,
+      verified: false,
+      registered: false,
+      progress: false,
+      update: false,
     },
     user: {
 

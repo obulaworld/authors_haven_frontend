@@ -4,3 +4,17 @@
 @import '_form.scss';
 @import '_signup.scss';
 @import '_mixins.scss';
+@import './loader.scss';
+@import "../components/reusables/Button/button";
+@import "../components/reusables/HeaderSearch/header-search";
+@import "../components/reusables/Header/header";
+@import "../components/LandingPage/landingPage";
+
+// @import "./variable";
+// @import "./base";
+// @import "./mixins";
+// @import "../components/reusables/Button/button";
+// @import "../components/reusables/HeaderSearch/header-search";
+// @import "../components/reusables/Header/header";
+@import "../components/reusables/Dropdown/dropdown";
+// @import "../container/LandingPage/landingPage";

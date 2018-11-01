@@ -1,10 +1,14 @@
 // third-party libraries
-import merge from 'webpack-merge';
-import webpack from 'webpack';
-import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 // common configuration
-import common from './webpack.config.common.js';
+const common = require('./webpack.config.common');
+
+const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 /**
  * @desc production configuration
@@ -15,8 +19,13 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
+        SERVER_URL: JSON.stringify('https://lotus-ah-staging.herokuapp.com'),
+        'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH)
       },
     }),
     new UglifyJSPlugin(),
+    new CopyWebpackPlugin([
+      { from: 'public/images', to: 'images' }
+    ]),
   ],
 });

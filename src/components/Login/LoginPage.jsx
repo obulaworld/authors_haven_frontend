@@ -5,7 +5,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 // components
-import Logo from '../reusables/Logo';
 import LoginForm from './LoginForm';
 
 /**
@@ -19,13 +18,16 @@ const LoginPage = props => (
           <div className="container">
             <div className="row auth-h d-flex align-items-center">
               <div className="col-md-6 offset-md-3 text-center login-wrap">
-                <Logo />
+               <img src="/images/logo.png" alt="logo"/>
                 <div className="row">
                   <div className="col-md-10 offset-md-1">
                     <div className="form-wrap">
                       <h1 className="form-title">Sign in</h1>
                       <h6 className="error">{ props.auth.login.error }</h6>
-                      <LoginForm login={props.login} auth={props.auth}/>
+                      <LoginForm
+                        login={props.login}
+                        auth={props.auth}
+                      />
                     </div>
                     <div className="form-footer d-flex">
                       <div className="forget text-left">
