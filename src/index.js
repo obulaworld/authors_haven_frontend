@@ -1,13 +1,13 @@
-// IMPORT REACT
+// import react
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// IMPORT BOOTSTRAP
+// import bootstrap
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-// IMPORT COMPONENTS
+// import components
 import AppRouter from './components/Router';
-import './index.scss'
+import './styles/index.scss'
 
 ReactDOM.render(
   <AppRouter />,

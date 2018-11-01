@@ -1,5 +1,9 @@
+// react libraries
 import React, { Component } from 'react'
 
+/**
+ * @desc renders Landing
+ */
 export default class LandingPage extends Component {
   render() {
     return (
