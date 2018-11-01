@@ -5,7 +5,7 @@ import React from 'react';
 import { Switch, Route, Router  } from 'react-router-dom';
 
 // Moduler Importations
-import Home from './Home';
+import Landing from './LandingPage/LandingPage';
 import NotFound from './NotFound';
 import Auth from './Auth';
 import { createBrowserHistory } from 'history';
@@ -19,7 +19,7 @@ const history = createBrowserHistory();
 const AppRouter = () => (
   <Router history={history}>
     <Switch>
-      <Route exact path='/' component={Home} />
+      <Route exact path='/' component={Landing} />
       <Route exact path='/login' component={Login} />
       <AuthenticatedRoute exact path='/auth' component={Auth} />
       <Route component={NotFound} />
