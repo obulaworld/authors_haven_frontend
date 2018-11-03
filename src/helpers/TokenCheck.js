@@ -13,7 +13,7 @@ const auth = {
   verifyToken(token) {
     let decoded = {};
     try {
-      decoded = jwt.verify(token, process.env.SECRET);
+      decoded = jwt.decode(token);
     } catch (error) {
       decoded = {
         error: error.message,
@@ -24,8 +24,8 @@ const auth = {
 
   /**
   * @static
-  * @param {object} request
-  * @param {object} response
+  * @param {string} token
+  * @param {boolean} response
   * @param {function} next
   * @description Verifies user token
   * @return {object} object
@@ -34,9 +34,10 @@ const auth = {
     if (!token) {
       return false;
     }
-    
+
     const decoded = auth.verifyToken(token);
-    if (decoded.error) {
+    const currentTime = Date.now() / 1000;
+    if (decoded.exp < currentTime) {
       return false;
     }
     return true;

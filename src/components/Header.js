@@ -4,7 +4,7 @@ import React from 'react';
 // third party libraries
 import { Link } from 'react-router-dom';
 
-/** 
+/**
  * desc renders header with links
 */
 const Header = () => (
