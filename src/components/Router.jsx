@@ -15,6 +15,8 @@ import NotFound from './NotFound';
 import Logout from './Logout/Logout';
 import AuthenticatedRoute from './AuthenticatedRoute';
 import CreateArticle from '../containers/article/CreateArticle'
+import ResetPassword from './ResetPassword/ResetPassword';
+import ForgotPassword from './ForgotPassword/ForgotPassword';
 
 const history = createBrowserHistory();
 
@@ -32,6 +34,9 @@ const AppRouter = () => (
       <Route exact path='/user/update' component={UpdateContainer} />
       <Route exact path='/Logout' component={Logout} />
       <AuthenticatedRoute exact path='/article' component={CreateArticle} />
+      <Route exact path='/reset_password' component={ResetPassword} />
+      <Route exact path='/forgot_password' component={ForgotPassword} />
+      <AuthenticatedRoute exact path='/auth' component={Auth} />
       <Route component={NotFound} />
     </Switch>
   </Router>

@@ -5,11 +5,11 @@ import jwt from 'jsonwebtoken';
 const auth = {
 
   /**
-  * @static
-  * @param {string} token
-  * @description Verifies user token
-  * @return {object} object
-  */
+   * @static
+   * @param {string} token
+   * @description Verifies user token
+   * @return {object} object
+   */
   verifyToken(token) {
     let decoded = {};
     try {
@@ -23,13 +23,13 @@ const auth = {
   },
 
   /**
-  * @static
-  * @param {string} token
-  * @param {boolean} response
-  * @param {function} next
-  * @description Verifies user token
-  * @return {object} object
-  */
+   * @static
+   * @param {string} token
+   * @param {boolean} response
+   * @param {function} next
+   * @description Verifies user token
+   * @return {object} object
+   */
   verifyUserToken(token) {
     if (!token) {
       return false;

@@ -25,7 +25,8 @@ const initialState = {
     processing: false,
     error: '',
     loading: false
-  }
+  },
+  reset: {}
 };
 
 export default initialState;

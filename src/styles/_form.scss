@@ -7,6 +7,7 @@
 
   .login-wrap {
     // margin-top: -10rem;
+    margin-top: -10rem;
   }
 
   .form-wrap {
@@ -124,4 +125,11 @@
     }
 
   }
-
+  
+  .error{
+    color: red;
+  }
+  .success{
+    color: #0FC86F;
+    margin-bottom: 3rem;
+  }
