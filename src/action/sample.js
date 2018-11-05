@@ -1,4 +1,4 @@
-// Moduler Importations
+// action types
 import { SAMPLE_LOGIN_SUCCESS } from '../actionTypes/sample';
 
 /**

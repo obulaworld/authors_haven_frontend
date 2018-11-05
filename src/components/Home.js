@@ -1,7 +1,7 @@
 // react libraries
 import React, { Component } from 'react';
 
-// Moduler importations
+// components
 import Header from './Header';
 
 /**

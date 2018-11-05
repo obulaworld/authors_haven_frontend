@@ -1,9 +1,9 @@
-// 3rd party API
+// 3rd party Libraries
 import { createStore, compose, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
-// modular importation
+// reducers
 import rootReducer from '../reducers';
 
 const logger = createLogger({

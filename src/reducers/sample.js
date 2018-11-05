@@ -1,5 +1,7 @@
-// modular importation
+// store files
 import initialState from '../store/initialState';
+
+// action_types
 import { SAMPLE_LOGIN_SUCCESS } from '../actionTypes/sample';
 
 /**
