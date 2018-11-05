@@ -1,12 +1,12 @@
 // redux library
 import { combineReducers } from 'redux';
 
-// Moduler Importations
+// reducers
 import score from './sample';
 
 /**
  * @desc combines all the reducers
 */
 export default combineReducers({
-    score
+  score
 });

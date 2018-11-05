@@ -2,19 +2,19 @@
 import React from 'react';
 
 // third party library
-import { Switch, Route, Router  } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
-// Moduler Importations
+// components
 import Landing from './LandingPage/LandingPage';
 import NotFound from './NotFound';
 import Auth from './Auth';
-import { createBrowserHistory } from 'history';
 import AuthenticatedRoute from './AuthenticatedRoute';
 import Login from './Login';
 
 const history = createBrowserHistory();
 /**
- * desc handles routing
+ *@desc handles routing
  */
 const AppRouter = () => (
   <Router history={history}>

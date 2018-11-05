@@ -1,5 +1,5 @@
 // react libraries
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 /**
  * @desc renders Landing
@@ -10,6 +10,6 @@ export default class LandingPage extends Component {
       <div>
         <h1>Welcome to Author's Haven from Landing</h1>
       </div>
-    )
+    );
   }
 }
