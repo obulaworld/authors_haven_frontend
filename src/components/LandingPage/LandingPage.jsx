@@ -1,15 +1,14 @@
 // react libraries
-import React, { Component } from 'react';
+import React from 'react';
 
 /**
  * @desc renders Landing
+* @returns {object} Landing
  */
-export default class LandingPage extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Welcome to Author's Haven from Landing</h1>
-      </div>
-    );
-  }
-}
+const Landing = () => (
+  <div>
+    <h1>Welcome to Authors Haven, Everyone</h1>
+  </div>
+);
+
+export default Landing;

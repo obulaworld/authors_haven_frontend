@@ -12,6 +12,7 @@ const logger = createLogger({
 
 /**
  * @desc setup redux store
+ * @returns {object} store
 */
 const configureStore = () => createStore(
   rootReducer,

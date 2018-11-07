@@ -10,7 +10,7 @@ import Home from '../Home';
 
 configure({ adapter: new Adapter() });
 
-//SnapShot Test
+// SnapShot Test
 describe('App', () => {
   it('should render correctly in "debug" mode', () => {
     const component = shallow(<Home debug />);
