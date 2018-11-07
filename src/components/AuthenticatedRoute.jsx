@@ -12,14 +12,15 @@ import Auth from '../helpers/TokenCheck';
  * @returns {object} route
 */
 const AuthenticatedRoute = ({ component: Component, ...rest }) => (
-  <Route 
+  <Route
     {...rest}
     render={
       props => (
         Auth.verifyUserToken(
-          localStorage.getItem('authorsHavenAuthToken'))
+          localStorage.getItem('authorsHavenAuthToken')
+        )
           ? <Component {...props}/>
-          : <Redirect 
+          : <Redirect
             to={{
               pathname: '/login',
               state: { from: props.location }

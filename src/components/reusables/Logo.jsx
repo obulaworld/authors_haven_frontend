@@ -6,7 +6,7 @@ import React from 'react';
 * @returns {object} Logo
  */
 const Logo = () => (
-  <img src="../imgs/logo.png" alt="Author's Haven Logo"/>
+  <img src="../imgs/logo.png" alt="Author's Haven Logo" />
 );
 
 export default Logo;

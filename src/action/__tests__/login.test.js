@@ -38,15 +38,15 @@ describe('Actions related with login', () => {
     const mockedActions = [
       {
         type: LOGIN_LOADING,
-        payload: true
+        payload: true,
       },
       {
         type: LOGIN_SUCCESS,
       },
       {
         type: AUTHENTICATE_USER,
-        payload: user
-      }
+        payload: user,
+      },
     ];
 
     const store = mockStore({ auth: {} });
@@ -59,18 +59,18 @@ describe('Actions related with login', () => {
     mock.onPost('https://lotus-ah-staging.herokuapp.com/api/v1/login')
       .reply(401, {
         status: 'failed',
-        message
+        message,
       });
 
     const mockedActions = [
       {
         type: LOGIN_LOADING,
-        payload: true
+        payload: true,
       },
       {
         type: LOGIN_FAILURE,
-        payload: message
-      }
+        payload: message,
+      },
     ];
 
     const store = mockStore({ auth: {} });

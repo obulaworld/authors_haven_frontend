@@ -5,7 +5,7 @@ const initialState = {
   auth: {
     login: {
       processing: false,
-      error: ''
+      error: '',
     },
     signup: {
 
@@ -14,7 +14,7 @@ const initialState = {
 
     },
     isAuth: false,
-  }
+  },
 };
 
 export default initialState;

@@ -1,7 +1,7 @@
-//state
+// state
 import initialState from '../store/initialState';
 
-//action types
+// action types
 import {
   LOGIN_SUCCESS,
   LOGIN_LOADING,

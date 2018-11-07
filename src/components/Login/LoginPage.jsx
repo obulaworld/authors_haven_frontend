@@ -1,15 +1,17 @@
 // react libraries
-import React, {  Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 // third-party libraries
 import PropTypes from 'prop-types';
 
 // components
-import Logo from '../../components/reusables/Logo';
+import Logo from '../reusables/Logo';
 import LoginForm from './LoginForm';
 
 /**
+ * @param {object} props
  * @desc renders login page
+ * @return {object} login
  */
 const LoginPage = props => (
       <Fragment>
@@ -40,10 +42,11 @@ const LoginPage = props => (
           </div>
       </div>
       </Fragment>
-    );
+);
 
 LoginPage.propTypes = {
-  login: PropTypes.func.isRequired
+  login: PropTypes.func.isRequired,
+  auth: PropTypes.object
 };
 
 export default LoginPage;

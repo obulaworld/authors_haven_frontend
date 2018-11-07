@@ -1,37 +1,43 @@
 // react libraries
-import React, { Component,Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
 
 
 // components
 import SocialSignIn from '../SocailLogin/SocialSignIn';
-import ReuseableInput from '../../components/reusables/reuseableInput';
+import ReuseableInput from '../reusables/reuseableInput';
 import LoginGroupInput from './LoginGroupInput';
 
+/**
+ * @param {func} event
+ * @desc renders login form
+ * @class LoginForm
+ * @extends {Component}
+ */
 class LoginForm extends Component {
     state = {
-        email: '',
-        password: ''
-      }
-    
+      email: '',
+      password: ''
+    }
+
       onChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
       }
-    
+
       onSubmit = (event) => {
         event.preventDefault();
         const { props } = this;
         props.login(this.state);
       }
 
-    render() {
-         const { props } = this;
-         if (props.auth.isAuth === true) {
-            return (
+      render() {
+        const { props } = this;
+        if (props.auth.isAuth === true) {
+          return (
                 <Redirect to='/'/>
-            );
-            }
-           return (
+          );
+        }
+        return (
             <Fragment>
               <form className="form-row" onSubmit={this.onSubmit}>
                     <div className="col-10 offset-1">
@@ -48,10 +54,10 @@ class LoginForm extends Component {
                     <button className="btn">Sign in</button>
                   </div>
                 <SocialSignIn />
-              </form>  
+              </form>
             </Fragment>
         );
-    }
+      }
 }
 
 export default LoginForm;

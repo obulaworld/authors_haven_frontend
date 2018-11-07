@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 
-const  SocialSignIn = (props) => {
-    return (
+const SocialSignIn = () => (
+    <Fragment>
         <div className="social-wrap text-center">
             <p>Social sign-in</p>
             <div className="social-inner d-flex justify-content-center">
@@ -11,8 +11,7 @@ const  SocialSignIn = (props) => {
                 <a href="#"><i className="fab fa-google"></i></a>
             </div>
       </div>
-    )
-}
+    </Fragment>
+);
 
 export default SocialSignIn;
-
