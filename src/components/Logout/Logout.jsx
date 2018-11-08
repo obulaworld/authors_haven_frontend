@@ -18,7 +18,6 @@ const Auth = (props) => {
   localStorage.removeItem('authorsHavenAuthToken');
   localStorage.removeItem('user');
   props.logout();
-  console.log(props);
   return (
     <Redirect to='/' />
   );
@@ -28,9 +27,7 @@ Auth.propTypes = {
   logout: PropTypes.func.isRequired
 };
 const mapDispatchToProps = dispatch => ({
-  logout: () => {
-    dispatch(logOutUser());
-  }
+  logout: () => dispatch(logOutUser())
 });
 
 export default connect(null, mapDispatchToProps)(Auth);
