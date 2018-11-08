@@ -2,11 +2,13 @@
 import { combineReducers } from 'redux';
 
 // reducers
-import score from './sample';
+import login from './login';
+import auth from './auth';
 
 /**
  * @desc combines all the reducers
 */
 export default combineReducers({
-  score
+  login,
+  auth
 });

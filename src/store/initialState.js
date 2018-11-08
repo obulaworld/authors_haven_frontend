@@ -2,7 +2,19 @@
  * @desc the initial state on the application
 */
 const initialState = {
-  score: 0
+  auth: {
+    login: {
+      processing: false,
+      error: '',
+    },
+    signup: {
+
+    },
+    user: {
+
+    },
+    isAuth: false,
+  },
 };
 
 export default initialState;

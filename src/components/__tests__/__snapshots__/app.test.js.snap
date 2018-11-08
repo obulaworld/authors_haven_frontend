@@ -4,7 +4,7 @@ exports[`App should render banner text correctly with given strings 1`] = `
 <div>
   <Header />
   <h1>
-    Welcome to Author's Haven, Everyone
+    Welcome to Authors Haven, Everyone
   </h1>
 </div>
 `;
@@ -13,7 +13,7 @@ exports[`App should render correctly in "debug" mode 1`] = `
 <div>
   <Header />
   <h1>
-    Welcome to Author's Haven, Everyone
+    Welcome to Authors Haven, Everyone
   </h1>
 </div>
 `;
