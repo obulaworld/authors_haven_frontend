@@ -14,7 +14,7 @@ import configureStore from '../../../store/configureStore';
 
 configure({ adapter: new Adapter() });
 
-describe('Login Component', () => {
+describe('Logout Component', () => {
   test('renders the Logout Component', () => {
     const store = configureStore();
     const wrapper = shallow(
