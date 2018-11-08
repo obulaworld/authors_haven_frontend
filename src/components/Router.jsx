@@ -10,7 +10,7 @@ import Landing from './LandingPage/LandingPage.jsx';
 import Login from '../containers/Login/Login';
 import NotFound from './NotFound';
 import Auth from './Auth';
-import Logout from './Logout';
+import Logout from './Logout/Logout';
 import AuthenticatedRoute from './AuthenticatedRoute';
 
 const history = createBrowserHistory();
