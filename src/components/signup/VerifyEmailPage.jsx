@@ -1,5 +1,7 @@
 // react libraris
 import React, { Component } from 'react';
+
+// third party libraries
 import PropTypes from 'prop-types';
 
 // third-party libraries

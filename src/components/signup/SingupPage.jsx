@@ -1,11 +1,13 @@
 // react libraries
 import React, { Fragment, Component } from 'react';
+
+// third party libraries
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 
 // components
 import SignupForm from './SignupForm';
-import LoginTypeSelector from '../Login/LoginTypeSelector';
+import LoginTypeSelector from '../login/LoginTypeSelector';
 
 
 /**

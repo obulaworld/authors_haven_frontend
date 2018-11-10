@@ -20,7 +20,9 @@ describe('Renders the singup page', () => {
 
   };
 
-  const verifiedUser = {};
+  const verifiedUser = {
+    email: 'email'
+  };
 
   const updateUser = () => {
 
@@ -41,8 +43,8 @@ describe('Renders the singup page', () => {
 
   it('should render the update page', () => {
     const component = renderer.create(
-    <UpdatePage updateAccount={{ }} location={{ verifiedUser }} updateUser= { updateUser }/>,
-    { disableLifecycleMethods: true }
+      <UpdatePage updateAccount={{ }} location={{ verifiedUser }} updateUser= { updateUser }/>,
+      { disableLifecycleMethods: true }
     );
     expect(component).toMatchSnapshot();
   });

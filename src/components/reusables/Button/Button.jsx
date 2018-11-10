@@ -1,8 +1,8 @@
 // react libraries
 import React from 'react';
-import PropTypes from 'prop-types';
 
-// third party library
+// third party libraries
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 /**

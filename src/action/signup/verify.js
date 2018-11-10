@@ -29,8 +29,8 @@ const verifyUser = token => (dispatch) => {
     type: VERIFY_EMAIL,
   });
   const url = process.env.SERVER_URL;
-  const request = http.get(`${url}/api/v1/users?token=${token}`);
-  return request.then(res => dispatch(verifyEmailSuccessAction(res)))
+  return http.get(`${url}/api/v1/users?token=${token}`)
+    .then(res => dispatch(verifyEmailSuccessAction(res)))
     .catch(({ response }) => dispatch(verifyEmailErorAction(response.data)));
 };
 

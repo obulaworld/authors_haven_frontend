@@ -40,7 +40,7 @@ const signupAction = email => (dispatch) => {
     type: SIGNUP_USER,
     payload: email
   });
-  http.post(
+  return http.post(
     `${url}/api/v1/users?callBack=http://localhost:8080/verifyEmail`,
     {
       email

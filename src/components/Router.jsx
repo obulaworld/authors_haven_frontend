@@ -6,7 +6,7 @@ import { Switch, Route, Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 // components
-import Landing from '../containers/landingPage/LandingPage';
+import Landing from '../containers/LandingPage/LandingPage';
 import Signup from '../containers/singup/SingupContainer';
 import VerifyEamilContainer from '../containers/singup/VerifyEamilContainer';
 import UpdateContainer from '../containers/singup/UpdateUserContainer';

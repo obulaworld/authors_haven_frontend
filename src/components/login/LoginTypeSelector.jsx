@@ -4,6 +4,7 @@ import React from 'react';
 
 // third-party libraries
 import PropTypes from 'prop-types';
+
 // components
 import LoginType from './LoginType';
 

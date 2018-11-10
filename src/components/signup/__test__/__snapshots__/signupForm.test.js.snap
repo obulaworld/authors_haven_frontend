@@ -213,6 +213,7 @@ exports[`Renders the singup page should render the update page 1`] = `
                         name="email"
                         required={true}
                         type="email"
+                        value="email"
                       />
                       <div
                         className="invalid-feedback"
