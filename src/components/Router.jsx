@@ -6,7 +6,10 @@ import { Switch, Route, Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 // components
-import Landing from './LandingPage/LandingPage.jsx';
+import Landing from '../containers/LandingPage/LandingPage';
+import Signup from '../containers/singup/SingupContainer';
+import VerifyEamilContainer from '../containers/singup/VerifyEamilContainer';
+import UpdateContainer from '../containers/singup/UpdateUserContainer';
 import Login from '../containers/Login/Login';
 import NotFound from './NotFound';
 import Auth from './Auth';
@@ -24,6 +27,9 @@ const AppRouter = () => (
     <Switch>
       <Route exact path='/' component={Landing} />
       <Route exact path='/login' component={Login} />
+      <Route exact path='/signup' component={Signup} />
+      <Route exact path='/verifyEmail' component={VerifyEamilContainer} />
+      <Route exact path='/user/update' component={UpdateContainer} />
       <Route exact path='/Logout' component={Logout} />
       <AuthenticatedRoute exact path='/auth' component={Auth} />
       <Route component={NotFound} />

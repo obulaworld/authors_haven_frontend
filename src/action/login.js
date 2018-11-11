@@ -56,15 +56,15 @@ export function clearError() {
 
 export const userLoginRequest = userData => (dispatch) => {
   dispatch(loginLoading(true));
-  return axios.post('https://lotus-ah-staging.herokuapp.com/api/v1/login', userData)
+  return axios.post(`${process.env.SERVER_URL}/api/v1/login`, userData)
     .then((userPayload) => {
-      if (userPayload.data.status === 'success') {
-        dispatch(success());
-        dispatch(authenticateUser(userPayload.data.user));
-        localStorage.setItem('authorsHavenAuthToken', userPayload.data.token);
-        const user = JSON.stringify(userPayload.data.user);
-        localStorage.setItem('user', user);
-      }
+      dispatch(success());
+      dispatch(authenticateUser(userPayload.data.user));
+      localStorage.setItem('authorsHavenAuthToken', userPayload.data.token);
+      localStorage.setItem(
+        'user',
+        JSON.stringify(userPayload.data.user)
+      );
     })
     .catch((err) => {
       dispatch(failure(err.response.data.message));

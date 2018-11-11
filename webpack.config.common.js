@@ -1,27 +1,28 @@
 // third-party libraries
-import Path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /**
  * @desc Common configuration
  */
 module.exports = {
-  entry: Path.join(__dirname, 'src', 'index.js'),
+  entry: path.join(__dirname, 'src', 'index.js'),
   output: {
-    path: Path.join(__dirname, 'build'),
-    filename: 'index.bundle.js'
+    path: path.join(__dirname, 'build'),
+    filename: 'index.bundle.js',
+    publicPath: '/'
   },
   resolve: {
-    modules: [Path.resolve(__dirname, 'src'), 'node_modules'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     extensions: ['.js', '.jsx']
   },
   devServer: {
-    contentBase: Path.join(__dirname, 'src'),
+    contentBase: path.join(__dirname, 'public'),
     historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: Path.join(__dirname,'src', 'index.html')
+      template: path.join(__dirname, 'public', 'index.html')
     })
   ],
   module: {
@@ -41,10 +42,14 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-        loaders: [
-          'file-loader',
-        ]
+        include: path.join(__dirname, '..', 'public'),
+        loader: 'file-loader',
+
+      },
+      {
+        test: /\.(otf|eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+        loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
       }
     ]
   }
-}
+};

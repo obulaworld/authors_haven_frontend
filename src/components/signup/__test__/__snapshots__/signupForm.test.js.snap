@@ -1,0 +1,347 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders the singup page should render the signup form 1`] = `
+<div
+  className="form-wrap pb-5 text-center"
+>
+  <form
+    className="form-row"
+    onSubmit={[Function]}
+  >
+    <div
+      className="col-10 offset-1"
+    >
+      <div
+        className="input-wrap"
+      >
+        <SignupInputGroup
+          iconClassName="fas fa-envelope"
+          inputValue=""
+          onChange={[Function]}
+          type="email"
+        />
+        <div
+          className="email-message text-left alert "
+        >
+          <p>
+            A verification email will be sent to your mail box
+          </p>
+        </div>
+      </div>
+      <button
+        className="btn"
+        disabled={false}
+        type="submit"
+      >
+        Sign up
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Renders the singup page should render the signup page 1`] = `
+<div
+  className="sign-up"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row auth-h d-flex align-items-center"
+    >
+      <div
+        className="col-md-6 offset-md-3 text-center login-wrap"
+      >
+        <img
+          src="/images/logo.png"
+        />
+        <div
+          className="row"
+        >
+          <div
+            className="col-md-8 offset-md-2"
+          >
+            <div
+              className="form-wrap"
+            >
+              <h1
+                className="form-title"
+              >
+                Sign up
+              </h1>
+              <div
+                className="sign-up-card-wrap text-left"
+              >
+                <div
+                  className="sign-up-card facebook"
+                >
+                  <a
+                    className="d-flex align-items-center"
+                    href="#"
+                  >
+                    <i
+                      className="fab fa-facebook"
+                    />
+                    Sign up with 
+                    Facebook
+                  </a>
+                </div>
+                <div
+                  className="sign-up-card facebook"
+                >
+                  <a
+                    className="d-flex align-items-center"
+                    href="#"
+                  >
+                    <i
+                      className="fab fa-twitter"
+                    />
+                    Sign up with 
+                    Twitter
+                  </a>
+                </div>
+                <div
+                  className="sign-up-card facebook"
+                >
+                  <a
+                    className="d-flex align-items-center"
+                    href="#"
+                  >
+                    <i
+                      className="fab fa-google"
+                    />
+                    Sign up with 
+                    Google
+                  </a>
+                </div>
+                <div
+                  className="sign-up-card facebook"
+                >
+                  <a
+                    className="d-flex align-items-center"
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="fas fa-envelope"
+                    />
+                    Sign up with Email
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-footer"
+            >
+              <p>
+                Already have an account?
+                <a
+                  href="./login"
+                >
+                  Login
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Renders the singup page should render the update page 1`] = `
+<div
+  className="login"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row auth-h d-flex align-items-center"
+    >
+      <div
+        className="col-md-6 offset-md-3 text-center login-wrap"
+      >
+        <img
+          alt="Author's Haven Logo"
+          src="../imgs/logo.png"
+        />
+        <div
+          className="row"
+        >
+          <div
+            className="col-md-10 offset-md-1"
+          >
+            <div
+              className="form-wrap"
+            >
+              <h1
+                className="form-title"
+              >
+                Complete your registration
+              </h1>
+              <form
+                className="form-row"
+                onSubmit={[Function]}
+              >
+                <div
+                  className="col-10 offset-1"
+                >
+                  <div
+                    className="input-wrap"
+                  >
+                    <div
+                      className="input-group"
+                    >
+                      <div
+                        className="input-group-prepend"
+                      >
+                        <span
+                          className="input-group-text"
+                        >
+                          <i
+                            className="fas fa-envelope"
+                          />
+                        </span>
+                      </div>
+                      <input
+                        aria-describedby="inputGroupPrepend"
+                        className="form-control"
+                        disabled="disabled"
+                        name="email"
+                        required={true}
+                        type="email"
+                        value="email"
+                      />
+                      <div
+                        className="invalid-feedback"
+                      >
+                        Please your email
+                      </div>
+                    </div>
+                    <div
+                      className="input-group"
+                    >
+                      <div
+                        className="input-group-prepend"
+                      >
+                        <span
+                          className="input-group-text"
+                        >
+                          <i
+                            className="fas fa-user"
+                          />
+                        </span>
+                      </div>
+                      <input
+                        aria-describedby="inputGroupPrepend"
+                        className="form-control"
+                        name="fullname"
+                        required={true}
+                        type="text"
+                      />
+                      <div
+                        className="invalid-feedback"
+                      >
+                        Please enter your full name
+                      </div>
+                    </div>
+                    <div
+                      className="input-group"
+                    >
+                      <div
+                        className="input-group-prepend"
+                      >
+                        <span
+                          className="input-group-text"
+                        >
+                          <i
+                            className="fas fa-at"
+                          />
+                        </span>
+                      </div>
+                      <input
+                        aria-describedby="inputGroupPrepend"
+                        className="form-control"
+                        name="username"
+                        required={true}
+                        type="text"
+                      />
+                      <div
+                        className="invalid-feedback"
+                      >
+                        Please enter a username
+                      </div>
+                    </div>
+                    <div
+                      className="input-group"
+                    >
+                      <div
+                        className="input-group-prepend"
+                      >
+                        <span
+                          className="input-group-text"
+                        >
+                          <i
+                            className="fas fa-lock"
+                          />
+                        </span>
+                      </div>
+                      <input
+                        aria-describedby="inputGroupPrepend"
+                        className="form-control"
+                        name="password"
+                        required={true}
+                        type="password"
+                      />
+                      <div
+                        className="invalid-feedback"
+                      >
+                        Please enter your password.
+                      </div>
+                    </div>
+                    <div
+                      className="input-group"
+                    >
+                      <div
+                        className="input-group-prepend"
+                      >
+                        <span
+                          className="input-group-text"
+                        >
+                          <i
+                            className="fas fa-lock"
+                          />
+                        </span>
+                      </div>
+                      <input
+                        aria-describedby="inputGroupPrepend"
+                        className="form-control"
+                        name="confirm password"
+                        required={true}
+                        type="password"
+                      />
+                      <div
+                        className="invalid-feedback"
+                      >
+                         Please confirm your password.
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    className="btn continue"
+                  >
+                    Continue
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

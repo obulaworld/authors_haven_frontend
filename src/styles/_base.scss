@@ -1,5 +1,12 @@
 /********* base styling *********/
+
 @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One');
+
+@font-face {
+  font-family: "Archer";
+  src: url("./fonts/Archer-Bold-Pro.otf");
+  }
+
 html {
   font-size: $base-font-size;
 }

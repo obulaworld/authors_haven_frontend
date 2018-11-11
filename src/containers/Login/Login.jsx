@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 
 // components
-import LoginPage from '../../components/Login/LoginPage';
+import LoginPage from '../../components/login/LoginPage';
 
 // action
 import { userLoginRequest } from '../../action/login';
