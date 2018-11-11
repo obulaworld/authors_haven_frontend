@@ -1,8 +1,6 @@
 // react libraries
 import React from 'react';
-
 // components
-import Header from './Header';
 
 /**
  * @desc renders home page
@@ -10,7 +8,6 @@ import Header from './Header';
  */
 const Home = () => (
       <div>
-        <Header />
         <h1>Welcome to Authors Haven, Everyone</h1>
       </div>
 );

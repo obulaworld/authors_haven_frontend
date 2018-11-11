@@ -16,10 +16,4 @@ describe('App', () => {
     const component = shallow(<Home debug />);
     expect(component).toMatchSnapshot();
   });
-
-  it('should render banner text correctly with given strings', () => {
-    const strings = ['one', 'two'];
-    const component = shallow(<Home list={strings} />);
-    expect(component).toMatchSnapshot();
-  });
 });

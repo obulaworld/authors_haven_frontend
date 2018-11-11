@@ -1,14 +1,32 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
-@import '_variables.scss';
-@import '_base.scss';
-@import '_form.scss';
-@import '_signup.scss';
-@import '_mixins.scss';
-@import './loader.scss';
-@import "../components/reusables/Button/button";
-@import "../components/reusables/HeaderSearch/header-search";
-@import "../components/reusables/Header/header";
+@import '~medium-editor/dist/css/medium-editor.css';
+@import '~medium-editor/dist/css/themes/default.css';
+
+@import './variables';
+@import './base';
+@import './mixins';
+@import "../components/tag/searchTag";
+@import "../components/article/article";
+@import "../components/reusables/button/button";
+@import "../components/reusables/dropdown/dropdown";
+@import "../components/reusables/header/header";
+@import "../components/reusables/headerSearch/headerSearch";
 @import "../components/landingPage/landingPage";
-@import "../components/reusables/Dropdown/dropdown";
 @import "../components/signup/verifyEmail";
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+// @import '_variables.scss';
+// @import '_base.scss';
+// @import '_form.scss';
+// @import '_signup.scss';
+// @import '_mixins.scss';
+// @import './loader.scss';
+// @import "../components/reusables/Button/button";
+// @import "../components/reusables/HeaderSearch/header-search";
+// @import "../components/reusables/Header/header";
+// @import "../components/landingPage/landingPage";
+// @import "../components/reusables/Dropdown/dropdown";
+// @import "../components/signup/verifyEmail";
 
