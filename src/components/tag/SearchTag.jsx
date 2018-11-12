@@ -12,14 +12,15 @@ export default class SearchTag extends Component {
 
   handleEnterKey = (event) => {
     const { tags } = this.state;
-    const tag = event.target.value;
+    tagValue = event.target.value;
+    const tag = tagValue;
     if (tags.length <= 4) {
       if (event.keyCode === 13) {
         const currentTags = [...tags, tag];
         this.setState({
           tags: currentTags
         });
-        event.target.value = '';
+        tagValue = '';
       }
     }
   }

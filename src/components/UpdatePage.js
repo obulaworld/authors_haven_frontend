@@ -8,6 +8,7 @@ import decodedToken from '../helpers/decodeToken';
 import Logo from './Logo';
 import '../styles/_form.scss';
 import '../styles/_update.scss';
+
 /**
  * @class CreateArticle
  * @extends {Component}
@@ -29,20 +30,16 @@ class UpdatePage extends Component {
       submitted: false,
       token
     };
-
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.setState({ submitted: true });
     const {
