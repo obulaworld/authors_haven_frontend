@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 // components
 import '../../../node_modules/slick-carousel/slick/slick-theme.css';
 import '../../../node_modules/slick-carousel/slick/slick.css';
-import Header from '../reusables/Header/Header';
+import Header from '../reusables/header/Header';
 import HeroSection from './HeroSection';
 import PopularArticle from './PouplarArticle';
 import FilterArticle from '../reusables/article/FilterArticle';

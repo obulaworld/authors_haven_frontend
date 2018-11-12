@@ -3,6 +3,7 @@
 
 @import './variables';
 @import './base';
+@import './form';
 @import './mixins';
 @import "../components/tag/searchTag";
 @import "../components/article/article";
@@ -17,16 +18,5 @@
 
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
-// @import '_variables.scss';
-// @import '_base.scss';
-// @import '_form.scss';
-// @import '_signup.scss';
-// @import '_mixins.scss';
-// @import './loader.scss';
-// @import "../components/reusables/Button/button";
-// @import "../components/reusables/HeaderSearch/header-search";
-// @import "../components/reusables/Header/header";
-// @import "../components/landingPage/landingPage";
-// @import "../components/reusables/Dropdown/dropdown";
-// @import "../components/signup/verifyEmail";
+
 

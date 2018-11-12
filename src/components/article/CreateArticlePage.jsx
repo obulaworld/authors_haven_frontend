@@ -5,13 +5,15 @@ import React, { Fragment, Component } from 'react';
 import propTypes from 'prop-types';
 import ContentEditable from 'react-contenteditable';
 import Editor from 'react-medium-editor';
-// styles
+import Loader from 'react-loader';
+import swal from 'sweetalert';
 
 // modules
-import articleValidation from '../../helpers/validation/articleValidation';
 import Header from '../reusables/header/Header';
 import SearchTag from '../tag/SearchTag';
 import Button from '../reusables/button/Button';
+import editorOptions from './editorConfig';
+
 /**
  * @class CreateArticle
  * @extends {Component}
@@ -88,10 +90,16 @@ class CreateArticlePage extends Component {
     formData.append('description', description);
     formData.append('title', title);
     formData.append('body', body);
-    this.props.createNewArticle(formData);
+    this.props.createNewArticle(formData)
+    .then(response => {
+      response
+        ? swal('Success', 'Article published Successfully', 'success')
+        : swal('Failed', 'Unable to publish article, please check fields', 'error')}
+      );
   };
 
   render() {
+    const loading = this.props.publishedArticle.processing ? { display: "block" } : { display: "none" };
     return (
       <Fragment>
       <div className="l-ah-create-article">
@@ -120,33 +128,7 @@ class CreateArticlePage extends Component {
                     text={this.state.article.body}
                     value={this.state.article.body}
                     onChange={this.handleEditorChange}
-                    options={
-                      {
-                        toolbar:
-                        {
-                          allowMultiParagraphSelection: true,
-                          buttons: ['bold', 'italic', 'underline', 'anchor', 'h2', 'h3', 'quote', 'underline',
-                            'strikethrough', 'justifyLeft',
-                            'justifyCenter',
-                            'justifyRight',
-                          ],
-                          diffLeft: 0,
-                          diffTop: -10,
-                          firstButtonClass: 'medium-editor-button-first',
-                          lastButtonClass: 'medium-editor-button-last',
-                          relativeContainer: null,
-                          standardizeSelectionStart: false,
-                          static: false,
-                          align: 'center',
-                          sticky: false,
-                          updateOnEmptySelection: false
-                        },
-                        placeholder: {
-                          text: 'Pen your imagination',
-                          hideOnClick: true
-                        }
-                      }
-                    }
+                    options={editorOptions}
                     className="article-editor"
                   />
                   </div>
@@ -179,6 +161,9 @@ class CreateArticlePage extends Component {
             <div className="cta-btn">
               <Button type="publish-btn" text="Publish" onClick={this.handleSubmit}/>
               <Button type="discard-btn" text="Discard" />
+              <div style={loading}>
+                  <Loader color="#0FC86F" speed={1}className="spinner"/>
+              </div>
               {/* <button className="discard-btn btn">Discard</button> */}
             </div>
           </div>

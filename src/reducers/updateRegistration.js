@@ -1,6 +1,9 @@
-import { completeRegistration } from '../actionTypes/updateUserReg';
 
+//store
 import initialState from '../store/initialState';
+
+// components
+import { completeRegistration } from '../actionTypes/updateUserReg';
 
 export const updateRegistration = (state = initialState.registeredUser, action) => {
   switch (action.type){

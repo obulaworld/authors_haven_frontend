@@ -1,13 +1,14 @@
 // third party libraries
 import http from 'axios';
 
-// actions
+// action types
 import {
   UPDATE_USER,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAILURE,
 } from '../../actionTypes/signup';
 
+// action
 import {
   authenticateUser
 } from '../auth';

@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 
 // components
-import Button from '../reusables/Button/Button';
+import Button from '../reusables/button/Button';
 
 /**
  * @desc renders the hero section component

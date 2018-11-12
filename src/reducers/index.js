@@ -7,6 +7,7 @@ import signup from './signup/signup';
 import activateAccount from './signup/verifyEmail';
 import updateAccount from './signup/updateUser';
 import auth from './auth';
+import articleReducer from './article/createArticle'
 
 /**
  * @desc combines all the reducers
@@ -16,5 +17,6 @@ export default combineReducers({
   signup,
   activateAccount,
   updateAccount,
-  auth
+  auth,
+  createArticle: articleReducer,
 });

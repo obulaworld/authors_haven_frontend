@@ -1,7 +1,7 @@
 // react libraries
 import React, { Component } from 'react';
 
-//Moduler importations
+//component import
 import Logo from './Logo';
 import '../styles/_form.scss';
 /**

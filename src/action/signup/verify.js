@@ -1,7 +1,7 @@
 // third party libraries
 import http from 'axios';
 
-// actions
+// action types
 import {
   VERIFY_EMAIL,
   VERIFY_EMAIL_SUCCESS,

@@ -1,4 +1,4 @@
-// Create Article constants
+// Action Types
 export const PUBLISH_ARTICLE = 'PUBLISH_ARTICLE';
 export const PUBLISH_ARTICLE_SUCCESS = 'PUBLISH_ARTICLE_SUCCESS';
 export const PUBLISH_ARTICLE_FAILURE = 'PUBLISH_ARTICLE_FAILURE';

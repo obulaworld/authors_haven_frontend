@@ -1,7 +1,7 @@
-// modules import
-
+// store
 import initialState from '../../store/initialState';
 
+// action types
 import {
   PUBLISH_ARTICLE_FAILURE,
   PUBLISH_ARTICLE_SUCCESS,
@@ -9,6 +9,7 @@ import {
 
 } from '../../actionTypes/article';
 
+// Article reducer
 export const ArticleReducer = (state = initialState.publishedArticle, action) => {
   switch (action.type) {
     case PUBLISH_ARTICLE_REQUEST:
@@ -25,7 +26,7 @@ export const ArticleReducer = (state = initialState.publishedArticle, action) =>
         ...state,
         article: action.payload,
         isPublished: true,
-        processing: true,
+        processing: false,
         loading: false
 
       };
@@ -35,7 +36,7 @@ export const ArticleReducer = (state = initialState.publishedArticle, action) =>
         ...state,
         article: {},
         isPublished: false,
-        processing: true,
+        processing: false,
         error: action.payload
       };
     default:

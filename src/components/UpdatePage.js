@@ -1,10 +1,10 @@
 // react libraries
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import completeUserRegistration from '../action/completeUserRegistration';
+import completeUserRegistration from '../action/signup/update';
 import decodedToken from '../helpers/decodeToken';
 
-// Moduler importations
+// Modules importations
 import Logo from './Logo';
 import '../styles/_form.scss';
 import '../styles/_update.scss';
@@ -36,14 +36,14 @@ class UpdatePage extends Component {
   }
 
 
-  handleChange(e) {
+  handleChange(event) {
     this.setState({
-      [e.target.name]: e.target.value
+      [event.target.name]: event.target.value
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
     this.setState({ submitted: true });
     const {
       email, password, fullname, username,
@@ -143,7 +143,11 @@ class UpdatePage extends Component {
     );
   }
 }
-
+/**
+ *
+ * @param {object} state
+ * @returns {object} updateRegistration
+ */
 function mapStateToProps(state) {
   const updateRegistration = state.authentication;
   return {

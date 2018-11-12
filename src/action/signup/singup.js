@@ -1,7 +1,7 @@
 // third party libraries
 import http from 'axios';
 
-// actions
+// action types
 import {
   SIGNUP_USER,
   SIGNUP_USER_FAILURE,

@@ -1,7 +1,7 @@
 // Third party modules
 import http from 'axios';
 
-// Import constants
+// Import action types
 import {
   PUBLISH_ARTICLE_FAILURE,
   PUBLISH_ARTICLE_SUCCESS,
@@ -29,7 +29,7 @@ const publishArticleSuccess = payload => ({
  */
 const createNewArticle = articleRequestObject => (dispatch) => {
   dispatch(publishArticleRequest(articleRequestObject));
-  const verificationToken = localStorage.getItem('authorsHavenAuthToken')
+  const verificationToken = localStorage.getItem('authorsHavenAuthToken');
   const options = {
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
@@ -43,9 +43,11 @@ const createNewArticle = articleRequestObject => (dispatch) => {
   )
     .then((response) => {
       dispatch(publishArticleSuccess(response.data.createdArticle));
+      return true;
     })
     .catch((error) => {
       dispatch(publishArticleError(error.data));
+      return false;
     });
 };
 export default createNewArticle;
