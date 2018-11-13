@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
 
 // components
-import SocialSignIn from '../SocailLogin/SocialSignIn';
+import SocialSignIn from '../SocialLogin/SocialSignIn';
 import ReuseableInput from '../reusables/input/ReuseableInput';
 import LoginGroupInput from './LoginGroupInput';
 
