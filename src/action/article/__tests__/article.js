@@ -5,8 +5,7 @@ import thunk from 'redux-thunk';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
-
-// Import constants
+// Import Action types
 import {
   PUBLISH_ARTICLE_FAILURE,
   PUBLISH_ARTICLE_SUCCESS,
