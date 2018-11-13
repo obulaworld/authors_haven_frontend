@@ -1,7 +1,8 @@
 // react libraries
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
 
+//third-party library
+import PropTypes from 'prop-types';
 
 // components
 import ReuseableInput from '../reusables/ReuseableInput';

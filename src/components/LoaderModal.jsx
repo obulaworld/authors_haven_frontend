@@ -11,7 +11,6 @@ import '../styles/_form.scss';
 class LoaderModal extends Component {
   // eslint-disable-next-line class-methods-use-this
   render() {
-    // const status = this.props.status;
     return (
       <div className='form-wrap pb-5 text-center'>
         <div className='col-md-6 offset-md-3 text-center'>

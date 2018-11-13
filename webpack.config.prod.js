@@ -1,8 +1,8 @@
 // third-party libraries
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 
 // common configuration
@@ -23,7 +23,6 @@ module.exports = merge(common, {
         'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH)
       },
     }),
-    new UglifyJSPlugin(),
     new CopyWebpackPlugin([
       { from: 'public/images', to: 'images' }
     ]),

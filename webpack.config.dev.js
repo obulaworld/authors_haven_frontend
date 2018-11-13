@@ -1,6 +1,6 @@
 // third-party libraries
-import merge from 'webpack-merge';
-import webpack from 'webpack';
+const merge =  require('webpack-merge');
+const webpack = require('webpack');
 
 // webpack common configuration
 const common = require('./webpack.config.common.js');

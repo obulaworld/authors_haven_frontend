@@ -14,7 +14,8 @@ import Auth from '../helpers/TokenCheck';
 */
 const AuthenticatedRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
-      Auth.verifyUserToken(localStorage.getItem('authorsHavenAuthToken')) ? (
+      Auth.verifyUserToken(localStorage.getItem('authorsHavenAuthToken')
+      ) ? (
       <Component {...props}/>
       ) : (
       <Redirect to={{

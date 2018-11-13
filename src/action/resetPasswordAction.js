@@ -1,7 +1,7 @@
 // third-party importation
 import http from 'axios';
 
-// constants importation
+// action types
 import {
   FORGOT_PASSWORD,
   RESET_PASSWORD

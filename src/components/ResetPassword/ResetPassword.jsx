@@ -1,14 +1,14 @@
-// react and react dependent library
+// react library
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 // third-party libraries
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import qs from 'query-string';
 import axios from 'axios';
 
 // components
-import Logo from '../Logo';
+import Logo from '../reusables/Logo.jsx';
 import Loader from '../reusables/Loader';
 import ResetLink from './ResetLink';
 import ResetPasswordForm from './ResetPasswordForm';

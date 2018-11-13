@@ -76,42 +76,6 @@ const validation = {
    * @return {object} object
    * @memberof UserValidation
    */
-  checkRequiredDetails(inputBody) {
-    const values = inputBody;
-    const {
-      password
-    } = values;
-    const required = ['firstname',
-      'lastname', 'username', 'password', 'bio'
-    ];
-    let pass = true;
-    const errors = {};
-    for (let i = 0; i < required.length; i += 1) {
-      if (!values[required[i]] || !values[required[i]].replace(/\s/g, '').length) {
-        pass = false;
-        errors[required[i]] = `${required[i]} is required`;
-      }
-    }
-    if (!pass) {
-      return errors
-    }
-    password.trim();
-    if (validation.checkPasswordLength(password)) {
-      return 'Password length should not be less than 8 characters'
-    }
-    if (!validation.checkPasswordAlphanumeric(password)) {
-      return 'Password should contain atleast one number and one alphabet'
-    }
-    return true
-  },
-
-  /**
-   * @static
-   * @param {object} inputBody
-   * @description Checks if user details are defined and are valid
-   * @return {object} object
-   * @memberof UserValidation
-   */
   checkUserDetails(inputBody) {
     const values = inputBody;
     const required = ['firstname',

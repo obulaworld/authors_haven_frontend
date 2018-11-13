@@ -1,5 +1,7 @@
-// react and react-redux libraries
+// react  libraries
 import React from 'react';
+
+// third-party libraries
 import { Provider } from 'react-redux';
 
 // enzyme third party libraries

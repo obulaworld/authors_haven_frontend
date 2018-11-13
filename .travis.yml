@@ -18,8 +18,8 @@ deploy:
   api_key:
     secure: ixBj9LeSign5oTjt+WCZyWwWqOkUFMjDSYWx1it4aHmW2cBBGY3VItUlgtO7Jge9jkH5FkRFEsqPZBR4O0H03qkSULzLu98eUfRBiQ/PiCXeXYCunfOBkcT6gZYZFu5aRrrX2gikN7oP3/QrPd0MNnKnGDtWOozN9jRuxg/HomcamrDSr0DTosErJmfCFW/KE85ldYmXqObIKKP1wxvWkmbx63eG0VCz8p9Xowx9QzIFJ3l0rPEqBuI3F55i021/tf9Yq4dUt2N1BSN/0sRi+m2GUJbecMSIL6pJlIjHCZg7gH96uK5Sso0626sfW5QxW3ekwAVHUUqjB1BmVum3vkaXK9YfeUwy8xjxICopsTSs1eucBtK2wLd4HnvdDlwXq1RqeXGs3kdXWNbtDtSWdSx2u8jjdHlWkm2bgWoWzL/f7fiQt/IFUckj2+y034zMNBSGILEcA/XoR/q7dZxGWqGMHThFpmSb/rE50ihDTRa2m+i3m6gqXvSjv1nrglULTQkcGw+iRJVD4PBhdSRbQK/vdis1Ndkstm6fqFvnfWNk9i85lyFxJmnkT8jZPFKFBfWWDQobuhcZhqx4SpycUQq+lXeYnHBJEiqzoaZwqzUWAKdNEer0K2OLrf4d+zYXbk2ntsUjm6zRBR+MtY04iQLSIladMfO9u4ZqiiQqvo0=
   app:
-    master: lotus-authors-haven
-    develop: lotus-authors-haven-staging
+    master: lotus-ah-frontend
+    develop: lotus-ah-frontend
   on:
     repo: andela/lotus-ah-frontend
 env:

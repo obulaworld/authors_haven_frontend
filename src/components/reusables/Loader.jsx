@@ -1,6 +1,11 @@
+// react libraries
 import React, { Component } from 'react';
-import Modal from 'react-modal';
+
+//third-party library
 import PropTypes from 'prop-types';
+
+//components
+import Modal from 'react-modal';
 import LoaderModal from '../LoaderModal';
 
 const customStyles = {

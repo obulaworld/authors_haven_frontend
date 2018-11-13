@@ -1,6 +1,7 @@
+// initial state
 import initialState from '../store/initialState';
 
-// modular importation
+// action types
 import {
   FORGOT_PASSWORD,
   RESET_PASSWORD
@@ -9,7 +10,7 @@ import {
 /**
  * @returns {object} param
  * @param {object} state
- * @param {string} action
+ * @param {object} action
  * @desc sample of a reducer
  */
 const reducer = (state = initialState.reset, action) => {
