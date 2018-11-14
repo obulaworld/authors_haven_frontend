@@ -1,10 +1,11 @@
 // react libraries
 import React, { Component, Fragment } from 'react';
+
+// third-party library
 import { Redirect } from 'react-router-dom';
 
-
 // components
-import SocialSignIn from '../SocailLogin/SocialSignIn';
+import SocialSignIn from '../SocialLogin/SocialSignIn';
 import ReuseableInput from '../reusables/input/ReuseableInput';
 import LoginGroupInput from './LoginGroupInput';
 
@@ -15,20 +16,20 @@ import LoginGroupInput from './LoginGroupInput';
  * @extends {Component}
  */
 class LoginForm extends Component {
-    state = {
-      email: '',
-      password: ''
-    }
+  state = {
+    email: '',
+    password: '',
+  };
 
-      onChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
-      }
+  onChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
-      onSubmit = (event) => {
-        event.preventDefault();
-        const { props } = this;
-        props.login(this.state);
-      }
+  onSubmit = (event) => {
+    event.preventDefault();
+    const { props } = this;
+    props.login(this.state);
+  };
 
       render() {
         const { props } = this;

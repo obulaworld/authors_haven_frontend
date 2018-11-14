@@ -8,16 +8,19 @@ import PropTypes from 'prop-types';
  * @param {object} props
  * @desc reuseableInput
  * @return {object} input
-*/
+ */
 const reuseableInput = props => (
-    <input type={props.type}
-    className="form-control"
+  <input
+    type={props.type}
+    className='form-control'
     id={props.id}
     name={props.name}
-    value = {props.value}
+    value={props.value}
     onChange={props.onChange}
     placeholder={props.placeholder}
-    aria-describedby="inputGroupPrepend" required />
+    aria-describedby='inputGroupPrepend'
+    required
+  />
 );
 
 reuseableInput.propTypes = {
@@ -26,7 +29,7 @@ reuseableInput.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 };
 
 export default reuseableInput;

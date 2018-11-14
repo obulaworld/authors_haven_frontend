@@ -3,7 +3,7 @@ import React from 'react';
 
 /**
  * @desc presents the logo anywhere
-* @returns {object} Logo
+ * @returns {object} Logo
  */
 const Logo = () => (
   <img src="/images/logo.png" alt="Author's Haven Logo" />

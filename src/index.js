@@ -8,8 +8,10 @@ import { Provider } from 'react-redux';
 // state
 import configureStore from './store/configureStore';
 
-// components
+// helpers
 import Auth from './helpers/TokenCheck';
+
+// components
 import AppRouter from './components/Router';
 
 // action
@@ -30,8 +32,9 @@ if (checker) {
   store.dispatch(logOutUser());
 }
 
-ReactDOM.render((
-    <Provider store={store}>
+ReactDOM.render(
+  <Provider store={store}>
     <AppRouter />
-    </Provider>),
-document.getElementById('root'));
+  </Provider>,
+  document.getElementById('root')
+);

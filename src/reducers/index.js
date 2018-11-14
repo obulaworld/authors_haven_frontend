@@ -8,6 +8,7 @@ import activateAccount from './signup/verifyEmail';
 import updateAccount from './signup/updateUser';
 import auth from './auth';
 import articleReducer from './article/createArticle'
+import reset from './reset';
 
 /**
  * @desc combines all the reducers
@@ -19,4 +20,5 @@ export default combineReducers({
   updateAccount,
   auth,
   createArticle: articleReducer,
+  reset
 });
