@@ -1,6 +1,7 @@
+// react libraries
 import React, { Fragment } from 'react';
 
-
+// social signIn components
 const SocialSignIn = () => (
     <Fragment>
         <div className="social-wrap text-center">

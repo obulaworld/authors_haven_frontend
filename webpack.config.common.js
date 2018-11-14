@@ -1,6 +1,7 @@
 // third-party libraries
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 /**
  * @desc Common configuration
@@ -23,7 +24,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html')
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: 'public/images', to: 'images' }
+    ]),
   ],
   module: {
     rules: [

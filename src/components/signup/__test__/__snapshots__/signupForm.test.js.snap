@@ -166,7 +166,7 @@ exports[`Renders the singup page should render the update page 1`] = `
       >
         <img
           alt="Author's Haven Logo"
-          src="../imgs/logo.png"
+          src="/images/logo.png"
         />
         <div
           className="row"

@@ -19,6 +19,13 @@ const initialState = {
     },
     isAuth: false,
   },
+  publishedArticle: {
+    article: {},
+    isPublished: false,
+    processing: false,
+    error: '',
+    loading: false
+  }
 };
 
 export default initialState;

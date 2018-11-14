@@ -19,9 +19,6 @@ import { authenticateUser, logOutUser } from './action/auth';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.scss';
 
-// script
-import '../node_modules/bootstrap/dist/js/bootstrap.js';
-
 const store = configureStore();
 const token = localStorage.getItem('authorsHavenAuthToken');
 const checker = Auth.verifyUserToken(token);

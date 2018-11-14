@@ -12,9 +12,9 @@ import VerifyEamilContainer from '../containers/singup/VerifyEamilContainer';
 import UpdateContainer from '../containers/singup/UpdateUserContainer';
 import Login from '../containers/Login/Login';
 import NotFound from './NotFound';
-import Auth from './Auth';
 import Logout from './Logout/Logout';
 import AuthenticatedRoute from './AuthenticatedRoute';
+import CreateArticle from '../containers/article/CreateArticle'
 
 const history = createBrowserHistory();
 
@@ -31,7 +31,7 @@ const AppRouter = () => (
       <Route exact path='/verifyEmail' component={VerifyEamilContainer} />
       <Route exact path='/user/update' component={UpdateContainer} />
       <Route exact path='/Logout' component={Logout} />
-      <AuthenticatedRoute exact path='/auth' component={Auth} />
+      <AuthenticatedRoute exact path='/article' component={CreateArticle} />
       <Route component={NotFound} />
     </Switch>
   </Router>
