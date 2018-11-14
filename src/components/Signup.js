@@ -1,15 +1,15 @@
 // react libraries
-import React, { ReactFragment,Component } from 'react';
+import React, { ReactFragment, Component } from 'react';
 
-//Moduler importations
-import Logo from './Logo'
+// Moduler importations
+import Logo from './Logo';
 import '../styles/_signup.scss';
 import '../styles/_form.scss';
 
 /**
  * @desc renders home page
  */
-class Signup extends Component{
+class Signup extends Component {
   render() {
     return (
         <React.Fragment>
@@ -81,7 +81,7 @@ class Signup extends Component{
             </div>
         </div>
         </React.Fragment>
-)
+    );
   }
 }
 

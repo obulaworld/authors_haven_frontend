@@ -50,11 +50,11 @@ class ResetPassword extends Component {
     this.setState({ modalIsOpen: false });
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     const { password, confirmPassword, token } = this.state;
     if (!(password === confirmPassword)) {
@@ -104,7 +104,7 @@ class ResetPassword extends Component {
         'x-access-token': token,
       },
     })
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           this.closeModal();
         }

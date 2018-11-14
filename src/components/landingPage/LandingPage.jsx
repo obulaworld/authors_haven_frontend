@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 
 // third party libraries
 import PropTypes from 'prop-types';
+import qs from 'query-string';
 
 // components
 import '../../../node_modules/slick-carousel/slick/slick-theme.css';
 import '../../../node_modules/slick-carousel/slick/slick.css';
-import qs from 'query-string';
 import Header from '../reusables/header/Header';
-import Alert from '../reusables/alert/Alert';
 import HeroSection from './HeroSection';
 import HeroBlog from './HeroBlog';
 import PopularArticle from './PouplarArticle';
@@ -19,17 +18,15 @@ import RecentPosts from './RecentPost';
 import Tags from './Articles/Tags';
 import Footer from '../reusables/footer/Footer';
 
-// third party library
-
 // helpers
 import TokenCheck from '../../helpers/TokenCheck';
-
 
 /**
  * @desc renders Landing page
  */
 class LandingPage extends Component {
   checkLogin = () => {
+    // eslint-disable-next-line no-restricted-globals
     const parsed = qs.parse(location.search);
     const { token } = parsed;
     if (token !== undefined) {
@@ -45,7 +42,10 @@ class LandingPage extends Component {
 
   render() {
     const { notifications, markNotificationAsRead } = this.props;
-    const filterArticle = [...Array(4)].map((el, i) => <FilterArticle key={i}/>);
+    this.checkLogin();
+    const filterArticle = [...Array(4)].map((el, i) => (
+      <FilterArticle key={i} />
+    ));
     const authUser = this.props.homeLogin.user;
     const user = JSON.parse(localStorage.getItem('user'));
     return (
@@ -66,22 +66,20 @@ class LandingPage extends Component {
         <section className="l-ah-3">
           <PopularArticle />
         </section>
-        <section className="l-ah-4">
-        <EditorsPick />
+        <section className='l-ah-4'>
+          <EditorsPick />
         </section>
         {/* slider carousel */}
-        <section className="l-ah-5">
+        <section className='l-ah-5'>
           <RecentPosts />
         </section>
-        <section className="l-ah-6">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
+        <section className='l-ah-6'>
+          <div className='container'>
+            <div className='row'>
+              <div className='col-md-12'>
                 <Tags />
               </div>
-              <div className="col-md-12 tag-search-body">
-               {filterArticle}
-              </div>
+              <div className='col-md-12 tag-search-body'>{filterArticle}</div>
             </div>
           </div>
         </section>

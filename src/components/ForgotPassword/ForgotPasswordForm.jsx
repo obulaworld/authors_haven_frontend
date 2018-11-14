@@ -1,11 +1,11 @@
 // react libraries
 import React, { Component, Fragment } from 'react';
 
-//third-party library
+// third-party library
 import PropTypes from 'prop-types';
 
 // components
-import ReuseableInput from '../reusables/ReuseableInput';
+import ReuseableInput from '../reusables/input/ReuseableInput';
 
 /**
  * @param {func} event

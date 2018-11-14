@@ -16,6 +16,7 @@ import tagReducer from './tag/tag';
 import comment from './comment';
 import getNotification from './notification/getNotification';
 import reply from './reply';
+import search from './search';
 
 /**
  * @desc combines all the reducers
@@ -34,5 +35,6 @@ export default combineReducers({
   comment,
   tagReducer,
   getNotification,
-  reply
+  reply,
+  search
 });

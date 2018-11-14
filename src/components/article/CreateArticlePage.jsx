@@ -138,7 +138,7 @@ class CreateArticlePage extends Component {
       Object.keys(this.props.publishedArticle.error).forEach(
         key => (errorMessages = `${errorMessages + this.props.publishedArticle.error[key][0]}\n`)
       );
-      response
+       response
         ? swal('Success', 'Article published Successfully', 'success')
         : swal('Failed', errorMessages, 'error');
     });
@@ -259,5 +259,6 @@ class CreateArticlePage extends Component {
 CreateArticlePage.propTypes = {
   createNewArticle: propTypes.func,
   notifications: propTypes.object,
+  publishedArticle: propTypes.object
 };
 export default CreateArticlePage;

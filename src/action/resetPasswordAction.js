@@ -8,32 +8,30 @@ import {
 } from '../actionTypes/reset';
 
 
-export const forgotPassResponse = postData => (dispatch) => {
-  return http({
-    method: 'post',
-    url: `${process.env.BACK_URL_FORGOT}?callBack=${process.env.FRONT_URL_RESET}`,
-    data: JSON.stringify(postData),
-    headers: {
-      'content-type': 'application/json'
+export const forgotPassResponse = postData => dispatch => http({
+  method: 'post',
+  url: `${process.env.BACK_URL_FORGOT}?callBack=${process.env.FRONT_URL_RESET}`,
+  data: JSON.stringify(postData),
+  headers: {
+    'content-type': 'application/json'
+  }
+})
+  .then(response => dispatch({
+    type: FORGOT_PASSWORD,
+    payload: {
+      status: response.status,
+      data: response.data
     }
-  })
-    .then(response => dispatch({
-      type: FORGOT_PASSWORD,
-      payload: {
-        status: response.status,
-        data: response.data
-      }
-    }))
-    .catch(({
-      response
-    }) => dispatch({
-      type: FORGOT_PASSWORD,
-      payload: {
-        status: response.status,
-        data: response.data
-      }
-    }));
-};
+  }))
+  .catch(({
+    response
+  }) => dispatch({
+    type: FORGOT_PASSWORD,
+    payload: {
+      status: response.status,
+      data: response.data
+    }
+  }));
 
 export const resetPassResponse = postData => (dispatch) => {
   const {

@@ -1,13 +1,13 @@
 // react libraries
 import React, { Component } from 'react';
 
-//component import
+// component import
 import Logo from './Logo';
 import '../styles/_form.scss';
 /**
  * @desc renders home page
  */
-class ResetPassword extends Component{
+class ResetPassword extends Component {
   render() {
     return (
         <div classNameName="login">
@@ -53,7 +53,7 @@ class ResetPassword extends Component{
             </div>
           </div>
       </div>
-    )
+    );
   }
 }
 

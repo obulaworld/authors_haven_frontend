@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // component
-import ReuseableInput from '../reusables/ReuseableInput';
+import ReuseableInput from '../reusables/input/ReuseableInput';
 
 /**
  * @desc renders resetpassword form
@@ -14,7 +14,7 @@ import ReuseableInput from '../reusables/ReuseableInput';
  */
 class ResetPasswordForm extends Component {
   render() {
-    const{
+    const {
       onSubmit,
       formPresent,
       password,

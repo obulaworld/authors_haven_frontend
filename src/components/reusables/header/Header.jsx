@@ -1,3 +1,4 @@
+/* eslint-disable valid-jsdoc */
 // Import react library
 import React, { Component } from 'react';
 
@@ -12,11 +13,12 @@ import Logo from '../logo/Logo';
 import Alert from '../alert/Alert';
 import NotificationDropdown from '../dropdown/notificationDropdown/NotificationDropdown';
 
-
 /**
+ * @param {func} event
+ * @param {object} postData
+ * @desc renders the Header
  * @class Header
  * @extends {Component}
- * @param {object} event
  */
 class Header extends Component {
   state = {
@@ -52,7 +54,11 @@ class Header extends Component {
     this.setState({
       alert: false
     });
-  }
+  };
+
+  makeSearch = (postData) => {
+    this.props.makeSearch(postData);
+  };
 
   render() {
     const {
@@ -74,14 +80,24 @@ class Header extends Component {
     return (
       <header className="l-ah-1">
         <Logo whiteLogo="true"/>
-        <HeaderSearch/>
+        {this.props.headerInSearch ? (
+          <HeaderSearch
+            headerInSearch={this.props.headerInSearch}
+            makeSearch={this.makeSearch}
+            auth={this.props.isAuth}
+          />
+        ) : (
+          <HeaderSearch headerInSearch={false} />
+        )}
         { !isAuth ? <div className="index-link">
           <ul className="nav justify-content-end">
               <li className="nav-item">
                   <a className="nav-link" href="/login">Sign in</a>
               </li>
-              <li className="nav-item signup">
-                  <a className="nav-link" href="/signup">Get started</a>
+              <li className='nav-item signup'>
+                <a className='nav-link' href='/signup'>
+                  Get started
+                </a>
               </li>
           </ul>
         </div>
@@ -94,8 +110,10 @@ class Header extends Component {
                 <li className="nav-item">
                     <Link to={ `/profile/${user.firstname}_${user.id}` } className="nav-link" href="#">{user.firstname}</Link>
                 </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/">Home</Link>
+                <li className='nav-item'>
+                  <Link className='nav-link' to='/'>
+                    Home
+                  </Link>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="#" onClick={this.handleDropDown}>
@@ -155,6 +173,8 @@ Header.propTypes = {
   markNotificationAsRead: PropTypes.func,
   text: PropTypes.string,
   alert: PropTypes.bool,
+  makeSearch: PropTypes.func,
+  headerInSearch: PropTypes.bool,
 };
 
 export default Header;

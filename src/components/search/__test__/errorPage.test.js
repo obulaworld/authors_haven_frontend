@@ -5,13 +5,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // component
-import LoginTypeSelector from '../login/LoginTypeSelector';
+import ErrorPage from '../ErrorPage';
 
-describe('LoginTypeSelector Component', () => {
-  test('renders the LoginTypeSelector Component', () => {
+describe('ErrorPage Component', () => {
+  test('renders the ErrorPage Component', () => {
     const wrapper = shallow(
-          <LoginTypeSelector
-            onClick={() => {}}
+          <ErrorPage
+          type={''}
+          keyword={''}
           />
     );
     expect(wrapper.exists()).toBe(true);

@@ -1,15 +1,132 @@
-import React from 'react';
+// react library
+import React, { Component } from 'react';
+
+// material-ui libraries
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
+// third-party library
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import qs from 'query-string';
+import { createBrowserHistory } from 'history';
+
+// components
+import search from '../../../action/search';
+
+const history = createBrowserHistory();
 
 /**
+ *
  * @desc component for rendering searchbar
+ * @param {func} event
  */
-const HeaderSearch = () => (
-      <div className="topnav-search">
-        <div className="form-group">
-          <input type="text" name="" id="" className="form-control" placeholder="Search" aria-describedby="helpId" />
-          <span className="search-btn"><i className="fas fa-search"></i></span>
+class HeaderSearch extends Component {
+  state = {
+    searchBy: 'article',
+    query: '',
+  };
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = () => {
+    const postData = {
+      searchBy: this.state.searchBy,
+      query: this.state.query,
+    };
+    history.push({
+      pathname: '/search',
+      search: `?query=${this.state.query}&searchBy=${this.state.searchBy}`,
+    });
+    this.props.makeSearch(postData);
+  };
+
+  componentDidMount() {
+    // eslint-disable-next-line no-restricted-globals
+    const parsed = qs.parse(location.search);
+    const { query, searchBy } = parsed;
+    if (query !== null && query !== undefined && query !== '') {
+      this.setState({
+        searchBy,
+        query,
+      });
+    }
+  }
+
+  render() {
+    return (
+      <div className='topnav-search'>
+        <div className='form-group'>
+          <input
+            type='text'
+            name='query'
+            value={this.state.query}
+            onChange={this.handleChange}
+            id=''
+            className='form-control'
+            placeholder='Search'
+            aria-describedby='helpId'
+          />
+          <form className='root'>
+            <FormControl variant='filled'>
+              <Select
+                value={this.state.searchBy}
+                onChange={this.handleChange}
+                name='searchBy'
+                displayEmpty
+                className='form-control'>
+                <MenuItem value='' disabled>
+                  Placeholder
+                </MenuItem>
+                <MenuItem value={'article'}>Article</MenuItem>
+                <MenuItem value={'tag'}>Tag</MenuItem>
+                <MenuItem value={'author'}>Author</MenuItem>
+              </Select>
+            </FormControl>
+          </form>
+          <button
+            className='search-btn'
+            onClick={this.props.headerInSearch ? this.handleSubmit : null}>
+            {this.props.headerInSearch ? (
+              <i className='fas fa-search' />
+            ) : (
+              <a
+                href={
+                  this.state.query !== '' && this.state.query !== null
+                    ? `./search?query=${this.state.query}&searchBy=${
+                      this.state.searchBy
+                    }`
+                    : null
+                }>
+                <i className='fas fa-search' />
+              </a>
+            )}
+          </button>
         </div>
       </div>
-);
+    );
+  }
+}
 
-export default HeaderSearch;
+HeaderSearch.propTypes = {
+  search: PropTypes.func.isRequired,
+  result: PropTypes.object,
+  headerInSearch: PropTypes.bool,
+  searchBy: PropTypes.string,
+  query: PropTypes.string,
+  makeSearch: PropTypes.func,
+  auth: PropTypes.bool,
+  makeChange: PropTypes.func,
+};
+
+const mapStateToProps = state => ({
+  result: state.search.result,
+});
+
+export default connect(
+  mapStateToProps,
+  { search }
+)(HeaderSearch);

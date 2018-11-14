@@ -4,6 +4,7 @@ import React from 'react';
 // third party library
 import { Switch, Route, Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { browserHistory } from 'react-router';
 
 // components
 import Landing from '../containers/LandingPage/LandingPage';
@@ -11,8 +12,6 @@ import Signup from '../containers/singup/SingupContainer';
 import VerifyEamilContainer from '../containers/singup/VerifyEamilContainer';
 import UpdateContainer from '../containers/singup/UpdateUserContainer';
 import Login from '../containers/Login/Login';
-
-// Moduler Importations
 import NotFound from './NotFound';
 import Logout from './Logout/Logout';
 import AuthenticatedRoute from './AuthenticatedRoute';
@@ -23,6 +22,7 @@ import ResetPassword from './ResetPassword/ResetPassword';
 import ForgotPassword from './ForgotPassword/ForgotPassword';
 import NotificationAction from '../containers/notification/NotificationAction';
 import CommentReply from '../containers/commentReply/CommentReply';
+import Search from './search/Search';
 
 const history = createBrowserHistory();
 
@@ -33,7 +33,9 @@ const history = createBrowserHistory();
 const AppRouter = () => (
   <Router history={history}>
     <Switch>
-      <Route exact path='/' component={Landing} />
+      <Route exact path='/' component={Landing} history={browserHistory}>
+         <Route path="/search" component={Search}/>
+      </Route>
       <Route exact path='/login' component={Login} />
       <Route exact path='/signup' component={Signup} />
       <Route exact path='/verifyEmail' component={VerifyEamilContainer} />
@@ -46,6 +48,7 @@ const AppRouter = () => (
       <Route exact path='/forgot_password' component={ForgotPassword} />
       <Route exact path='/notify_action/:id' component={NotificationAction} />
       <Route exact path='/comments/:id' component={CommentReply} />
+      <Route exact path='/search' component={Search} />
       <Route component={NotFound} />
     </Switch>
   </Router>

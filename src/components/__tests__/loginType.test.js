@@ -10,7 +10,7 @@ import LoginType from '../login/LoginType';
 describe('LoginType Component', () => {
   test('renders the LoginType Component', () => {
     const wrapper = shallow(
-          <LoginType 
+          <LoginType
             className=''
             loginTypeName=''
             href=''

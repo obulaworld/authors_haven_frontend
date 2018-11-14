@@ -42,6 +42,7 @@
       "comma-dangle": 0,
       "curly": ["error", "multi-line"],
       "import/no-unresolved": [2, { "commonjs": true }],
+      "import/no-named-as-default": 0,
       "import/extensions": [1, { "js": "never", "jsx": "never" }],
       "import/named": 0,
       "no-shadow": ["error", { "allow": ["req", "res", "err"] }],

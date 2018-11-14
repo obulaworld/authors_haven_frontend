@@ -42,7 +42,7 @@ const auth = {
     }
     return true;
   },
-  
+
   decodeToken(token) {
     let decoded = {};
     try {
