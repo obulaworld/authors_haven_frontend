@@ -38,7 +38,6 @@ const AppRouter = () => (
       <AuthenticatedRoute exact path='/article' component={CreateArticle} />
       <Route exact path='/reset_password' component={ResetPassword} />
       <Route exact path='/forgot_password' component={ForgotPassword} />
-      <AuthenticatedRoute exact path='/auth' component={Auth} />
       <Route component={NotFound} />
     </Switch>
   </Router>
