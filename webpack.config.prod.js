@@ -20,6 +20,7 @@ module.exports = merge(common, {
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
         SERVER_URL: JSON.stringify('https://lotus-ah-staging.herokuapp.com'),
+        CLIENT_REDIRECT: JSON.stringify('https://lotus-ah-frontend.herokuapp.com'),
         'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH)
       },
     }),

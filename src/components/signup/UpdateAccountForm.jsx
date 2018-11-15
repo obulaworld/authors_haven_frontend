@@ -3,6 +3,7 @@ import React from 'react';
 
 // third party libraries
 import PropTypes from 'prop-types';
+import Loader from 'react-loader';
 
 // components
 import SignupInputGroup from './SignupInputGroup';
@@ -10,10 +11,10 @@ import SignupInputGroup from './SignupInputGroup';
 /**
  * @desc renders update user detail form
  * @param {string} email
- * @param {funnction } handleSubmit
+ * @param {function } handleSubmit
  * @return update form
 */
-const UpdateAccountForm = ({ email, handleSubmit }) => (
+const UpdateAccountForm = ({ email, handleSubmit, loading }) => (
   <form
     className='form-row'
     onSubmit={handleSubmit}
@@ -58,6 +59,9 @@ const UpdateAccountForm = ({ email, handleSubmit }) => (
         />
     </div>
     <button className="btn continue">Continue</button>
+    <div style={loading}>
+        <Loader color="#0FC86F" speed={1}className="spinner"/>
+    </div>
     </div>
  </form>
 );
@@ -65,6 +69,7 @@ const UpdateAccountForm = ({ email, handleSubmit }) => (
 UpdateAccountForm.propTypes = {
   email: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  loading: PropTypes.object
 };
 
 export default UpdateAccountForm;

@@ -13,8 +13,8 @@ const mapStateToProps = (state = {}) => ({
   updateAccount: state.updateAccount
 });
 
-const mapDispatchToProps = dispatch => ({
-  updateUser: userDetails => dispatch(updateUser(userDetails))
-});
+const mapDispatchToProps = {
+  updateUser: userDetails => updateUser(userDetails)
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpdatePage);

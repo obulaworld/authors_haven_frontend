@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 
 // third-party libraries
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // components
 import Button from '../reusables/button/Button';
@@ -11,7 +12,7 @@ import Button from '../reusables/button/Button';
  * @desc renders the hero section component
  * @return component HeroSection
 */
-const HeroSection = () => (
+const HeroSection = ({ isAuth }) => (
   <Fragment>
     <section className="l-ah-2">
       <img src="/images/oval.svg" alt="Oval"/>
@@ -20,10 +21,19 @@ const HeroSection = () => (
         <p>Simplicity has become the order of the day, we leverage on the
           brightest author&apos;s in our community, different ways to engage with stories,
           and the ability to follow your favorite topics.</p>
-        <Link to="/signup"><Button text="Get Started" type="btn"/></Link>
+        {
+         !isAuth
+         && <Link to="/signup">
+           <Button text="Get Started" type="btn"/>
+         </Link>
+        }
       </div>
     </section>
   </Fragment>
 );
+
+HeroSection.propTypes = {
+  isAuth: PropTypes.object
+};
 
 export default HeroSection;

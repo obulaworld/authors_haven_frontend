@@ -2,16 +2,17 @@
 import React from 'react';
 
 // third party libraries
-import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 
 // component
 import Button from '../button/Button';
 
 /**
- * @export UserDeatails
+ * @desc
+ * @param {object} user
+ * @return UserDeatails
  */
-export default function UserDeatails({ user, authorId,articleSlug }) {
-  return (
+const UserDeatails = ({ user }) => (
     <div className='userDetail'>
       <div className='container'>
         <div className='row'>
@@ -19,11 +20,11 @@ export default function UserDeatails({ user, authorId,articleSlug }) {
             <div>
               <div className='thumbnail' />
             </div>
-            <div className='username-wrap'>
-              <div className='username'>Mindsworth</div>
-              <div className='notice d-flex justify-content-flex-start align-items-center'>
-                <div className='date'>Nov 5</div>
-                <div className='read-time'>5min read</div>
+            <div className="username-wrap">
+              <div className="username">{user && user.firstname}</div>
+              <div className="notice d-flex justify-content-flex-start align-items-center">
+                <div className="date">Nov 5</div>
+                <div className="read-time">5min read</div>
               </div>
             </div>
             <div>
@@ -32,14 +33,14 @@ export default function UserDeatails({ user, authorId,articleSlug }) {
             <div className='l-ah-report'>
               <Button type='report-btn' text='Report' />
             </div>
-            {user && authorId === user.id &&
-            <div className='l-ah-report'>
-              <Link to='/editarticle'><Button className="btn" type='submit' text='Edit' /></Link>
-            </div>
-            }
           </div>
         </div>
       </div>
     </div>
-  );
-}
+);
+
+UserDeatails.propTypes = {
+  user: propTypes.object
+};
+
+export default UserDeatails;

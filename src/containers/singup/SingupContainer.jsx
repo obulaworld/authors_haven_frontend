@@ -14,8 +14,8 @@ const mapStateToProps = (state = initialState.signup) => ({
   signup: state.signup
 });
 
-const mapDispatchToProps = dispatch => ({
-  register: email => dispatch(signupAction(email))
-});
+const mapDispatchToProps = {
+  register: email => signupAction(email)
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupPage);

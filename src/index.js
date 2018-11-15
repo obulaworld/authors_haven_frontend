@@ -16,6 +16,7 @@ import AppRouter from './components/Router';
 
 // action
 import { authenticateUser, logOutUser } from './action/auth';
+import fetchNotification from './action/notification/getUserNotification';
 
 // styles
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -28,6 +29,7 @@ const checker = Auth.verifyUserToken(token);
 if (checker) {
   const user = localStorage.getItem('user');
   store.dispatch(authenticateUser(user));
+  store.dispatch(fetchNotification(token));
 } else {
   store.dispatch(logOutUser());
 }

@@ -65,19 +65,20 @@ class ViewArticle extends Component {
       rating,
       reactions,
       userId,
+      users,
     } = this.props.publishedArticle.Articles;
-    const shareUrl = `https://lotus-ah-staging.herokuapp.com/api/v1${this.props.location.pathname}`;
-    const {
-      user,
-      isAuth
-    } = this.props.loginUser;
-    const loggedUser = JSON.parse(user);
 
+    const shareUrl = `${process.env.CLIENT_REDIRECT}${this.props.location.pathname}`;
+    const user = JSON.parse(localStorage.getItem('user'));
+    const authUser = this.props.loginUser;
+    const { notifications, markNotificationAsRead } = this.props;
     return (
       <div className="detail">
         <Header
-          isAuth={ isAuth }
-          user={ loggedUser }
+          isAuth={authUser.isAuth}
+          user={user}
+          notifications={notifications}
+          markNotificationAsRead={markNotificationAsRead}
         />
         {this.props.loading
           ? (<div className="">
@@ -88,8 +89,8 @@ class ViewArticle extends Component {
             <div className="l-ah-view-article">
               <UserDetail
               authorId={userId}
-              user= {user}
               articleSlug={slug}
+                user={users}
               />
               <div className="container">
                 <div className="row">
@@ -146,6 +147,8 @@ ViewArticle.propTypes = {
   match: propTypes.object,
   fetchSingleArticle: propTypes.func,
   location: propTypes.object,
+  notifications: propTypes.object,
+  markNotificationAsRead: propTypes.func,
 };
 
 export default ViewArticle;

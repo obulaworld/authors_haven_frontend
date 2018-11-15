@@ -40,8 +40,9 @@ const signupAction = email => (dispatch) => {
     type: SIGNUP_USER,
     payload: email
   });
+  const client = process.env.CLIENT_REDIRECT || 'http://localhost:8080';
   return http.post(
-    `${url}/api/v1/users?callBack=http://localhost:8080/verifyEmail`,
+    `${url}/api/v1/users?callBack=${client}/verifyEmail`,
     {
       email
     }

@@ -7,7 +7,9 @@ import PropTypes from 'prop-types';
 // components
 import '../../../node_modules/slick-carousel/slick/slick-theme.css';
 import '../../../node_modules/slick-carousel/slick/slick.css';
+import qs from 'query-string';
 import Header from '../reusables/header/Header';
+import Alert from '../reusables/alert/Alert';
 import HeroSection from './HeroSection';
 import HeroBlog from './HeroBlog';
 import PopularArticle from './PouplarArticle';
@@ -18,17 +20,15 @@ import Tags from './Articles/Tags';
 import Footer from '../reusables/footer/Footer';
 
 // third party library
-import qs from 'query-string';
 
 // helpers
-import TokenCheck from  '../../helpers/TokenCheck'
+import TokenCheck from '../../helpers/TokenCheck';
 
 
 /**
  * @desc renders Landing page
  */
 class LandingPage extends Component {
-
   checkLogin = () => {
     const parsed = qs.parse(location.search);
     const { token } = parsed;
@@ -40,11 +40,11 @@ class LandingPage extends Component {
         'user',
         JSON.stringify(user.returnedUser.user)
       );
-     }
+    }
   }
 
   render() {
-    this.checkLogin();
+    const { notifications, markNotificationAsRead } = this.props;
     const filterArticle = [...Array(4)].map((el, i) => <FilterArticle key={i}/>);
     const authUser = this.props.homeLogin.user;
     const user = JSON.parse(localStorage.getItem('user'));
@@ -53,13 +53,16 @@ class LandingPage extends Component {
         <Header
           isAuth={this.props.homeLogin.isAuth }
           user={user || authUser }
+          notifications={notifications}
+          markNotificationAsRead={markNotificationAsRead}
+          alert={this.props.location.alert}
+          text={this.props.location.text}
         />
         {
           this.props.homeLogin.isAuth
-          ? <HeroBlog />
-          : <HeroSection />
+            ? <HeroBlog />
+            : <HeroSection />
         }
-
         <section className="l-ah-3">
           <PopularArticle />
         </section>
@@ -89,7 +92,10 @@ class LandingPage extends Component {
 }
 
 LandingPage.propTypes = {
-  homeLogin: PropTypes.object
+  homeLogin: PropTypes.object,
+  notifications: PropTypes.object,
+  markNotificationAsRead: PropTypes.func,
+  location: PropTypes.object
 };
 
 export default LandingPage;

@@ -16,8 +16,7 @@ import SignupInputGroup from './SignupInputGroup';
 class SignupForm extends Component {
     state = {
       input: '',
-      submittted: false,
-      responseMessage: 'A verification email will be sent to your mail box'
+      submittted: false
     };
 
 /**
@@ -33,7 +32,7 @@ handleChage = (event) => {
 }
 
 /**
- * @desc handles form submit event
+ *@desc handles form submit event
  *@param {object} event
  *@memberof SignupForm
 */
@@ -47,22 +46,6 @@ handleChage = (event) => {
     });
   }
 
-  /**
-   * @desc sets response message from server
-   *@param {object} event
-  *@memberof SignupForm
-  */
-  setResponseMessage = () => {
-    if (this.props.signup.registered === true) {
-      this.setState({
-        responseMessage: ' verification email has been sent to your mail box'
-      });
-    } else if (this.props.signup.registered === 'failed' && this.props.signup.progress === 'done') {
-      this.setState({
-        responseMessage: this.props.signup.message
-      });
-    }
-  }
 
   render = () => (
    <div className="form-wrap pb-5 text-center">
@@ -76,9 +59,10 @@ handleChage = (event) => {
                   inputValue={this.state.input}
                 />
                 <div
-                  className={`email-message text-left alert ${this.props.signup.registered === true ? ' alert-success' : ''}`}
+                  className={`email-message text-left alert ${this.props.signup.registered === 'failed' ? ' alert-danger' : ''}`}
                 >
-                  <p>{ this.state.responseMessage }</p>
+                  <p>{!this.props.signup.registered && 'A verification email will be sent to your mail box'}</p>
+                  <p>{this.props.signup.registered === 'failed' && this.props.signup.message}</p>
                 </div>
             </div>
               <button

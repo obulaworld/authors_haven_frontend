@@ -4,9 +4,8 @@
   right: 0;
   height: 0;
   opacity: 0.1;
-  transition-delay: .3s;
   overflow: hidden;
-  
+
   .dropdown-inner {
     border-radius: 4px;
     border: 1px solid $dark-gray;
@@ -28,7 +27,7 @@
       right: .5rem;
       display: block;
     }
-  
+
     ul {
       text-align: center;
       margin: 0;
@@ -36,10 +35,10 @@
       padding: 0;
       border-bottom: 1px solid $dark-gray;
       background-color: $white;
-  
+
       li {
         list-style: none;
-  
+
         a {
           display: block;
           padding: 1rem 8rem;
@@ -47,7 +46,7 @@
           font-weight: 600;
           transition: all .3s linear;
           opacity: .5;
-          
+
           &:hover {
             text-decoration: none;
             color: $white;

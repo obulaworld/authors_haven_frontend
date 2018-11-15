@@ -14,6 +14,7 @@ import reset from './reset';
 import ratingArticle from './article/ratingArticle';
 import tagReducer from "./tag/tag";
 import comment from './comment';
+import getNotification from './notification/getNotification';
 
 /**
  * @desc combines all the reducers
@@ -29,6 +30,7 @@ export default combineReducers({
   userProfile,
   ratingArticle,
   reset,
+  comment,
   tagReducer,
-  comment
+  getNotification,
 });
