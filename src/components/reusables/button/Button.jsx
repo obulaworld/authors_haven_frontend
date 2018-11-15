@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 
 
 // third party libraries
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
 /**
  * desc renders Button
 */
@@ -24,8 +25,8 @@ class Button extends Component {
 }
 
 Button.propTypes = {
-  type: propTypes.String,
-  text: propTypes.String,
-  onClick: propTypes.func.isRequired,
+  type: PropTypes.string,
+  text: PropTypes.string,
+  onClick: PropTypes.func,
 };
 export default Button;

@@ -1,6 +1,9 @@
 // react libraries
 import React, { Fragment } from 'react';
 
+// third-party libraries
+import { Link } from 'react-router-dom';
+
 // components
 import Button from '../reusables/button/Button';
 
@@ -17,7 +20,7 @@ const HeroSection = () => (
         <p>Simplicity has become the order of the day, we leverage on the
           brightest author&apos;s in our community, different ways to engage with stories,
           and the ability to follow your favorite topics.</p>
-        <Button text="Get Started" />
+        <Link to="/signup"><Button text="Get Started" type="btn"/></Link>
       </div>
     </section>
   </Fragment>

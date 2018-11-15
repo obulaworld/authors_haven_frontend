@@ -1,10 +1,11 @@
 @import '~medium-editor/dist/css/medium-editor.css';
 @import '~medium-editor/dist/css/themes/default.css';
-
-@import './variables';
-@import './base';
-@import './form';
-@import './mixins';
+@import '_signupMixin.scss';
+@import '_form.scss';
+@import '_variables';
+@import '_base';
+@import '_mixins';
+@import '_signup';
 @import "../components/tag/searchTag";
 @import "../components/article/article";
 @import "../components/reusables/button/button";
@@ -14,9 +15,5 @@
 @import "../components/landingPage/landingPage";
 @import "../components/signup/verifyEmail";
 
-
-
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
 
 

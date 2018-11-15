@@ -5,13 +5,13 @@ const SocialSignIn = () => (
     <div className='social-wrap text-center'>
       <p>Social sign-in</p>
       <div className='social-inner d-flex justify-content-center'>
-        <a href='#'>
+        <a href={process.env.FACEBOOK_URL}>
           <i className='fab fa-facebook' />
         </a>
-        <a href='#'>
+        <a href={process.env.TWITTER_URL}>
           <i className='fab fa-twitter' />
         </a>
-        <a href='#'>
+        <a href={process.env.GOOGLE_URL}>
           <i className='fab fa-google' />
         </a>
       </div>
