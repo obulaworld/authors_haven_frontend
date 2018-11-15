@@ -25,7 +25,7 @@ class Header extends Component {
     menu: false,
     notification: false,
     alert: true,
-  }
+  };
 
   componentDidMount = () => {
     this.setState({
@@ -52,7 +52,7 @@ class Header extends Component {
 
   closeAlert = () => {
     this.setState({
-      alert: false
+      alert: false,
     });
   };
 
@@ -115,52 +115,44 @@ class Header extends Component {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#" onClick={this.handleDropDown}>
-                      <i
-                        className="fas fa-bell"
-                        data-toggle="notification"
-                      />
-                      { notificationCount > 0
-                        && <span
-                            className="notification-count"
-                            onClick={this.handleDropDown}
-                            data-toggle="notification"
-                          >
+                <li className='nav-item'>
+                  <a className='nav-link' href='#' onClick={this.handleDropDown}>
+                    <i className='fas fa-bell' data-toggle='notification' />
+                    {notificationCount > 0 && (
+                      <span
+                        className='notification-count'
+                        onClick={this.handleDropDown}
+                        data-toggle='notification'>
                         {notificationCount}
                       </span>
-                      }
-                    </a>
+                    )}
+                  </a>
                 </li>
-            </ul>
-          </div>
-          <div className="icon-wrap" data-toggle="menu">
-            <div
-              className="icon"
-              data-toggle="menu"
-              onClick={this.handleDropDown}
-            >
-              <div className="line" data-toggle="menu"></div>
+              </ul>
             </div>
-            <Dropdown active={this.state.menu} />
-            <NotificationDropdown
-              active={this.state.notification}
-              onClick={this.handleNotificationOnclick}
-              notifications={notificationsItems}
-              count={notificationCount}
-              markNotificationAsRead={markNotificationAsRead}
+            <div className='icon-wrap' data-toggle='menu'>
+              <div className='icon' data-toggle='menu' onClick={this.handleDropDown}>
+                <div className='line' data-toggle='menu' />
+              </div>
+              <Dropdown active={this.state.menu} />
+              <NotificationDropdown
+                active={this.state.notification}
+                onClick={this.handleNotificationOnclick}
+                notifications={notificationsItems}
+                count={notificationCount}
+                markNotificationAsRead={markNotificationAsRead}
               />
+            </div>
           </div>
-        </div>
-      }
-         <div className="alert-position">
+        }
+        <div className='alert-position'>
           <Alert
-            alert="alert-success"
+            alert='alert-success'
             isOpen={this.state.alert}
             onClick={this.closeAlert}
             text={this.props.text}
           />
-         </div>
+        </div>
       </header>
     );
   }
@@ -168,13 +160,13 @@ class Header extends Component {
 
 Header.propTypes = {
   isAuth: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   notifications: PropTypes.object,
-  markNotificationAsRead: PropTypes.func,
   text: PropTypes.string,
   alert: PropTypes.bool,
   makeSearch: PropTypes.func,
   headerInSearch: PropTypes.bool,
+  markNotificationAsRead: PropTypes.func,
 };
 
 export default Header;

@@ -11,6 +11,11 @@ import {
   MARK_NOTIFICATION_AS_READ_FAILURE,
 } from '../../../actionTypes/notification';
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> feat(user following): authenticated user should be able to follow each other
 // action
 import readNotification from '../readNotification';
 

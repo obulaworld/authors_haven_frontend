@@ -16,9 +16,8 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
-        CLIENT_REDIRECT: JSON.stringify('http://localhost:8080'),
-        SERVER_URL: JSON.stringify('http://localhost:3000')
-      },
+        CLIENT_REDIRECT: JSON.stringify('http://localhost:8080')
+      }
     })
   ],
   module: {

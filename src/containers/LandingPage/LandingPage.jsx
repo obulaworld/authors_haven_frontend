@@ -13,8 +13,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  markNotificationAsRead(token, id, mark) {
-    markNotificationAsReadAction(token, id, mark);
-  }
+  markNotificationAsRead: (token, id, mark) => markNotificationAsReadAction(token, id, mark)
 };
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);

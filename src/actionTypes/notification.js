@@ -1,5 +1,5 @@
 
-// update user action types
+// notification action types
 export const GET_NOTIFICATION = 'GET_NOTIFICATION';
 export const VIEW_NOTIFICATION = 'VIEW_NOTIFICATION';
 export const VIEW_NOTIFICATION_FAILURE = 'VIEW_NOTIFICATION_FAILURE';

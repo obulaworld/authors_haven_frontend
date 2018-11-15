@@ -24,34 +24,36 @@ const NotificationItem = ({ notification, onClick }) => {
   const timeAgo = new TimeAgo('ru-RU');
   return (
   <div className={`notification-item ${false && 'backgroud-item'}`}>
-    <div className="d-flex justify-content-between align-items-center">
+    <div className="notification-item--inner">
           <div
-              className="thumbnail mt-0 mb-1"
+              className="thumbnail"
               data-target={notification.id}
             ></div>
-        <p
-          className="mr-4 message"
-          data-target={notification.id
-         }
-         >
-          <Link
-            to={`/notify_action/${initiatorId}?notify=profile&notificationId=${notification.id}`}
-            className="user p-0 font-italic d-inline">
-            { initiator }
-          </Link>
-          <span className="px-2 d-inline">{ message }</span>,
-          { notification.type !== 'follow'
-            && <Link
-                    to={`/notify_action/${slug}?notify=viewarticle&notificationId=${notification.id}`}
-                    className="p-0 title d-inline-block">
-              {title}
-            </Link>
+        <div className="message">
+          <p
+            className=""
+            data-target={notification.id
           }
-          <br />
-          <div className="date">
-            {timeAgo.format(new Date(notification.createdAt), 'twitter')}
-          </div>
-        </p>
+          >
+            <Link
+              to={`/notify_action/${initiatorId}?notify=profile&notificationId=${notification.id}`}
+              className="user p-0 font-italic d-inline">
+              { initiator }
+            </Link>
+            <span className="px-2 d-inline">{ message }</span>,
+            { notification.type !== 'follow'
+              && <Link
+                      to={`/notify_action/${slug}?notify=viewarticle&notificationId=${notification.id}`}
+                      className="p-0 title d-inline-block">
+                {title}
+              </Link>
+            }
+            <br />
+            <div className="date">
+              {timeAgo.format(new Date(notification.createdAt), 'twitter')}
+            </div>
+          </p>
+        </div>
     </div>
   </div>
   );

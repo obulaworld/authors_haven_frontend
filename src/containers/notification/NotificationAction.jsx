@@ -19,8 +19,11 @@ const NotificationAction = ({ readNotification, location }) => {
   const query = location.search.split('=');
   const notificationId = query[2];
   const base = query[1].split('&')[0];
-  const targetitem = location.pathname.split('/')[2];
-
+  let targetitem = location.pathname.split('/')[2];
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (base === 'profile') {
+    targetitem = `${user.username}_${user.id}`;
+  }
   const token = localStorage.getItem('authorsHavenAuthToken');
   readNotification(token, notificationId);
   return (

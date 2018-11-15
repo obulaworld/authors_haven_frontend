@@ -11,6 +11,7 @@ import {
 
 // action
 import { authenticateUser } from './auth';
+import fetchNotification from './notification/getUserNotification';
 
 /**
  * @param {object} data
@@ -66,6 +67,7 @@ export const userLoginRequest = userData => (dispatch) => {
         'user',
         JSON.stringify(userPayload.data.user)
       );
+      dispatch(fetchNotification(userPayload.data.token));
     })
     .catch((err) => {
       dispatch(failure(err.response.data.message));
