@@ -20,7 +20,7 @@ export default function Dropdown(props) {
       <div className="dropdown-inner">
         <ul>
           <li>
-            <Link to="./article">Create</Link>
+            <Link to="/article">Create</Link>
           </li>
         </ul>
         <ul>
@@ -30,7 +30,7 @@ export default function Dropdown(props) {
           <li><a href="#">Settings</a></li>
         </ul>
         <ul>
-          <li><a href="#">Log Out</a></li>
+          <li><a href="/logout">Logout</a></li>
         </ul>
       </div>
     </div>
@@ -38,5 +38,5 @@ export default function Dropdown(props) {
 }
 
 Dropdown.propTypes = {
-  active: propTypes.string
+  active: propTypes.bool
 }
