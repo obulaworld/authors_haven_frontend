@@ -1,7 +1,8 @@
 .l-ah-share-wrap {
-  position: absolute;
-  left: -10rem;
-  top: 6rem;
+  position: fixed;
+  left: 5rem;
+  top: 40rem;
+  width: 5rem;
 
   p {
     font-weight: 600;
@@ -18,6 +19,7 @@
   
     .l-ah-share-icon {
       text-align: center;
+      cursor: pointer;
     }
   }
 }

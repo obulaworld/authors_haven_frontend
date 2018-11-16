@@ -8,7 +8,7 @@ import qs from 'query-string';
 import axios from 'axios';
 
 // components
-import Logo from '../reusables/Logo.jsx';
+import Logo from '../reusables/logo/Logo.jsx';
 import Loader from '../reusables/Loader';
 import ResetLink from './ResetLink';
 import ResetPasswordForm from './ResetPasswordForm';

@@ -15,12 +15,13 @@ export default function Dropdown(props) {
     { name: 'Following', link: '/link'}
   ];
   const dropdownArray = menuArray.map((menu, index) => <li key={index}><a href={menu.link}>{menu.name}</a></li>);
+
   return (
-    <div className={`dropdown ${active && 'active'}`}>
+    <div className={ `dropdown ${ active && 'dropdown-active' } `}>
       <div className="dropdown-inner">
         <ul>
           <li>
-            <Link to="/article">Create</Link>
+            <Link to="/create">Create</Link>
           </li>
         </ul>
         <ul>
@@ -30,7 +31,7 @@ export default function Dropdown(props) {
           <li><a href="#">Settings</a></li>
         </ul>
         <ul>
-          <li><a href="/logout">Logout</a></li>
+          <li><a href="#">Log Out</a></li>
         </ul>
       </div>
     </div>

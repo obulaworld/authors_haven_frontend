@@ -14,7 +14,7 @@ import FilterArticle from '../reusables/article/FilterArticle';
 import EditorsPick from './EditorsPick';
 import RecentPosts from './RecentPost';
 import Tags from './Articles/Tags';
-import Footer from '../reusables/Footer';
+import Footer from '../reusables/footer/Footer';
 
 // third party library
 import qs from 'query-string';

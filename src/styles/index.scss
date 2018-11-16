@@ -5,15 +5,21 @@
 @import '_variables';
 @import '_base';
 @import '_mixins';
-@import '_signup';
+@import "./animation";
+@import "../components/reusables/header/header";
+@import "../components/reusables/headerSearch/headerSearch";
 @import "../components/tag/searchTag";
 @import "../components/article/article";
 @import "../components/reusables/button/button";
 @import "../components/reusables/dropdown/dropdown";
-@import "../components/reusables/header/header";
-@import "../components/reusables/headerSearch/headerSearch";
+@import '_signup';
+
+@import "../components/reusables/share/share";
+@import "../components/reusables/reaction/reaction";
+@import "../components/reusables/userAbout/userAbout";
+@import "../components/reusables/comment/comment";
+
 @import "../components/landingPage/landingPage";
+@import "../components/article/viewArticle/viewArticlePage";
 @import "../components/signup/verifyEmail";
-
-
-
+@import "../components/reusables/footer/footer";

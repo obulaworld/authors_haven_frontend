@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 // Moduler importations
-import Logo from './Logo';
+import Logo from './reusables/logo/Logo';
 import '../styles/loader.scss';
 import '../styles/_form.scss';
 /**

@@ -20,11 +20,12 @@ const initialState = {
     isAuth: false,
   },
   publishedArticle: {
-    article: {},
+    article: {
+      Articles: {}
+    },
     isPublished: false,
     processing: false,
     error: '',
-    loading: false
   },
   reset: {}
 };

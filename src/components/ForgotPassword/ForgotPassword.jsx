@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // components
-import Logo from '../Logo';
+import Logo from '../reusables/logo/Logo';
 import Loader from '../reusables/Loader';
 import ForgotPasswordForm from './ForgotPasswordForm';
 

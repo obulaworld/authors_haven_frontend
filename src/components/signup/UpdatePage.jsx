@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 // components
-import Logo from '../reusables/Logo.jsx';
+import Logo from '../reusables/logo/Logo.jsx';
 import UpdateAccountForm from './UpdateAccountForm';
 
 /**

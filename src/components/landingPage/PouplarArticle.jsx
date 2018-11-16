@@ -34,6 +34,7 @@ const PouplarArticle = () => (
                       bodyElement={dummyArticle.editorsPick}
                     />
                     <ArticleDetails
+                    type="details"
                       readTime="5min read"
                       publishedDate="5 Nov"
                       authorThumbnail=""
@@ -47,7 +48,8 @@ const PouplarArticle = () => (
             {dummyArticle.getListArticle(
               dummyArticle.recentTitle,
               dummyArticle.recentBody,
-              dummyArticle.recentImage
+              dummyArticle.recentImage,
+              3
             )}
             </div>
           </div>

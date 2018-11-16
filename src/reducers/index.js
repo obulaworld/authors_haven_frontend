@@ -7,7 +7,8 @@ import signup from './signup/signup';
 import activateAccount from './signup/verifyEmail';
 import updateAccount from './signup/updateUser';
 import auth from './auth';
-import articleReducer from './article/createArticle'
+import articleReducer from './article/createArticle';
+import fetchSingleArticleReducer from './article/fetchSingleArticle';
 import reset from './reset';
 
 /**
@@ -20,5 +21,6 @@ export default combineReducers({
   updateAccount,
   auth,
   createArticle: articleReducer,
+  fetchSingleArticleReducer,
   reset
 });

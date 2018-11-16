@@ -32,17 +32,20 @@ const EditorsPick = () => (
                         className="img-fluid"
                         alt=""
                       />
-                      <ArticleContent
-                        titleElement={<h4>The origin of photography, why all a
-                          photographer see through the lense is beautiful</h4>}
-                        bodyElement={dummyArticle.editorsPick}
-                      />
-                      <ArticleDetails
-                        readTime="5min read"
-                        publishedDate="5 Nov"
-                        authorThumbnail=""
-                        authorUsername="Mindsworth"
-                      />
+                      <figcaption>
+                        <ArticleContent
+                          titleElement={<h4>The origin of photography, why all a
+                            photographer see through the lense is beautiful</h4>}
+                          bodyElement={dummyArticle.editorsPick}
+                        />
+                        <ArticleDetails
+                          type="details"
+                          readTime="5min read"
+                          publishedDate="5 Nov"
+                          authorThumbnail=""
+                          authorUsername="Mindsworth"
+                        />
+                      </figcaption>
                   </Article>
                 </div>
               </div>
@@ -50,8 +53,9 @@ const EditorsPick = () => (
                 <div className="l-ah-sm-card-wrap">
                 {dummyArticle.getListArticle(
                   dummyArticle.recentTitle,
-                  dummyArticle.recentBody,
-                  dummyArticle.recentImage
+                  dummyArticle.recentBodySmall,
+                  dummyArticle.recentImage,
+                  4
                 )}
                 </div>
               </div>
