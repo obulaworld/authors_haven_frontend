@@ -14,10 +14,10 @@ const FeatureImage = ({
   alt
 }) => (
   <figure>
-  <img
-  className={className}
-  src={src}
-  alt={alt}/>
+    <img
+    className={className}
+    src={src}
+    alt={alt}/>
   </figure>
 );
 

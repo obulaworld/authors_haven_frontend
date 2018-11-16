@@ -9,7 +9,8 @@ import { fetchSingleArticle } from '../../action/article/viewArticle/fetchSingle
 
 const mapStateToProps = (state = {}) => ({
   publishedArticle: state.fetchSingleArticleReducer.article,
-  loading: state.fetchSingleArticleReducer.processing
+  loading: state.fetchSingleArticleReducer.processing,
+  loginUser: state.auth
 });
 const mapDispatchToProps = dispatch => ({
   fetchSingleArticle: slug => dispatch(fetchSingleArticle(slug))

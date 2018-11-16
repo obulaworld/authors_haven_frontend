@@ -8,7 +8,8 @@ import CreateArticlePage from '../../components/article/CreateArticlePage';
 import createNewArticle from '../../action/article/createNewArticle';
 
 const mapStateToProps = (state = {}) => ({
-  publishedArticle: state.createArticle
+  publishedArticle: state.createArticle,
+  loginUser: state.auth
 });
 
 export default connect(mapStateToProps, { createNewArticle })(CreateArticlePage);

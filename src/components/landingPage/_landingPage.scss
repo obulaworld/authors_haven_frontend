@@ -306,3 +306,22 @@
     }
   }
 }
+
+.l-ah-hero-blog {
+  margin: 15rem 0 10rem;
+  
+  .l-ah-hero-blog-inner {
+    position: relative;
+
+    figcaption {
+      position: absolute;
+      display: inline-block;
+      width: 60rem;
+      bottom: -10rem;
+      left: 20rem;
+      background-color: $white;
+      box-shadow: 0 2px 2px 1px #eeee;
+      padding: 3rem 4rem;
+    }
+  }
+}

@@ -62,10 +62,15 @@ class ViewArticle extends Component {
       body
     } = this.props.publishedArticle.Articles;
     const shareUrl = `https://lotus-ah-staging.herokuapp.com/api/v1${this.props.location.pathname}`;
+    const user = JSON.parse(localStorage.getItem('user'));
+    const authUser = this.props.loginUser.user;
 
     return (
       <div className="detail">
-        <Header />
+        <Header 
+          isAuth={authUser }
+          user={user || authUser }
+        />
         {this.props.loading
           ? (<div className="">
                 <Loader color="#0FC86F" speed={1}className="spinner"/>

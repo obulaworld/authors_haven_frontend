@@ -20,6 +20,7 @@ import CreateArticle from '../containers/article/CreateArticle'
 import ViewArticle from '../containers/viewArticle/ViewArticle'
 import ResetPassword from './ResetPassword/ResetPassword';
 import ForgotPassword from './ForgotPassword/ForgotPassword';
+import Header from './reusables/header/Header';
 
 const history = createBrowserHistory();
 

@@ -21,7 +21,7 @@ export default function Dropdown(props) {
       <div className="dropdown-inner">
         <ul>
           <li>
-            <Link to="/create">Create</Link>
+            <Link to="/article">Create</Link>
           </li>
         </ul>
         <ul>
@@ -31,7 +31,7 @@ export default function Dropdown(props) {
           <li><a href="#">Settings</a></li>
         </ul>
         <ul>
-          <li><a href="#">Log Out</a></li>
+          <li><Link to="/logout">Log Out</Link></li>
         </ul>
       </div>
     </div>
