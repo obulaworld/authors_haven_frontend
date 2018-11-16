@@ -16,36 +16,29 @@ configure({ adapter: new Adapter() });
 
 // SnapShot Test
 describe('Renders the singup page', () => {
-  const register = () => {
+ const register = () => {
 
-  };
+ };
 
-  const verifiedUser = {
-    email: 'email'
-  };
+ const verifiedUser = {
+  email: 'email'
+ };
 
-  const updateUser = () => {
+ const updateUser = () => {
 
-  };
+ };
 
-  it('should render the signup form', () => {
-    const component = shallow(<SignupForm signup={{ registered: false }} register={ register }/>);
-    expect(component).toMatchSnapshot();
-  });
+ it('should render the signup form', () => {
+  const component = shallow(<SignupForm signup={{ registered: false }} register={ register }/>);
+  expect(component).toMatchSnapshot();
+ });
 
-  it('should render the signup page', () => {
-    const component = renderer.create(
-    <SignupPage register={ register } signup={{ registered: false } }/>,
-    { disableLifecycleMethods: true }
-    );
-    expect(component).toMatchSnapshot();
-  });
-
-  it('should render the update page', () => {
-    const component = renderer.create(
-      <UpdatePage updateAccount={{ }} location={{ verifiedUser }} updateUser= { updateUser }/>,
-      { disableLifecycleMethods: true }
-    );
-    expect(component).toMatchSnapshot();
-  });
+ it('should render the signup page', () => {
+  const component = renderer.create(
+  <SignupPage register={ register } signup={{ registered: false } }/>,
+  { disableLifecycleMethods: true }
+  );
+  expect(component).toMatchSnapshot();
+ });
+ 
 });
