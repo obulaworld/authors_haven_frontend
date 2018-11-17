@@ -1,7 +1,7 @@
 // react libraries
 import React from 'react'
 
-// modules
+// component
 import Button from '../button/Button'
 
 /**

@@ -1,8 +1,11 @@
+// react libraries
 import React, { Component } from 'react'
+
+// third party libraries
 import RadialProgress from '../radialProgress/RadialProgress';
 import Rating from 'react-rating';
 
-export default class Reaction extends Component {
+class Reaction extends Component {
   state = {
     progress: 93,
     showRating: false
@@ -80,3 +83,5 @@ export default class Reaction extends Component {
     )
   }
 }
+
+export default Reaction;

@@ -1,7 +1,9 @@
+// react libraries
 import React from 'react'
-import Button from '../button/Button'
 
-export default function UserAbout() {
+// components
+import Button from '../button/Button'
+const UserAbout = () => {
   return (
     <div className="container">
         <div className="row">
@@ -25,3 +27,5 @@ export default function UserAbout() {
       </div>
   )
 }
+
+export default UserAbout;

@@ -3,14 +3,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 // third-party libraries
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 // modules importation
 import ViewArticle from '../ViewArticle';
 import configureStore from '../../../store/configureStore';
-
-configure({ adapter: new Adapter() });
 
 describe('Login Component', () => {
   test('renders the Login Component', () => {

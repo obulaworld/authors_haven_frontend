@@ -10,7 +10,6 @@ import HeaderSearch from '../headerSearch/HeaderSearch';
 import Dropdown from '../dropdown/Dropdown';
 import Logo from '../logo/Logo';
 
-
 /**
  * @class Header
  * @extends {Component}
