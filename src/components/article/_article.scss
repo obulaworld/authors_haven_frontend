@@ -48,7 +48,7 @@
       .form-body-wrap {
         label {
           font-size: 2.5rem;
-
+          
           i {
             cursor: pointer;
             border: 2px solid #000;
@@ -57,6 +57,16 @@
             margin-left: 1rem;
           }
         }
+
+        .input-wrap {
+          border-top: 1px solid $darker-gray;
+          border-bottom: 1px solid $darker-gray;
+          display: block;
+          padding: 2rem;
+          margin: 1rem 0;
+          background-color: $dark-gray;
+        }
+        
         .form-body {
           display: none;
         }
@@ -67,6 +77,21 @@
         .article-editor {
           line-height: 5rem;
           font-size: 3rem;
+          position: relative;
+
+          &::before {
+            content: "Body";
+            font-size: 2rem;
+            font-weight: 500;
+            position: absolute;
+            height: 100%;
+            padding-right: 2rem;
+            border-right: 1px solid $dark-gray;
+            top: 0;
+            left: -8rem;
+            display: block;
+            opacity: .5;
+          }
 
           p {
             line-height: 5rem;
@@ -114,6 +139,7 @@
 
       .cta-btn {
         margin-top: 2rem;
+        padding-top: 2rem;
         border-top: 1px solid $dark-gray;
 
         .publish-btn {

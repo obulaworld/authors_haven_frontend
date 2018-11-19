@@ -12,12 +12,16 @@ const ArticleDetails = ({
   publishedDate,
   readTime,
   authorThumbnail,
-  authorUsername
+  authorUsername,
+  list,
+  type
 }) => (
-  <div className="details d-flex justify-content-flex-start align-items-center">
-    <div>
-      <div className="thumbnail">{authorThumbnail}</div>
-    </div>
+  <div className={`${type} d-flex justify-content-flex-start align-items-center`}>
+    {!list
+      && <div>
+        <div className="thumbnail">{authorThumbnail}</div>
+      </div>
+    }
     <div>
       <div className="username">{authorUsername}</div>
     </div>

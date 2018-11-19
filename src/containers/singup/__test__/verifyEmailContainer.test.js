@@ -3,17 +3,12 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 // third-party libraries
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 // modules importation
 
 import configureStore from '../../../store/configureStore';
 import VerifyEamilContainer from '../VerifyEamilContainer';
-
-
-configure({ adapter: new Adapter() });
-
 
 describe('Update Component', () => {
   test('renders the Login Component', () => {

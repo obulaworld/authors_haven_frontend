@@ -12,6 +12,7 @@ const dummmy = {
   recentTitle: <h5>The origin of photography,..</h5>,
   recentBody: `I just decided that I was going to click
   everywhere in order to get around this because...`,
+  recentBodySmall: `I just decided that I was going to click everywhere in order to get...`,
   recentImage: '/images/smallblog.png',
   editorsPick: `I just decided that I was going to click everywhere
   in order to get around this because I wanted to use the
@@ -26,8 +27,8 @@ const dummmy = {
     * @memberof LandingPage
     * @return {Array} dummyArtciles
     */
-  getListArticle: (title, body, image) => {
-    const articleList = [...Array(3)].map((el, i) => (
+  getListArticle: (title, body, image, num) => {
+    const articleList = [...Array(num)].map((el, i) => (
     <Article key={i}>
       <div className="l-ah-sm-card d-flex ">
             <FeatureImage
@@ -41,6 +42,8 @@ const dummmy = {
               bodyElement={body}
             />
             <ArticleDetails
+              type="details-sm"
+              list="false"
               readTime="5min read"
               publishedDate="5 Nov"
               authorThumbnail=""

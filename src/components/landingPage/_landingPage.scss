@@ -4,6 +4,7 @@
 
   figure {
     position: relative;
+    
     &::after {
       content: "";
       position: absolute;
@@ -47,7 +48,7 @@
     position: relative;
     background-color: $dark-gray;
     padding-left: 20rem;
-    background: url("/images/bg.jpg") no-repeat;
+    background: url("../imgs/bg.jpg") no-repeat;
     background-position: 0 0;
     background-size: cover;
 
@@ -84,10 +85,7 @@
     border-bottom: 1px solid $dark-gray;
     
     .l-ah-bg-card {
-      // background-color: $white;
       height: 100%;
-      // border-bottom: 10px solid $darker-gray;
-      // box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.17);
       padding: 2rem;
 
       figcaption {
@@ -99,13 +97,8 @@
     }
 
     .l-ah-sm-card-wrap {
-      // background-color: $white;
       height: 100%;
       padding: 2rem 2rem 1rem;
-      // display: grid;
-      // grid-template-rows: 1fr 1fr 1fr;
-      // border-bottom: 10px solid $darker-gray;
-      // box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.17);
 
       .l-ah-sm-card {
         border-bottom: 1px solid $light-gray;
@@ -174,6 +167,9 @@
   
         figure {
           margin: 0;
+          img {
+            width: 23rem;
+          }
         }
   
         figcaption {
@@ -189,6 +185,16 @@
   .l-ah-5 {
     position: relative;
     padding: 0 0 15rem;
+
+    .slide-card {
+      padding: 0 1rem;
+      figure {
+        overflow: hidden;
+        img {
+          transition: transform 1s;
+        }
+      }
+    }
 
     .slick-arrow {
       position: absolute;
@@ -299,16 +305,23 @@
       }
     }
   }
+}
 
-  .l-ah-7 {
-    background-color: $white;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+.l-ah-hero-blog {
+  margin: 15rem 0 10rem;
+  
+  .l-ah-hero-blog-inner {
+    position: relative;
 
-    p {
-      margin: 3rem 0;
+    figcaption {
+      position: absolute;
+      display: inline-block;
+      width: 60rem;
+      bottom: -10rem;
+      left: 20rem;
+      background-color: $white;
+      box-shadow: 0 2px 2px 1px #eeee;
+      padding: 3rem 4rem;
     }
   }
 }

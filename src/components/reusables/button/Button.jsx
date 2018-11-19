@@ -1,9 +1,6 @@
 // react libraries
 import React, { Component } from 'react';
-
-
-// third party libraries
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 /**
  * desc renders Button
@@ -17,16 +14,17 @@ class Button extends Component {
     } = this.props;
 
     return (
-      <button className={type} onClick={onClick}>
-        {text}
+      <button className={ type } onClick={ onClick }>
+        { text }
       </button>
     );
   }
 }
 
 Button.propTypes = {
-  type: PropTypes.string,
-  text: PropTypes.string,
-  onClick: PropTypes.func,
-};
+  type: propTypes.string,
+  text: propTypes.string,
+  onClick: propTypes.func
+}
+
 export default Button;

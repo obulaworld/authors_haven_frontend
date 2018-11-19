@@ -1,11 +1,6 @@
 /********* base styling *********/
 
-@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One');
-
-@font-face {
-  font-family: "Archer";
-  src: url("./fonts/Archer-Bold-Pro.otf");
-  }
+@import url('https://fonts.googleapis.com/css?family=PT+Serif+Caption');
 
 html {
   font-size: $base-font-size;
@@ -23,39 +18,36 @@ body {
 p {
   font-size: $sm-font-size;
   letter-spacing: 0;
-  line-height: 2.2rem
-  
+  line-height: 2.2rem;
+  opacity: .6;
 }
 
 h1 {
   font-size: $hero-font-size;
-  font-weight: 900;
-  font-family: 'Archer';
+  font-weight: 700;
 }
 
 h2 {
   font-size: $big-font-size;
-  font-weight: 900;
-  font-family: 'Archer';
+  font-weight: 700;
 }
 
 h3 {
   font-size: $title-font-size;
-  font-weight: 600;
-  font-family: 'Archer';
+  font-weight: 700;
+  
 }
 
 h4 {
   font-size: $title-font-size;
-  font-weight: 600;
-  font-family: 'Archer';
+  font-weight: 700;
 }
 
 h5 {
   font-size: $sm-title-font-size;
   font-weight: 600;
-  font-family: 'Archer';
 }
+
 .thumbnail {
   width: 4rem;
   height: 4rem;

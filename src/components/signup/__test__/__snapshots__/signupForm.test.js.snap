@@ -78,6 +78,7 @@ exports[`Renders the singup page should render the signup page 1`] = `
                 >
                   <a
                     className="d-flex align-items-center"
+                    href="https://lotus-ah-staging.herokuapp.com/api/v1/auth/facebook"
                   >
                     <i
                       className="fab fa-facebook"
@@ -91,6 +92,7 @@ exports[`Renders the singup page should render the signup page 1`] = `
                 >
                   <a
                     className="d-flex align-items-center"
+                    href="https://lotus-ah-staging.herokuapp.com/api/v1/auth/twitter"
                   >
                     <i
                       className="fab fa-twitter"
@@ -104,6 +106,7 @@ exports[`Renders the singup page should render the signup page 1`] = `
                 >
                   <a
                     className="d-flex align-items-center"
+                    href="https://lotus-ah-staging.herokuapp.com/api/v1/auth/google"
                   >
                     <i
                       className="fab fa-google"
@@ -139,201 +142,6 @@ exports[`Renders the singup page should render the signup page 1`] = `
                   Login
                 </a>
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Renders the singup page should render the update page 1`] = `
-<div
-  className="login"
->
-  <div
-    className="container"
-  >
-    <div
-      className="row auth-h d-flex align-items-center"
-    >
-      <div
-        className="col-md-6 offset-md-3 text-center login-wrap"
-      >
-        <img
-          alt="Author's Haven Logo"
-          src="/images/logo.png"
-        />
-        <div
-          className="row"
-        >
-          <div
-            className="col-md-10 offset-md-1"
-          >
-            <div
-              className="form-wrap"
-            >
-              <h1
-                className="form-title"
-              >
-                Complete your registration
-              </h1>
-              <form
-                className="form-row"
-                onSubmit={[Function]}
-              >
-                <div
-                  className="col-10 offset-1"
-                >
-                  <div
-                    className="input-wrap"
-                  >
-                    <div
-                      className="input-group"
-                    >
-                      <div
-                        className="input-group-prepend"
-                      >
-                        <span
-                          className="input-group-text"
-                        >
-                          <i
-                            className="fas fa-envelope"
-                          />
-                        </span>
-                      </div>
-                      <input
-                        aria-describedby="inputGroupPrepend"
-                        className="form-control"
-                        disabled="disabled"
-                        name="email"
-                        required={true}
-                        type="email"
-                        value="email"
-                      />
-                      <div
-                        className="invalid-feedback"
-                      >
-                        Please your email
-                      </div>
-                    </div>
-                    <div
-                      className="input-group"
-                    >
-                      <div
-                        className="input-group-prepend"
-                      >
-                        <span
-                          className="input-group-text"
-                        >
-                          <i
-                            className="fas fa-user"
-                          />
-                        </span>
-                      </div>
-                      <input
-                        aria-describedby="inputGroupPrepend"
-                        className="form-control"
-                        name="fullname"
-                        required={true}
-                        type="text"
-                      />
-                      <div
-                        className="invalid-feedback"
-                      >
-                        Please enter your full name
-                      </div>
-                    </div>
-                    <div
-                      className="input-group"
-                    >
-                      <div
-                        className="input-group-prepend"
-                      >
-                        <span
-                          className="input-group-text"
-                        >
-                          <i
-                            className="fas fa-at"
-                          />
-                        </span>
-                      </div>
-                      <input
-                        aria-describedby="inputGroupPrepend"
-                        className="form-control"
-                        name="username"
-                        required={true}
-                        type="text"
-                      />
-                      <div
-                        className="invalid-feedback"
-                      >
-                        Please enter a username
-                      </div>
-                    </div>
-                    <div
-                      className="input-group"
-                    >
-                      <div
-                        className="input-group-prepend"
-                      >
-                        <span
-                          className="input-group-text"
-                        >
-                          <i
-                            className="fas fa-lock"
-                          />
-                        </span>
-                      </div>
-                      <input
-                        aria-describedby="inputGroupPrepend"
-                        className="form-control"
-                        name="password"
-                        required={true}
-                        type="password"
-                      />
-                      <div
-                        className="invalid-feedback"
-                      >
-                        Please enter your password.
-                      </div>
-                    </div>
-                    <div
-                      className="input-group"
-                    >
-                      <div
-                        className="input-group-prepend"
-                      >
-                        <span
-                          className="input-group-text"
-                        >
-                          <i
-                            className="fas fa-lock"
-                          />
-                        </span>
-                      </div>
-                      <input
-                        aria-describedby="inputGroupPrepend"
-                        className="form-control"
-                        name="confirm password"
-                        required={true}
-                        type="password"
-                      />
-                      <div
-                        className="invalid-feedback"
-                      >
-                         Please confirm your password.
-                      </div>
-                    </div>
-                  </div>
-                  <button
-                    className="btn continue"
-                  >
-                    Continue
-                  </button>
-                </div>
-              </form>
             </div>
           </div>
         </div>

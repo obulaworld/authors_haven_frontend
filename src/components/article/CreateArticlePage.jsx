@@ -1,5 +1,6 @@
 // react libraries
 import React, { Fragment, Component } from 'react';
+import  { Redirect }  from 'react-router-dom';
 
 // third-party libraries
 import propTypes from 'prop-types';
@@ -99,11 +100,28 @@ class CreateArticlePage extends Component {
   };
 
   render() {
-    const loading = this.props.publishedArticle.processing ? { display: "block" } : { display: "none" };
+    const loading = this.props.publishedArticle.processing ? { display: 'block' } : { display: 'none' };
+    const { article } = this.props.publishedArticle;
+    const user = JSON.parse(localStorage.getItem('user'));
+    const authUser = this.props.loginUser.user;
+
+    if (this.props.publishedArticle.isPublished === true) {
+      return (
+        <Redirect to={{
+          pathname: `/viewarticle/${article.slug}`,
+          article,
+          user,
+        }} 
+        />
+      );
+    }
     return (
       <Fragment>
+        <Header 
+          isAuth={authUser }
+          user={user || authUser }
+        />
       <div className="l-ah-create-article">
-        <Header />
         <Button type="publish-ready-btn" text="Ready to publish?" onClick={this.handleActiveSidebar} />
         <section className="create-article-wrap">
           <div className="container">
@@ -117,20 +135,22 @@ class CreateArticlePage extends Component {
                     onChange={this.handleTitleOnChange}
                   />
                   <div className="form-body-wrap">
-                    <label htmlFor="image">Add a featured image <i className="fas fa-images"></i></label>
-                    <input type="file" id="image" name="image" className="form-body" aria-describedby="helpId" onChange={this.fileSelectedHandler}/>
-                  </div>
-                  <div>
-                    <img className="img-fluid" src={this.state.displayImage} />
+                    <div className="input-wrap">
+                      <label htmlFor="image">Add a featured image <i className="fas fa-images"></i></label>
+                      <input type="file" id="image" name="image" className="form-body" aria-describedby="helpId" onChange={this.fileSelectedHandler}/>
+                    </div>
+                    <div>
+                      <img className="img-fluid" src={this.state.displayImage} />
+                    </div>
                   </div>
                   <div className="article-editor-wrap">
-                  <Editor
-                    text={this.state.article.body}
-                    value={this.state.article.body}
-                    onChange={this.handleEditorChange}
-                    options={editorOptions}
-                    className="article-editor"
-                  />
+                    <Editor
+                      text={this.state.article.body}
+                      value={this.state.article.body}
+                      onChange={this.handleEditorChange}
+                      options={editorOptions}
+                      className="article-editor"
+                    />
                   </div>
                 </form>
               </div>

@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 // components
 import HeaderSearch from '../headerSearch/HeaderSearch';
 import Dropdown from '../dropdown/Dropdown';
-
+import Logo from '../logo/Logo';
 
 /**
  * @class Header
@@ -30,7 +30,7 @@ class Header extends Component {
   render() {
     return (
       <header className="l-ah-1">
-       <img src="/images/logo.png" />
+        <Logo whiteLogo="true"/>
         <HeaderSearch/>
         { !this.props.isAuth ? <div className="index-link">
           <ul className="nav justify-content-end">
@@ -78,8 +78,8 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  isAuth: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired,
+  isAuth: PropTypes.bool,
+  user: PropTypes.object,
 };
 
 export default Header;
