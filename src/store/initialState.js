@@ -33,7 +33,13 @@ const initialState = {
     },
     processing: false
   },
-  reset: {}
+  reset: {},
+  tag: {
+    tags: [],
+    isFetched: false,
+    processing: false,
+    error: ''
+  }
 };
 
 export default initialState;

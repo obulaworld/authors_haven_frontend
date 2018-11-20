@@ -36,18 +36,29 @@ const createNewArticle = articleRequestObject => (dispatch) => {
       'x-access-token': `${verificationToken}`
     }
   };
+  const collectedtags = articleRequestObject.get('tags')
   return http.post(
-    'https://lotus-ah-staging.herokuapp.com/api/v1/articles',
-    articleRequestObject,
+    `${process.env.SERVER_URL}/api/v1/tagsbyId`,
+    {
+      collectedtags,
+    },
     options
-  )
-    .then((response) => {
-      dispatch(publishArticleSuccess(response.data.createdArticle));
-      return true;
-    })
-    .catch((error) => {
-      dispatch(publishArticleError(error.data));
-      return false;
-    });
+  ).then((tagIds) => {
+    const tags = tagIds.data.data;
+    articleRequestObject.append('tags',tags);
+    return http.post(
+      `${process.env.SERVER_URL}/api/v1/articles`,
+      articleRequestObject,
+      options
+    )
+      .then((response) => {
+        dispatch(publishArticleSuccess(response.data.createdArticle));
+        return true;
+      })
+      .catch((error) => {
+        dispatch(publishArticleError(error.response.data));
+        return false;
+      });
+  });
 };
 export default createNewArticle;
