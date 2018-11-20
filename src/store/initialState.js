@@ -37,6 +37,7 @@ const initialState = {
     },
     processing: false
   },
+  reset: {},
   tag: {
     tags: [],
     isFetched: false,
@@ -54,7 +55,6 @@ const initialState = {
     comment: [],
     error: ''
   },
-  reset: {},
   search: {
     result: {
       status: 0,

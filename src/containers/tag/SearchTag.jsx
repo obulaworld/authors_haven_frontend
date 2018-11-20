@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // actions
 import {
   fetchSingleTag,
-} from '../../action/tag/tag'
+} from '../../action/tag/tag';
 import initialState from '../../store/initialState';
 
 /**
@@ -13,7 +13,7 @@ import initialState from '../../store/initialState';
  * @extends {Component}
  * @param {event}
  */
- class SearchTag extends Component {
+class SearchTag extends Component {
     state = {
       fetchedTags: [],
     }
@@ -27,7 +27,7 @@ import initialState from '../../store/initialState';
           fetchedTags: [],
         });
       }
-      if (tagName.length > 1) {
+      if (tagName.length > 2) {
         this.props.fetchSingleTag(tagName);
         const allFetchTags = this.props.tag.tags;
         if (fetchedTags.includes(allFetchTags) === false) {
@@ -39,11 +39,11 @@ import initialState from '../../store/initialState';
       }
     };
 
-  render() {
-    const { fetchedTags } = this.state;
-    const tags  = this.props.tags;
+    render() {
+      const { fetchedTags } = this.state;
+      const tags = this.props.tags;
 
-    return (
+      return (
       <div className="search-tag">
         <div className="search-tag-input-wrap">
           <input type="text" onChange = {this.handleChange } onKeyUp = { this.props.handleEnterKey } placeholder="Add a tag..."/>
@@ -74,14 +74,14 @@ import initialState from '../../store/initialState';
           }
         </div>
       </div>
-    );
-  }
+      );
+    }
 }
 const mapDispatchToProps = dispatch => ({
-  fetchSingleTag : tagName => dispatch(fetchSingleTag(tagName)),
-})
-const mapStateToProps = (state = initialState) => ({
+  fetchSingleTag: tagName => dispatch(fetchSingleTag(tagName)),
+});
+const mapStateToProps = (state = {}) => ({
   tag: state.tagReducer
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchTag)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchTag);

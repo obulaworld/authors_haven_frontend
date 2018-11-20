@@ -106,4 +106,4 @@ export const getAllTags = () => (dispatch) => {
     .catch((err) => {
       dispatch(fetchTagFailure(err.response))
     });
-}
+};

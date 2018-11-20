@@ -52,7 +52,7 @@ class CreateArticlePage extends Component {
             });
           }
           event.target.value = '';
-        } else {
+        }else {
           swal('Failed', 'tag character must not be lesser than 3', 'error');
         }
       }
