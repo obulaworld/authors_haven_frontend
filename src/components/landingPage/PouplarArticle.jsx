@@ -47,7 +47,7 @@ const PouplarArticle = () => (
             <div className="l-ah-sm-card-wrap">
             {dummyArticle.getListArticle(
               dummyArticle.recentTitle,
-              dummyArticle.recentBody,
+              dummyArticle.recentBodySmall,
               dummyArticle.recentImage,
               3
             )}

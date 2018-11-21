@@ -28,11 +28,16 @@ class Header extends Component {
   }
 
   render() {
+    const {
+      isAuth,
+      user
+    } = this.props;
+    
     return (
       <header className="l-ah-1">
         <Logo whiteLogo="true"/>
         <HeaderSearch/>
-        { !this.props.isAuth ? <div className="index-link">
+        { !isAuth ? <div className="index-link">
           <ul className="nav justify-content-end">
               <li className="nav-item">
                   <a className="nav-link" href="/login">Sign in</a>
@@ -49,15 +54,13 @@ class Header extends Component {
           <div>
             <ul className="nav justify-content-end">
                 <li className="nav-item">
-                    <a className="nav-link" href="#">{this.props.user.firstname}</a>
+                    <Link to={ `/profile/${ user.firstname }_${ user.id }` } className="nav-link" href="#">{user.firstname}</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      <i className="fas fa-bell"/>
-                    </a>
+                    <a className="nav-link" href="#"><i className="far fa-bell"></i>Notification</a>
                 </li>
             </ul>
           </div>
@@ -68,7 +71,10 @@ class Header extends Component {
             >
               <div className="line"></div>
             </div>
-            <Dropdown active={this.state.active} />
+            <Dropdown 
+              active={this.state.active}
+              id={user.id}
+              username={user.firstname} />
           </div>
         </div>
       }

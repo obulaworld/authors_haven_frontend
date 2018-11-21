@@ -27,6 +27,12 @@ const initialState = {
     processing: false,
     error: '',
   },
+  userProfile: {
+    user: {
+      user: {}
+    },
+    processing: false
+  },
   reset: {}
 };
 

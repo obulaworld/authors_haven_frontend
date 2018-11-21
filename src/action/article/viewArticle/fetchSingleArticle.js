@@ -1,5 +1,5 @@
 //.third party libraries
-import axios from "axios";
+import http from "axios";
 
 // modules import
 import {
@@ -9,11 +9,12 @@ import {
 } from "../../../actionTypes/article";
 
 const fetchSingleArticle = slug => dispatch => {
+  const url = process.env.SERVER_URL || '';
   dispatch({
     type: FETCH_SINGLE_ARTICLE_REQUEST
   });
-  return axios
-    .get(`https://lotus-ah-staging.herokuapp.com/api/v1/articles/${slug}`)
+  return http
+    .get(`${url}/api/v1/articles/${slug}`)
     .then(response => {
       dispatch(fetchArticleSuccess(response.data));
     })

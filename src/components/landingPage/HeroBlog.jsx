@@ -20,9 +20,7 @@ import dummyArticle from './Articles/fixture/dumyArticle';
 
 const HeroBlog = () => (
   <div className="l-ah-hero-blog">
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-12 l-ah-hero-blog-inner">
+        <div className=" l-ah-hero-blog-inner">
           <Article>
             <FeatureImage
               src="/images/heroblog.png"
@@ -43,8 +41,6 @@ const HeroBlog = () => (
               />
             </figcaption>
           </Article>
-        </div>
-      </div>
     </div>
   </div>
 );
