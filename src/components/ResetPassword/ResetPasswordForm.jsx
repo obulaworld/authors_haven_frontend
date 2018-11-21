@@ -91,10 +91,10 @@ class ResetPasswordForm extends Component {
 }
 
 ResetPasswordForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   formPresent: PropTypes.bool,
   password: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   confirmPassword: PropTypes.string,
   error: PropTypes.bool,
   message: PropTypes.string

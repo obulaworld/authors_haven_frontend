@@ -38,7 +38,7 @@ const initialState = {
     tags: [],
     isFetched: false,
     processing: false,
-    error: ''
+    error: {}
   }
 };
 

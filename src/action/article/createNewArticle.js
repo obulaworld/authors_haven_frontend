@@ -27,27 +27,30 @@ const publishArticleSuccess = payload => ({
  * @returns { object } data
  * @param {object} articleRequestObject
  */
-const createNewArticle = articleRequestObject => (dispatch) => {
+const createNewArticle = (articleRequestObject, tags) => (dispatch) => {
   dispatch(publishArticleRequest(articleRequestObject));
   const verificationToken = localStorage.getItem('authorsHavenAuthToken');
+  const url = process.env.SERVER_URL || '';
   const options = {
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
       'x-access-token': `${verificationToken}`
     }
   };
-  const collectedtags = articleRequestObject.get('tags')
+  const collectedtags = tags;
   return http.post(
-    `${process.env.SERVER_URL}/api/v1/tagsbyId`,
+    `${url}/api/v1/tagsbyId`,
     {
       collectedtags,
     },
     options
   ).then((tagIds) => {
     const tags = tagIds.data.data;
-    articleRequestObject.append('tags',tags);
+    const arrayTags = Array.from(tags)
+    articleRequestObject.set('tags',arrayTags);
+
     return http.post(
-      `${process.env.SERVER_URL}/api/v1/articles`,
+      `${url}/api/v1/articles`,
       articleRequestObject,
       options
     )
@@ -56,7 +59,7 @@ const createNewArticle = articleRequestObject => (dispatch) => {
         return true;
       })
       .catch((error) => {
-        dispatch(publishArticleError(error.response.data));
+        dispatch(publishArticleError(error.response.data.message));
         return false;
       });
   });

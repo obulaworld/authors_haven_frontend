@@ -38,7 +38,7 @@ const updateUser = data => (dispatch) => {
     'Content-Type': 'application/json;charset=UTF-8',
     'x-access-token': `${verficationToken}`
   };
-  const url = process.env.SERVER_URL;
+  const url = process.env.SERVER_URL || '';
   return http.put(
     `${url}/api/v1/users`,
     data,

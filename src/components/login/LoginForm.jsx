@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 
 // third-party library
 import { Redirect } from 'react-router-dom';
-
+import Loader from 'react-loader';
 // components
 import SocialSignIn from '../SocialLogin/SocialSignIn';
 import ReuseableInput from '../reusables/input/ReuseableInput';
@@ -33,6 +33,7 @@ class LoginForm extends Component {
 
       render() {
         const { props } = this;
+        const loading = props.auth.login.processing ? { display: 'block' } : { display: 'none' };
         if (props.auth.isAuth === true) {
           return (
                 <Redirect to='/'/>
@@ -43,6 +44,9 @@ class LoginForm extends Component {
               <form className="form-row" onSubmit={this.onSubmit}>
                     <div className="col-10 offset-1">
                         <div className="input-wrap">
+                        <div style={loading}>
+                          <Loader color="#0FC86F" speed={1}className="spinner"/>
+                        </div>
                         <div className="input-group">
                               <LoginGroupInput icon="fas fa-user"/>
                               <ReuseableInput

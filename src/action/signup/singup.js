@@ -35,7 +35,7 @@ const singupErorAction = error => ({
  * @returns object
 */
 const signupAction = email => (dispatch) => {
-  const url = process.env.SERVER_URL;
+  const url = process.env.SERVER_URL || '';
   dispatch({
     type: SIGNUP_USER,
     payload: email

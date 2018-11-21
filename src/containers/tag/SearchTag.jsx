@@ -1,8 +1,13 @@
+// react modules
 import React, { Component } from 'react';
+// redux modules
 import { connect } from 'react-redux';
+// actions
 import {
   fetchSingleTag,
 } from '../../action/tag/tag'
+import initialState from '../../store/initialState';
+
 /**
  * @class CreateArticlePage
  * @extends {Component}
@@ -10,10 +15,8 @@ import {
  */
  class SearchTag extends Component {
     state = {
-      // tags: [],
       fetchedTags: [],
     }
-
 
     handleChange = (event) => {
       event.preventDefault();
@@ -24,7 +27,7 @@ import {
           fetchedTags: [],
         });
       }
-      if (tagName.length > 2) {
+      if (tagName.length > 1) {
         this.props.fetchSingleTag(tagName);
         const allFetchTags = this.props.tag.tags;
         if (fetchedTags.includes(allFetchTags) === false) {
@@ -32,13 +35,9 @@ import {
           this.setState({
             fetchedTags: displayTags,
           });
-        } else {
-          console.log('already exist');
         }
-      } else {
-        console.log('no tags');
       }
-    }
+    };
 
   render() {
     const { fetchedTags } = this.state;
@@ -81,7 +80,7 @@ import {
 const mapDispatchToProps = dispatch => ({
   fetchSingleTag : tagName => dispatch(fetchSingleTag(tagName)),
 })
-const mapStateToProps = (state = {}) => ({
+const mapStateToProps = (state = initialState) => ({
   tag: state.tagReducer
 })
 
