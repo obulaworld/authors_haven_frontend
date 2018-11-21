@@ -27,7 +27,7 @@ class SearchTag extends Component {
           fetchedTags: [],
         });
       }
-      if (tagName.length > 2) {
+      if (tagName.length > 1) {
         this.props.fetchSingleTag(tagName);
         const allFetchTags = this.props.tag.tags;
         if (fetchedTags.includes(allFetchTags) === false) {
