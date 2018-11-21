@@ -7,6 +7,7 @@ import MockAdapter from 'axios-mock-adapter';
 // action types
 import * as types from '../../actionTypes/userProfile';
 
+// action
 import {
   fetchUserProfile
 } from '../userProfile';

@@ -1,8 +1,8 @@
 // React Libraries
 import React from 'react';
-import { Provider } from 'react-redux';
 
 // third-party libraries
+import { Provider } from 'react-redux';
 import { shallow } from 'enzyme';
 
 // modules importation
