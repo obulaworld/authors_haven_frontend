@@ -28,13 +28,13 @@ class ViewArticle extends Component {
   }
 
   componentDidMount = () => {
-      document.body.addEventListener('click', this.myDefaultHandler);
-      const articleSlug = this.props.match.params.slug;
-      this.props.fetchSingleArticle(articleSlug);
+    document.body.addEventListener('click', this.myDefaultHandler);
+    const articleSlug = this.props.match.params.slug;
+    this.props.fetchSingleArticle(articleSlug);
   }
 
   componentWillUnmount = () => {
-      document.body.removeEventListener('click', this.myDefaultHandler);
+    document.body.removeEventListener('click', this.myDefaultHandler);
   }
 
   myDefaultHandler = (event) => {
@@ -57,24 +57,28 @@ class ViewArticle extends Component {
 
   render() {
     const {
+      id,
       title,
       imageUrl,
-      body
+      body,
+      slug,
+      rating,
+      reactions
     } = this.props.publishedArticle.Articles;
-    const shareUrl = `https://lotus-ah-staging.herokuapp.com/api/v1${this.props.location.pathname}`;
+    const shareUrl = `https://lotus-ah-frontend.herokuapp.com/api/v1${this.props.location.pathname}`;
     const user = JSON.parse(localStorage.getItem('user'));
     const authUser = this.props.loginUser.user;
 
     return (
       <div className="detail">
-        <Header 
-          isAuth={authUser }
-          user={user || authUser }
+        <Header
+          isAuth={authUser}
+          user={user || authUser}
         />
         {this.props.loading
           ? (<div className="">
-                <Loader color="#0FC86F" speed={1} className="spinner"/>
-            </div>)
+            <Loader color="#0FC86F" speed={1} className="spinner" />
+          </div>)
           : (<div>
 
             <div className="l-ah-view-article">
@@ -89,16 +93,18 @@ class ViewArticle extends Component {
                     </div>
                     <div className="col-md-12">
                       <div className="l-ah-detail-featured-image">
-                        <img className="img-fluid" src={ imageUrl } alt="heroblog image"/>
+                        <img className="img-fluid" src={imageUrl} alt="heroblog image" />
                       </div>
                     </div>
                     <div className="col-md-10 offset-md-1">
                       <Share shareUrl={shareUrl} title={title} />
                       <div className="l-ah-article-body">
-                        <div>{ ReactHtmlParser(body) }</div>
+                        <div>{ReactHtmlParser(body)}</div>
                       </div>
                     </div>
-                    <Reaction />
+                    <Reaction slug={slug} rating={rating} reactions={reactions} id={id}
+                      rate={this.props.rate} liked={this.props.liked}
+                      mark={this.props.mark} />
                   </div>
                 </div>
               </div>
@@ -106,11 +112,11 @@ class ViewArticle extends Component {
             <div className="l-ah-user-about-wrap">
               <UserAbout />
             </div>
-            <Comment showEditor={ this.state.showEditor } onClick={ this.handleShowEditor }/>
+            <Comment showEditor={this.state.showEditor} onClick={this.handleShowEditor} />
           </div>)}
         <Footer />
       </div>
-    )
+    );
   }
 }
 
@@ -119,6 +125,15 @@ ViewArticle.propTypes = {
   body: propTypes.string,
   imageUrl: propTypes.string,
   shareUrl: propTypes.string,
+  publishedArticle: propTypes.object,
+  loginUser: propTypes.object,
+  rate: propTypes.func,
+  liked: propTypes.func,
+  mark: propTypes.func,
+  loading: propTypes.bool,
+  match: propTypes.object,
+  fetchSingleArticle: propTypes.func,
+  location: propTypes.object,
 };
 
 export default ViewArticle;

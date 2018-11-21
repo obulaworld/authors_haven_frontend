@@ -15,7 +15,7 @@ import {
 
 // action
 import
-{ fetchSingleArticle }
+fetchSingleArticle
   from '../fetchSingleArticle';
 
 const middlewares = [thunk];
