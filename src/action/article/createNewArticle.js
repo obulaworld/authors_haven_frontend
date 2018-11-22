@@ -45,9 +45,9 @@ const createNewArticle = (articleRequestObject, tags) => (dispatch) => {
     },
     options
   ).then((tagIds) => {
-    const tags = tagIds.data.data;
-    const arrayTags = Array.from(tags)
-    articleRequestObject.set('tags',arrayTags);
+    const fetchTags = tagIds.data.data;
+    const arrayTags = Array.from(fetchTags);
+    articleRequestObject.set('tags', arrayTags);
 
     return http.post(
       `${url}/api/v1/articles`,

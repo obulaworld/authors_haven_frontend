@@ -1,95 +1,130 @@
-import React, { Component } from 'react'
+// react libraries
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+// third-party libraries
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Editable from 'react-contenteditable';
+import Moment from 'react-moment';
 
-export default class Comment extends Component {
-    render() {
-      const {
-        showEditor,
-        onClick,
-        editorFocus
-      } = this.props;
+// action
+import { userCommentRequest, commentInit } from '../../../action/comment';
+
+/**
+ * @desc renders login page
+ */
+export class Comment extends Component {
+  onSubmit = (event) => {
+    if (event.keyCode === 13) {
+      const value = event.target.innerHTML;
+      const { props } = this;
+      const details = {
+        commentBody: value,
+        article: props.article,
+      };
+      props.comment(details);
+    }
+  };
+
+  render() {
+    const {
+      showEditor, onClick, auth, comments
+    } = this.props;
+    const { props } = this;
+
+    const authenticatedUser = auth.user;
     return (
-      <div className="l-ah-comment">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 offset-md-2">
-              <div className="comment">
-                <div className="user-thumbnail d-flex align-items-center">
-                  <div className="thumbnail"></div>
-                  <div className="user-full-name">
-                    <p>Nwaiwu Chigoziem</p>
-                    <p>@Mindsworth</p>
+      <div className='l-ah-comment'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-8 offset-md-2'>
+              <div className='comment'>
+                <div className='user-thumbnail d-flex align-items-center'>
+                  <div className='thumbnail' />
+                  <div className='user-full-name'>
+                    <p>{authenticatedUser.firstname}</p>
+                    <p>@{authenticatedUser.firstname}</p>
                   </div>
-                  <div className="comment-count">
-                    <p><span>236</span><i className="fas fa-comment"></i>comments</p>
+                  <div className='comment-count'>
+                    <p>
+                      <span>{comments.comments.length}</span>
+                      <i className='fas fa-comment' />
+                      comments
+                    </p>
                   </div>
                 </div>
-                <p 
-                  className="comment-text"
-                  onClick= { onClick }
-                >Comment here ...</p>
-                <div className="comment-input">
-                {
-                  showEditor 
-                    && <Editable
-                    className="editable"
-                    html=" "
-                    ref={editorFocus}
-                  />
-                }
+                <p className='comment-text' onClick={onClick}>
+                  Comment here ...
+                </p>
+                <div className='comment-input'>
+                  {showEditor && (
+                    <Editable className='editable' html=' ' onKeyDown={this.onSubmit} />
+                  )}
                 </div>
               </div>
             </div>
-
-            <div className="col-md-8 offset-md-2">
-              <div className="comment-log">
-                <div className="user-thumbnail d-flex align-items-center">
-                  <div className="thumbnail"></div>
-                  <div className="user-full-name">
-                    <p>Nwaiwu Chigoziem</p>
-                    <p>@Mindsworth</p>
+            {comments.comments.reverse().map((element, index) => (
+              <div key={index} className='col-md-8 offset-md-2'>
+                <div className='comment-log'>
+                  <div className='user-thumbnail d-flex align-items-center'>
+                    <div className='thumbnail' />
+                    <div className='user-full-name'>
+                      <p>@{element.user.username}</p>
+                      <p>
+                        <Moment fromNow>{element.createdAt}</Moment>
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="comment-body">
-                  <p>
-                    Thanks for your response John J Masse and you are absolutely right but this is not an issue 
-                    with just the constructor concept but rather modern JavaScript as a whole. When someone who 
-                    does not know modern JavaScript dives into React they will be confused about what is React and 
-                    what is modern JavaScript. Classes, binding, arrow functions, scopes, destructuring, 
-                    spread/rest, and even simple templates! So many people taking my courses cannot tell the 
-                    difference between ` and ‘.
-                  </p>
-                  <div className="comment-reaction">
-                    <p><span>236</span><i className="far fa-thumbs-up"></i></p>
-                    <p><span>236</span><i className="far fa-thumbs-down"></i></p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="comment-log">
-                <div className="user-thumbnail d-flex align-items-center">
-                  <div className="thumbnail"></div>
-                  <div className="user-full-name">
-                    <p>Nwaiwu Chigoziem</p>
-                    <p>@Mindsworth</p>
-                  </div>
-                </div>
-                <div className="comment-body">
-                  <p>
-                    Thanks for your response John J Masse and you are absolutely right but this is not an issue 
-                    with just the constructor concept but rather modern JavaScript as a whole. When someone who 
-                    does not know modern JavaScript dives into React they will be confused about what is React and 
-                  </p>
-                  <div className="comment-reaction">
-                    <p><span>236</span><i className="far fa-thumbs-up"></i></p>
-                    <p><span>236</span><i className="far fa-thumbs-down"></i></p>
+                  <div className='comment-body'>
+                    <p>{element.commentBody}</p>
+                    <div className='comment-reaction'>
+                      <Link to={`/comments/${element.id}`}>
+                        <p>
+                          <span>{element.replies.length}</span>
+                          <i className='far fa fa-reply' />
+                        </p>
+                      </Link>
+                      <p>
+                        <span>0</span>
+                        <i className='far fa-thumbs-up' />
+                      </p>
+                      <p>
+                        <span>0</span>
+                        <i className='far fa-thumbs-down' />
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
+
+Comment.propTypes = {
+  comment: PropTypes.func.isRequired,
+  article: PropTypes.object.isRequired,
+  initialize: PropTypes.func.isRequired,
+};
+const mapDispatchToProps = dispatch => ({
+  comment: (detail) => {
+    dispatch(userCommentRequest(detail));
+  },
+  initialize: (data) => {
+    dispatch(commentInit(data));
+  },
+});
+const mapStateToProps = state => ({
+  auth: state.auth,
+  comments: state.comment,
+  article: state.fetchSingleArticleReducer.article.Articles,
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Comment);

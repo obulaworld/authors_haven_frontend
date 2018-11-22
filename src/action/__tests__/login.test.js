@@ -30,7 +30,7 @@ describe('Actions related with login', () => {
   });
   it('User login is successful', () => {
     mock.onPost(`${process.env.SERVER_URL}/api/v1/login`)
-      .reply(200, {
+      .reply(201, {
         user,
         status: 'success',
       });

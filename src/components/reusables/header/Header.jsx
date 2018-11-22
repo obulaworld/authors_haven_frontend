@@ -32,7 +32,7 @@ class Header extends Component {
       isAuth,
       user
     } = this.props;
-    
+
     return (
       <header className="l-ah-1">
         <Logo whiteLogo="true"/>
@@ -46,7 +46,7 @@ class Header extends Component {
                   <a className="nav-link" href="/signup">Get started</a>
               </li>
           </ul>
-        </div> 
+        </div>
         : <div className="dashboard-menu">
           <div>
             <div className="thumbnail"></div>
@@ -71,7 +71,7 @@ class Header extends Component {
             >
               <div className="line"></div>
             </div>
-            <Dropdown 
+            <Dropdown
               active={this.state.active}
               id={user.id}
               username={user.firstname} />
