@@ -47,16 +47,22 @@ const BASE_URL = 'http://localhost:5000/api/v1';
  */
 export const findOrCreateTag = () =>  (dispatch) => {
   dispatch(createTagRequest);
+  const verificationToken = localStorage.getItem('authorsHavenAuthToken');
+  const url = process.env.SERVER_URL || '';
   const options = {
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
-      'x-access-token': `${verficationToken}`,
+      'x-access-token': `${verificationToken}`
+    }
+  };
+  const collectedtags = tags;
+  return http.post(
+    `${url}/api/v1/tagsbyId`,
+    {
+      collectedtags,
     },
-  };
-  const body = {
-    name: tagName,
-  };
-  return http.post(`${BASE_URL/tags}`, body, options).then((response) => {
+    options
+  ).then((tagIds)=> {
     dispatch(createTagSuccess(response.data))
   })
     .catch((err) => {
