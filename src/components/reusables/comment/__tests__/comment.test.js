@@ -1,9 +1,11 @@
+// react libraries
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { Comment } from '../Comment';
 
-Enzyme.configure({ adapter: new Adapter() });
+// third party libraries
+import { shallow } from 'enzyme';
+
+// components
+import { Comment } from '../Comment';
 
 /**
  * @desc setup up props

@@ -1,5 +1,7 @@
-// modular importation
+// store
 import initialState from '../store/initialState';
+
+// action types
 import {
   COMMENT_SUCCESS,
   COMMENT_POSTING,
