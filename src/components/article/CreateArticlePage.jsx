@@ -11,7 +11,7 @@ import swal from 'sweetalert';
 
 // modules
 import Header from '../reusables/header/Header';
-import SearchTag from '../tag/SearchTag';
+import SearchTag from '../../containers/tag/SearchTag';
 import Button from '../reusables/button/Button';
 import editorOptions from './editorConfig';
 
@@ -34,8 +34,51 @@ class CreateArticlePage extends Component {
       title: '',
       description: '',
       body: ''
-    }
+    },
+    tags:[],
   };
+
+  handleEnterKey = (event) => {
+    const tags  = this.state.tags;
+    const tagName = event.target.value;
+    const convertedTagName = tagName.trim().toLowerCase();
+      if (tags.length <= 4) {
+        if (event.keyCode === 13) {
+          if(convertedTagName.length > 2){
+          if (tags.includes(convertedTagName) === false) {
+            const currentTags = [...tags, convertedTagName];
+            this.setState({
+              tags: currentTags
+            });
+          }
+          event.target.value = '';
+        }else{
+          swal('Failed', 'tag character must not be lesser than 3', 'error')
+        }
+      }
+    }
+  }
+
+  handleAddToTags = (event) => {
+    const tags  = this.state.tags;
+    const tagName = event.target.textContent;
+    const convertedTagName = tagName.trim().toLowerCase();
+    if (tags.includes(convertedTagName) === false) {
+      const currentTags = [...tags, convertedTagName];
+      this.setState({
+        tags: currentTags
+      });
+    }
+  }
+
+  handleRemoveTag = (event) => {
+    const tags  = this.state.tags;
+    const tagIndex = event.target.dataset.key;
+    const currentTag = tags.filter(tag => tag !== tags[tagIndex]);
+    this.setState({
+      tags: currentTag
+    });
+  }
 
   handleTitleOnChange = (event) => {
     const { article } = this.state;
@@ -86,16 +129,21 @@ class CreateArticlePage extends Component {
       body,
       description,
     } = this.state.article;
+    const tagArray = this.state.tags;
     const formData = new FormData();
     formData.append('image', imageUrl);
     formData.append('description', description);
     formData.append('title', title);
     formData.append('body', body);
-    this.props.createNewArticle(formData)
+    const tags = tagArray.join(',');
+    this.props.createNewArticle(formData, tags)
     .then(response => {
+      let errorMessages = '';
+      Object.keys(this.props.publishedArticle.error)
+      .forEach(key => errorMessages = errorMessages + this.props.publishedArticle.error[key][0] + '\n');
       response
         ? swal('Success', 'Article published Successfully', 'success')
-        : swal('Failed', 'Unable to publish article, please check fields', 'error')}
+        : swal('Failed', errorMessages, 'error')}
       );
   };
 
@@ -111,13 +159,13 @@ class CreateArticlePage extends Component {
           pathname: `/viewarticle/${article.slug}`,
           article,
           user,
-        }} 
+        }}
         />
       );
     }
     return (
       <Fragment>
-        <Header 
+        <Header
           isAuth={authUser }
           user={user || authUser }
         />
@@ -177,7 +225,12 @@ class CreateArticlePage extends Component {
               />
             </div>
             <p>Tags will help readers to know what your story is about. Add or Change Tags(max 5)</p>
-            <SearchTag />
+            <SearchTag
+              tags={this.state.tags}
+              handleEnterKey={this.handleEnterKey}
+              handleAddToTags={this.handleAddToTags}
+              handleRemoveTag={this.handleRemoveTag}
+            />
             <div className="cta-btn">
               <Button type="publish-btn" text="Publish" onClick={this.handleSubmit}/>
               <Button type="discard-btn" text="Discard" />

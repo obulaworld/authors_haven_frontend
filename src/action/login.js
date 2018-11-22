@@ -55,8 +55,8 @@ export function clearError() {
 }
 
 export const userLoginRequest = userData => (dispatch) => {
-  dispatch(loginLoading(true));
   const url = process.env.SERVER_URL || '';
+  dispatch(loginLoading(true));
   return axios.post(`${url}/api/v1/login`, userData)
     .then((userPayload) => {
       dispatch(success());

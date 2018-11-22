@@ -12,6 +12,7 @@ import fetchSingleArticleReducer from './article/fetchSingleArticle';
 import userProfile from './userProfile';
 import reset from './reset';
 import ratingArticle from './article/ratingArticle';
+import tagReducer from "./tag/tag";
 
 /**
  * @desc combines all the reducers
@@ -26,5 +27,6 @@ export default combineReducers({
   fetchSingleArticleReducer,
   userProfile,
   reset,
-  ratingArticle
+  ratingArticle,
+  tagReducer
 });

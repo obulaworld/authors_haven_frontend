@@ -63,7 +63,8 @@ class ViewArticle extends Component {
       body,
       slug,
       rating,
-      reactions
+      reactions,
+      userId,
     } = this.props.publishedArticle.Articles;
     const shareUrl = `https://lotus-ah-frontend.herokuapp.com/api/v1${this.props.location.pathname}`;
     const user = JSON.parse(localStorage.getItem('user'));
@@ -82,7 +83,11 @@ class ViewArticle extends Component {
           : (<div>
 
             <div className="l-ah-view-article">
-              <UserDetail />
+              <UserDetail
+              authorId={userId}
+              user= {user}
+              articleSlug={slug}
+              />
               <div className="container">
                 <div className="row">
                   <div className="col-md-12">
@@ -105,6 +110,10 @@ class ViewArticle extends Component {
                     <Reaction slug={slug} rating={rating} reactions={reactions} id={id}
                       rate={this.props.rate} liked={this.props.liked}
                       mark={this.props.mark} />
+                    <div className="l-ah-detail-title">
+                        <ul >{title}</ul>
+                      </div>
+                    <Reaction />
                   </div>
                 </div>
               </div>
