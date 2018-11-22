@@ -1,16 +1,28 @@
 // react libraries
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-// third party libraries
-import RadialProgress from '../radialProgress/RadialProgress';
-import Rating from 'react-rating';
+// third-party libraries
+import propTypes from 'prop-types';
 
+// component
+import RatingArticle from './Rating';
+
+/**
+ * @class Reaction
+ * @extends {Component}
+ * @description reaction
+ */
 class Reaction extends Component {
   state = {
-    progress: 93,
-    showRating: false
+    showRating: false,
+    likes: 0,
+    dislikes: 0
   };
 
+  /**
+   * @param {object} event
+   * @memberof Reaction
+   */
   handleShowRating = (event) => {
     event.preventDefault();
     this.setState({
@@ -18,70 +30,60 @@ class Reaction extends Component {
     });
   }
 
-  handleRating = (rate) => {
-    const currentProgress = rate * 20;
-
-    this.setState({
-      progress: currentProgress
-    });
+  /**
+   *
+   * @param {object} newRating
+   * @memberof Reaction
+   */
+  handleRating = (newRating) => {
+    const data = { rating: newRating };
+    const { slug, rate } = this.props;
+    rate(slug, data);
   }
+
   render() {
     const {
-      progress,
       showRating
     } = this.state;
-
+    const { rating } = this.props;
     return (
       <div className="col-md-12 text-center">
         <div className="l-ah-reaction d-flex justify-content-center align-items-center">
-          <div 
-            className="l-ah-reaction-icon-wrap"
-          >
-            <span 
-              className="l-ah-reaction-icon d-flex justify-content-center align-items-center"
-              onClick={this.handleShowRating}
-            >
-              <RadialProgress strokeColor="#0FC86F" strokeWidth={ 8 } width={ 65 } progress={ progress } />
-              <p className="rate">{progress / 20}</p>
-            </span>
-            <p>Rating</p>
-            {
-              showRating 
-                && (<Rating
-                  placeholderRating={progress / 20}
-                  emptySymbol="far fa-star fa-1x"
-                  fullSymbol="fas fa-star fa-1x"
-                  placeholderSymbol={<i className="fas fa-star fa-1x"></i>}
-                  fractions={2}
-                  className="l-ah-rating"
-                  onChange={this.handleRating}
-                />)
-            }
-          </div>
+          < RatingArticle
+            progress={rating ? rating * 20 : 0}
+            handleRating={this.handleRating}
+            showRating={showRating}
+            handleShowRating={this.handleShowRating} />
+
           <div className="l-ah-reaction-icon-wrap">
             <span className="l-ah-reaction-icon d-flex justify-content-center align-items-center">
-              <i className="fas fa-thumbs-up scale-icon"></i>
-              <div className="reaction-counter">123</div>
+              <i className="fas fa-thumbs-up scale-icon" ></i>
+              <div className="reaction-counter"></div>
             </span>
             <p>Like</p>
           </div>
           <div className="l-ah-reaction-icon-wrap">
             <span className="l-ah-reaction-icon d-flex justify-content-center align-items-center">
-              <i className="fas fa-thumbs-down scale-icon"></i>
-              <div className="reaction-counter">123</div>
+              <i className="fas fa-thumbs-down scale-icon" ></i>
+              <div className="reaction-counter"></div>
             </span>
             <p>Dislike</p>
           </div>
           <div className="l-ah-reaction-icon-wrap">
             <span className="l-ah-reaction-icon d-flex justify-content-center align-items-center scale-icon">
-              <i className="fas fa-bookmark"></i>
+              <i className="fas fa-bookmark" ></i>
             </span>
             <p>Bookmark</p>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
+Reaction.propTypes = {
+  slug: propTypes.string,
+  rating: propTypes.number,
+  rate: propTypes.func,
+};
 export default Reaction;
