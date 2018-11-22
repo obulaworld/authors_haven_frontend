@@ -19,6 +19,10 @@ const initialState = {
     },
     isAuth: false,
   },
+  likeOrDislike: {
+    message: '',
+    reactions: [],
+  },
   publishedArticle: {
     article: {
       Articles: {}

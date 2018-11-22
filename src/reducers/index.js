@@ -17,6 +17,7 @@ import comment from './comment';
 import getNotification from './notification/getNotification';
 import reply from './reply';
 import search from './search';
+import likeOrDislikeArticle from './article/likeOrDislike';
 
 /**
  * @desc combines all the reducers
@@ -36,5 +37,6 @@ export default combineReducers({
   tagReducer,
   getNotification,
   reply,
-  search
+  search,
+  likeOrDislikeArticle
 });
