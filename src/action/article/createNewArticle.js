@@ -1,7 +1,7 @@
 // Third party modules
 import http from 'axios';
 
-// Import action types
+//  action types
 import {
   PUBLISH_ARTICLE_FAILURE,
   PUBLISH_ARTICLE_SUCCESS,
@@ -14,10 +14,12 @@ const publishArticleRequest = payload => ({
   type: PUBLISH_ARTICLE_REQUEST,
   payload
 });
+
 const publishArticleError = error => ({
   type: PUBLISH_ARTICLE_FAILURE,
   payload: error
 });
+
 const publishArticleSuccess = payload => ({
   type: PUBLISH_ARTICLE_SUCCESS,
   payload

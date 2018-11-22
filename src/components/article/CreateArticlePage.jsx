@@ -8,6 +8,7 @@ import ContentEditable from 'react-contenteditable';
 import Editor from 'react-medium-editor';
 import Loader from 'react-loader';
 import swal from 'sweetalert';
+import queryString from 'query-string';
 
 // modules
 import Header from '../reusables/header/Header';
@@ -36,28 +37,87 @@ class CreateArticlePage extends Component {
       body: '',
     },
     tags: [],
+    editMode: false,
   };
 
-  handleEnterKey = (event) => {
-    const tags = this.state.tags;
-    const tagName = event.target.value;
-    const convertedTagName = tagName.trim().toLowerCase();
-    if (tags.length <= 4) {
-      if (event.keyCode === 13) {
-        if (convertedTagName.length > 2) {
-          if (tags.includes(convertedTagName) === false) {
-            const currentTags = [...tags, convertedTagName];
-            this.setState({
-              tags: currentTags,
-            });
-          }
-          event.target.value = '';
-        }else {
-          swal('Failed', 'tag character must not be lesser than 3', 'error');
-        }
-      }
+  componentDidMount() {
+    const value = queryString.parse(this.props.location.search);
+    if (value) {
+      this.setState({
+        editMode: true
+      });
+      const fetchedlistTags = [];
+      this.props.fetchSingleArticle(value.slug)
+        .then((fetched) => {
+          console.log('======', fetched.Articles.Tags);
+          const fetchedTags = fetched.Articles.Tags;
+          fetchedTags.map((tag, index) => {
+            console.log(tag.name);
+            fetchedlistTags.push(tag.name);
+          });
+          const tags = fetchedlistTags;
+          const article = { ...fetched.Articles };
+          this.setState({
+            article,
+            tags
+          });
+        })
+        .catch(err => console.log(err));
+    } else{
+      return null;
     }
   };
+
+  handleUpdateSubmit = (event) => {
+    event.preventDefault();
+    const value = queryString.parse(this.props.location.search);
+    const articleSlug = value.slug;
+    const {
+      imageUrl,
+      title,
+      body,
+      description,
+    } = this.state.article;
+    console.log('THIS IS THE Tags', this.state.tags);
+
+    const tagArray = this.state.tags;
+    // const formData = new FormData();
+    // formData.append('image', imageUrl);
+    // formData.append('description', description);
+    // formData.append('title', title);
+    // formData.append('body', body);
+    const tags = tagArray.join(',');
+    this.props.updateArticle(this.state.article, tags, articleSlug)
+      .then((response) => {
+        let errorMessages = '';
+        Object.keys(this.props.publishedArticle.error)
+          .forEach(key => errorMessages = `${errorMessages + this.props.publishedArticle.error[key][0]  }\n`);
+        response
+          ? swal('Success', 'Article updated Successfully', 'success')
+          : swal('Failed', errorMessages, 'error') 
+;});
+  };
+
+ handleEnterKey = (event) => {
+   const tags = this.state.tags;
+   const tagName = event.target.value;
+   const convertedTagName = tagName.trim().toLowerCase();
+   if (tags.length <= 4) {
+     if (event.keyCode === 13) {
+       if (convertedTagName.length > 2) {
+         if (tags.includes(convertedTagName) === false) {
+           const currentTags = [...tags, convertedTagName];
+           this.setState({
+             tags: currentTags
+           });
+         }
+         event.target.value = '';
+       } else {
+         swal('Failed', 'tag character must not be lesser than 3', 'error');
+       }
+     }
+   }
+ }
 
   handleAddToTags = (event) => {
     const tags = this.state.tags;
@@ -133,21 +193,20 @@ class CreateArticlePage extends Component {
     formData.append('title', title);
     formData.append('body', body);
     const tags = tagArray.join(',');
-    this.props.createNewArticle(formData, tags).then((response) => {
-      let errorMessages = '';
-      Object.keys(this.props.publishedArticle.error).forEach(
-        key => (errorMessages = `${errorMessages + this.props.publishedArticle.error[key][0]}\n`)
-      );
-       response
-        ? swal('Success', 'Article published Successfully', 'success')
-        : swal('Failed', errorMessages, 'error');
-    });
+    this.props.createNewArticle(formData, tags)
+      .then((response) => {
+        let errorMessages = '';
+        Object.keys(this.props.publishedArticle.error)
+          .forEach(key => errorMessages = `${errorMessages + this.props.publishedArticle.error[key][0]}\n`);
+        response
+          ? swal('Success', 'Article published Successfully', 'success')
+          : swal('Failed', errorMessages, 'error');
+      });
   };
 
   render() {
-    const loading = this.props.publishedArticle.processing
-      ? { display: 'block' }
-      : { display: 'none' };
+    const { editMode } = this.state;
+    const loading = this.props.publishedArticle.processing ? { display: 'block' } : { display: 'none' };
     const { article } = this.props.publishedArticle;
     const user = JSON.parse(localStorage.getItem('user'));
     const { isAuth } = this.props.auth;
@@ -222,32 +281,23 @@ class CreateArticlePage extends Component {
                 aria-hidden='true'
                 onClick={this.handleActiveSidebar}
               />
-              <div className='sidebar-desc'>
-                <p>Description</p>
-                <textarea
-                  type='text'
-                  onChange={this.handleChange}
-                  name='description'
-                  placeholder='Type here...'
-                  value={this.state.article.description}
-                />
-              </div>
-              <p>
-                Tags will help readers to know what your story is about. Add or Change Tags(max 5)
-              </p>
-              <SearchTag
-                tags={this.state.tags}
-                handleEnterKey={this.handleEnterKey}
-                handleAddToTags={this.handleAddToTags}
-                handleRemoveTag={this.handleRemoveTag}
-              />
-              <div className='cta-btn'>
-                <Button type='publish-btn' text='Publish' onClick={this.handleSubmit} />
-                <Button type='discard-btn' text='Discard' />
-                <div style={loading}>
-                  <Loader color='#0FC86F' speed={1} className='spinner' />
-                </div>
-                <button className='discard-btn btn'>Discard</button>
+            </div>
+            <p>Tags will help readers to know what your story is about. Add or Change Tags(max 5)</p>
+            <SearchTag
+              tags={this.state.tags}
+              handleEnterKey={this.handleEnterKey}
+              handleAddToTags={this.handleAddToTags}
+              handleRemoveTag={this.handleRemoveTag}
+            />
+            <div className="cta-btn">
+            {
+              editMode && <Button type="publish-btn" text="Update" onClick={this.handleUpdateSubmit}/>
+
+            }
+              <Button type="publish-btn" text="Publish" onClick={this.handleSubmit}/>
+              <Button type="discard-btn" text="Discard" />
+              <div style={loading}>
+                  <Loader color="#0FC86F" speed={1}className="spinner"/>
               </div>
             </div>
           </div>
