@@ -12,7 +12,9 @@ const mapStateToProps = (state = {}) => ({
   loading: state.fetchSingleArticleReducer.processing,
   loginUser: state.auth
 });
+
 const mapDispatchToProps = dispatch => ({
   fetchSingleArticle: slug => dispatch(fetchSingleArticle(slug))
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(ViewArticle);

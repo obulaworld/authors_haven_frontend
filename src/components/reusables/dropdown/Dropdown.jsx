@@ -7,9 +7,13 @@ import propTypes from 'prop-types';
  * @param {object} props
  */
 export default function Dropdown(props) {
-  const { active } = props;
+  const { 
+    active,
+    username,
+    id
+  } = props;
   const menuArray = [
-    { name:'Profile', link: '/profile' },
+    { name:'Profile', link: `/profile/${username}_${id}` },
     { name: 'Statistics', link: '/'},
     { name: 'Follower', link: '/link'},
     { name: 'Following', link: '/link'}

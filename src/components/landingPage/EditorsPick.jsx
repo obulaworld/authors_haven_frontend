@@ -16,53 +16,53 @@ import dummyArticle from './Articles/fixture/dumyArticle';
 */
 const EditorsPick = () => (
   <Fragment>
-<img className="pattern" src="/images/pattern.png" alt="Pattern"/>
-      <div className="container">
-        <div className="row">
-          <div className="l-ah-title col-12 text-center">
-            <h2>Editor&apos;s pick</h2>
-          </div>
-          <div className="col-md-12">
-            <div className="row d-flex">
-              <div className="col-md-7">
-                <div className="l-ah-card">
-                  <Article>
-                      <FeatureImage
-                        src="/images/bigblog.jpg"
-                        className="img-fluid"
-                        alt=""
+    <img className="pattern" src="/images/pattern.png" alt="Pattern"/>
+    <div className="container">
+      <div className="row">
+        <div className="l-ah-title col-12 text-center">
+          <h2>Editor&apos;s pick</h2>
+        </div>
+        <div className="col-md-12">
+          <div className="row d-flex">
+            <div className="col-md-7">
+              <div className="l-ah-card">
+                <Article>
+                    <FeatureImage
+                      src="/images/bigblog.jpg"
+                      className="img-fluid"
+                      alt=""
+                    />
+                    <figcaption>
+                      <ArticleContent
+                        titleElement={<h4>The origin of photography, why all a
+                          photographer see through the lense is beautiful</h4>}
+                        bodyElement={dummyArticle.editorsPick}
                       />
-                      <figcaption>
-                        <ArticleContent
-                          titleElement={<h4>The origin of photography, why all a
-                            photographer see through the lense is beautiful</h4>}
-                          bodyElement={dummyArticle.editorsPick}
-                        />
-                        <ArticleDetails
-                          type="details"
-                          readTime="5min read"
-                          publishedDate="5 Nov"
-                          authorThumbnail=""
-                          authorUsername="Mindsworth"
-                        />
-                      </figcaption>
-                  </Article>
-                </div>
+                      <ArticleDetails
+                        type="details"
+                        readTime="5min read"
+                        publishedDate="5 Nov"
+                        authorThumbnail=""
+                        authorUsername="Mindsworth"
+                      />
+                    </figcaption>
+                </Article>
               </div>
-              <div className="col-md-5">
-                <div className="l-ah-sm-card-wrap">
-                {dummyArticle.getListArticle(
-                  dummyArticle.recentTitle,
-                  dummyArticle.recentBodySmall,
-                  dummyArticle.recentImage,
-                  4
-                )}
-                </div>
+            </div>
+            <div className="col-md-5">
+              <div className="l-ah-sm-card-wrap">
+              {dummyArticle.getListArticle(
+                dummyArticle.recentTitle,
+                dummyArticle.recentBodySmall,
+                dummyArticle.recentImage,
+                4
+              )}
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </Fragment>
 );
 

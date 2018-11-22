@@ -73,7 +73,7 @@ class ViewArticle extends Component {
         />
         {this.props.loading
           ? (<div className="">
-                <Loader color="#0FC86F" speed={1}className="spinner"/>
+                <Loader color="#0FC86F" speed={1} className="spinner"/>
             </div>)
           : (<div>
 

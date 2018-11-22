@@ -10,9 +10,8 @@ import ArticleContent from '../../../reusables/article/ArticleContent';
 
 const dummmy = {
   recentTitle: <h5>The origin of photography,..</h5>,
-  recentBody: `I just decided that I was going to click
-  everywhere in order to get around this because...`,
   recentBodySmall: `I just decided that I was going to click everywhere in order to get...`,
+  bookmarkBody: `I just decided that I was going...`,
   recentImage: '/images/smallblog.png',
   editorsPick: `I just decided that I was going to click everywhere
   in order to get around this because I wanted to use the
@@ -30,7 +29,7 @@ const dummmy = {
   getListArticle: (title, body, image, num) => {
     const articleList = [...Array(num)].map((el, i) => (
     <Article key={i}>
-      <div className="l-ah-sm-card d-flex ">
+      <div className="l-ah-sm-card d-flex">
             <FeatureImage
               src={image}
               className="img-fluid"
@@ -39,7 +38,7 @@ const dummmy = {
             <figcaption>
             <ArticleContent
               titleElement={title}
-              bodyElement={body}
+              bodyElement={ body }
             />
             <ArticleDetails
               type="details-sm"

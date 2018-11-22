@@ -9,6 +9,7 @@ import updateAccount from './signup/updateUser';
 import auth from './auth';
 import articleReducer from './article/createArticle';
 import fetchSingleArticleReducer from './article/fetchSingleArticle';
+import userProfile from './userProfile';
 import reset from './reset';
 
 /**
@@ -22,5 +23,6 @@ export default combineReducers({
   auth,
   createArticle: articleReducer,
   fetchSingleArticleReducer,
+  userProfile,
   reset
 });

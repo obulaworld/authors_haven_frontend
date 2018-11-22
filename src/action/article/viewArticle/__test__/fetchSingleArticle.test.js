@@ -32,7 +32,8 @@ const options = {
     'x-access-token': `${verificationToken}`
   }
 };
-const slug = 'The-article-check-39ba4b81-36ee-48f9-a607-d429933a36b4'
+
+const slug = 'The-article-check-39ba4b81-36ee-48f9-a607-d429933a36b4';
 
 describe('Actions related with viewing an Article', () => {
   afterEach(() => {
@@ -41,7 +42,7 @@ describe('Actions related with viewing an Article', () => {
 
 
   it('Get single article succefully', () => {
-    mock.onGet(`https://lotus-ah-staging.herokuapp.com/api/v1/articles/${slug}`, options)
+    mock.onGet(`http://localhost:5000/api/v1/articles/${slug}`, options)
       .reply(201, {
         Articles,
         status: 'SUCCESS',

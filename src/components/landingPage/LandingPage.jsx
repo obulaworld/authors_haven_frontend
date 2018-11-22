@@ -48,7 +48,6 @@ class LandingPage extends Component {
     const filterArticle = [...Array(4)].map((el, i) => <FilterArticle key={i}/>);
     const authUser = this.props.homeLogin.user;
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log(user)
     return (
       <section className="index">
         <Header
