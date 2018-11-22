@@ -28,7 +28,7 @@ import TokenCheck from  '../../helpers/TokenCheck'
  * @desc renders Landing page
  */
 class LandingPage extends Component {
-  
+
   checkLogin = () => {
     const parsed = qs.parse(location.search);
     const { token } = parsed;
@@ -55,11 +55,11 @@ class LandingPage extends Component {
           user={user || authUser }
         />
         {
-          this.props.homeLogin.isAuth 
+          this.props.homeLogin.isAuth
           ? <HeroBlog />
           : <HeroSection />
         }
-        
+
         <section className="l-ah-3">
           <PopularArticle />
         </section>

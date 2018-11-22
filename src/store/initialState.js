@@ -33,13 +33,18 @@ const initialState = {
     },
     processing: false
   },
-  reset: {},
   tag: {
     tags: [],
     isFetched: false,
     processing: false,
     error: {}
-  }
+  },
+  comment: {
+    posting: false,
+    comments: [],
+    error: ''
+  },
+  reset: {}
 };
 
 export default initialState;

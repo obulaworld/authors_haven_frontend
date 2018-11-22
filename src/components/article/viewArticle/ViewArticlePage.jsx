@@ -66,15 +66,18 @@ class ViewArticle extends Component {
       reactions,
       userId,
     } = this.props.publishedArticle.Articles;
-    const shareUrl = `https://lotus-ah-frontend.herokuapp.com/api/v1${this.props.location.pathname}`;
-    const user = JSON.parse(localStorage.getItem('user'));
-    const authUser = this.props.loginUser.user;
+    const shareUrl = `https://lotus-ah-staging.herokuapp.com/api/v1${this.props.location.pathname}`;
+    const {
+      user,
+      isAuth
+    } = this.props.loginUser;
+    const loggedUser = JSON.parse(user);
 
     return (
       <div className="detail">
         <Header
-          isAuth={authUser}
-          user={user || authUser}
+          isAuth={ isAuth }
+          user={ loggedUser }
         />
         {this.props.loading
           ? (<div className="">
