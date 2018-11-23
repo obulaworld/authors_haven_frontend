@@ -15,10 +15,8 @@ const mapStateToProps = (state = { }) => (
   }
 );
 
-const mapDispatchToProps = dispatch => (
-  {
-    activateAccountWithEmail: token => dispatch(verifyUser(token))
-  }
-);
+const mapDispatchToProps = {
+  activateAccountWithEmail: token => verifyUser(token)
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(VerifyEmailPage);

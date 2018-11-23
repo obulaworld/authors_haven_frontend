@@ -16,6 +16,12 @@ const logger = createLogger({
   collapsed: true,
 });
 
+const middleware = [thunk];
+
+if (process.env.NODE_ENV !== 'production'){
+  middleware.push(logger);
+}
+
 /**
  * @desc setup redux store
  * @returns {object} store
@@ -23,11 +29,12 @@ const logger = createLogger({
 const configureStore = () => createStore(
   rootReducer,
   compose(
-    applyMiddleware(thunk, logger),
+    applyMiddleware(...middleware),
     typeof window === 'object'
-    && typeof window.devToolsExtension !== 'undefined'
+    // && (process.env.NODE_ENV === 'development')
+    && (typeof window.devToolsExtension !== 'undefined'
       ? window.devToolsExtension()
-      : f => f
+      : f => f)
   )
 );
 

@@ -24,8 +24,9 @@ const publishArticleSuccess = payload => ({
 });
 
 /**
- * @returns { object } data
  * @param {object} articleRequestObject
+ * @param {object} tags
+ * @returns {object} data
  */
 const createNewArticle = (articleRequestObject, tags) => (dispatch) => {
   dispatch(publishArticleRequest(articleRequestObject));
@@ -45,8 +46,8 @@ const createNewArticle = (articleRequestObject, tags) => (dispatch) => {
     },
     options
   ).then((tagIds) => {
-    const fetchTags = tagIds.data.data;
-    const arrayTags = Array.from(fetchTags);
+    const fetchedTags = tagIds.data.data;
+    const arrayTags = Array.from(fetchedTags);
     articleRequestObject.set('tags', arrayTags);
 
     return http.post(
@@ -64,4 +65,5 @@ const createNewArticle = (articleRequestObject, tags) => (dispatch) => {
       });
   });
 };
+
 export default createNewArticle;

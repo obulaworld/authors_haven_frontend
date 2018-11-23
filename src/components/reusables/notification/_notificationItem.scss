@@ -1,0 +1,26 @@
+.notification-item {
+  border-top: 1px solid gray;
+  background-color: blue($color: #922b2b);
+  :first-child{
+    margin-top: 10px;
+  }
+  .message {
+    padding: 0;
+    font-size: 12px;
+    .user{
+      font-size: 16px;
+    }
+  }
+  .read {
+    padding: 0;
+  }
+  .date {
+   text-align: start;
+   margin-left: .5%;
+   font-size: 90%;
+   padding-bottom: .5rem;
+  }
+}
+.backgroud-item {
+  background-color: red;
+}

@@ -1,9 +1,10 @@
 // react libraries
 import React, { Fragment, Component } from 'react';
-import  { Redirect }  from 'react-router-dom';
+
 
 // third-party libraries
 import propTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import ContentEditable from 'react-contenteditable';
 import Editor from 'react-medium-editor';
 import Loader from 'react-loader';
@@ -35,16 +36,16 @@ class CreateArticlePage extends Component {
       description: '',
       body: ''
     },
-    tags:[],
+    tags: [],
   };
 
   handleEnterKey = (event) => {
-    const tags  = this.state.tags;
+    const tags = this.state.tags;
     const tagName = event.target.value;
     const convertedTagName = tagName.trim().toLowerCase();
-      if (tags.length <= 4) {
-        if (event.keyCode === 13) {
-          if(convertedTagName.length > 2){
+    if (tags.length <= 4) {
+      if (event.keyCode === 13) {
+        if (convertedTagName.length > 2) {
           if (tags.includes(convertedTagName) === false) {
             const currentTags = [...tags, convertedTagName];
             this.setState({
@@ -52,15 +53,15 @@ class CreateArticlePage extends Component {
             });
           }
           event.target.value = '';
-        }else{
-          swal('Failed', 'tag character must not be lesser than 3', 'error')
+        } else {
+          swal('Failed', 'tag character must not be lesser than 3', 'error');
         }
       }
     }
   }
 
   handleAddToTags = (event) => {
-    const tags  = this.state.tags;
+    const tags = this.state.tags;
     const tagName = event.target.textContent;
     const convertedTagName = tagName.trim().toLowerCase();
     if (tags.includes(convertedTagName) === false) {
@@ -72,7 +73,7 @@ class CreateArticlePage extends Component {
   }
 
   handleRemoveTag = (event) => {
-    const tags  = this.state.tags;
+    const tags = this.state.tags;
     const tagIndex = event.target.dataset.key;
     const currentTag = tags.filter(tag => tag !== tags[tagIndex]);
     this.setState({
@@ -137,39 +138,40 @@ class CreateArticlePage extends Component {
     formData.append('body', body);
     const tags = tagArray.join(',');
     this.props.createNewArticle(formData, tags)
-    .then(response => {
-      let errorMessages = '';
-      Object.keys(this.props.publishedArticle.error)
-      .forEach(key => errorMessages = errorMessages + this.props.publishedArticle.error[key][0] + '\n');
-      response
-        ? swal('Success', 'Article published Successfully', 'success')
-        : swal('Failed', errorMessages, 'error')}
-      );
+      .then((response) => {
+        let errorMessages = '';
+        Object.keys(this.props.publishedArticle.error)
+          .forEach(key => errorMessages = `${errorMessages + this.props.publishedArticle.error[key][0] }\n`);
+        response
+          ? swal('Success', 'Article published Successfully', 'success')
+          : swal('Failed', errorMessages, 'error');
+      });
   };
 
   render() {
     const loading = this.props.publishedArticle.processing ? { display: 'block' } : { display: 'none' };
     const { article } = this.props.publishedArticle;
     const user = JSON.parse(localStorage.getItem('user'));
-    const authUser = this.props.loginUser.user;
-
+    const { isAuth } = this.props.auth;
     if (this.props.publishedArticle.isPublished === true) {
       return (
         <Redirect to={{
           pathname: `/viewarticle/${article.slug}`,
           article,
           user,
+          isAuth
         }}
         />
       );
     }
     return (
       <Fragment>
-        <Header
-          isAuth={authUser }
-          user={user || authUser }
-        />
       <div className="l-ah-create-article">
+      <Header
+          user={user}
+          isAuth={isAuth}
+          notifications={this.props.notifications}
+        />
         <Button type="publish-ready-btn" text="Ready to publish?" onClick={this.handleActiveSidebar} />
         <section className="create-article-wrap">
           <div className="container">
@@ -237,7 +239,7 @@ class CreateArticlePage extends Component {
               <div style={loading}>
                   <Loader color="#0FC86F" speed={1}className="spinner"/>
               </div>
-              {/* <button className="discard-btn btn">Discard</button> */}
+              <button className="discard-btn btn">Discard</button>
             </div>
           </div>
         </div>
@@ -248,5 +250,6 @@ class CreateArticlePage extends Component {
 }
 CreateArticlePage.propTypes = {
   createNewArticle: propTypes.func,
+  notifications: propTypes.func,
 };
 export default CreateArticlePage;

@@ -16,11 +16,12 @@ import Login from '../containers/Login/Login';
 import NotFound from './NotFound';
 import Logout from './Logout/Logout';
 import AuthenticatedRoute from './AuthenticatedRoute';
-import CreateArticle from '../containers/article/CreateArticle'
-import ViewArticle from '../containers/viewArticle/ViewArticle'
-import Profile from '../containers/profile/Profile'
+import CreateArticle from '../containers/article/CreateArticle';
+import ViewArticle from '../containers/viewArticle/ViewArticle';
+import Profile from '../containers/profile/Profile';
 import ResetPassword from './ResetPassword/ResetPassword';
 import ForgotPassword from './ForgotPassword/ForgotPassword';
+import NotificationAction from '../containers/notification/NotificationAction';
 
 const history = createBrowserHistory();
 
@@ -42,6 +43,7 @@ const AppRouter = () => (
       <AuthenticatedRoute exact path='/profile/:username' component={Profile} />
       <Route exact path='/reset_password' component={ResetPassword} />
       <Route exact path='/forgot_password' component={ForgotPassword} />
+      <Route exact path='/notify_action/:id' component={NotificationAction} />
       <Route component={NotFound} />
     </Switch>
   </Router>

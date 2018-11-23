@@ -1,27 +1,21 @@
+// react libraries
 import React from 'react';
+
+// third-party libraries
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
+
+// fixtures
+import menuList from '../../../fixtures/menuItems';
 
 /**
  * @returns {object} element
  * @param {object} props
  */
 export default function Dropdown(props) {
-  const { 
-    active,
-    username,
-    id
-  } = props;
-  const menuArray = [
-    { name:'Profile', link: `/profile/${username}_${id}` },
-    { name: 'Statistics', link: '/'},
-    { name: 'Follower', link: '/link'},
-    { name: 'Following', link: '/link'}
-  ];
-  const dropdownArray = menuArray.map((menu, index) => <li key={index}><a href={menu.link}>{menu.name}</a></li>);
-
+  const { active } = props;
   return (
-    <div className={ `dropdown ${ active && 'dropdown-active' } `}>
+    <div className={`dropdown ${active && 'dropdown-active'}`}>
       <div className="dropdown-inner">
         <ul>
           <li>
@@ -29,13 +23,13 @@ export default function Dropdown(props) {
           </li>
         </ul>
         <ul>
-          {dropdownArray}
+          {menuList}
         </ul>
         <ul>
           <li><a href="#">Settings</a></li>
         </ul>
         <ul>
-          <li><Link to="/logout">Log Out</Link></li>
+          <li><a href="/logout">Log Out</a></li>
         </ul>
       </div>
     </div>
@@ -44,4 +38,4 @@ export default function Dropdown(props) {
 
 Dropdown.propTypes = {
   active: propTypes.bool
-}
+};

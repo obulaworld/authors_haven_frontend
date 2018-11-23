@@ -4,6 +4,7 @@ import React, { Fragment, Component } from 'react';
 // third party libraries
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
+import { Redirect } from 'react-router-dom';
 
 // components
 import SignupForm from './SignupForm';
@@ -34,15 +35,29 @@ class Signup extends Component {
         right: 'auto',
         bottom: 'auto',
         padding: '0',
-        height: '42%',
+        height: '39%',
+        width: '30%',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)'
       }
     }
   )
 
-   render = () => (
-    <Fragment>
+   render = () =>{
+     const { progress, registered } = this.props.signup;
+     if (progress === 'done' && registered === true) {
+        return (
+          <Redirect
+            to={{
+              pathname: "/",
+              alert: true,
+              text: 'A verification email has been sent to your mail box'
+            }}
+          />
+        )
+     }
+    return (
+      <Fragment>
         <div className="sign-up">
             <div className="container">
                 <div className="row auth-h d-flex align-items-center">
@@ -78,8 +93,9 @@ class Signup extends Component {
                 signup={this.props.signup}
             />
         </Modal>
-    </Fragment>
-   )
+      </Fragment>
+    )
+  }
 }
 
 Signup.propTypes = {
