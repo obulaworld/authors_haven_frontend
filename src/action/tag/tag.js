@@ -25,7 +25,7 @@ const createTagSuccess = payload => ({
   payload
 });
 
-const fetchTagRequest = payload => ({
+const fetchTagRequest = () => ({
   type: FETCH_TAG_REQUEST,
 });
 const fetchTagFailure = error => ({
@@ -38,14 +38,13 @@ const fetchTagSuccess = payload => ({
 });
 
 const verficationToken = localStorage.getItem('authorsHavenAuthToken');
-const BASE_URL = 'http://localhost:5000/api/v1';
 
 /**
  * @returns { object } data
- * @param {object} tagobject
+ * @param {object} tags
  * @desc {method}to find or create a new tag
  */
-export const findOrCreateTag = () =>  (dispatch) => {
+export const findOrCreateTag = tags => (dispatch) => {
   dispatch(createTagRequest);
   const verificationToken = localStorage.getItem('authorsHavenAuthToken');
   const url = process.env.SERVER_URL || '';
@@ -62,19 +61,21 @@ export const findOrCreateTag = () =>  (dispatch) => {
       collectedtags,
     },
     options
-  ).then((tagIds)=> {
-    dispatch(createTagSuccess(response.data))
+  ).then((response) => {
+    dispatch(createTagSuccess(response.data));
+    return response.data;
   })
     .catch((err) => {
-      dispatch(createTagFailure(err.response))
+      dispatch(createTagFailure(err.response));
     });
-}
+};
+
 /**
  * @returns { object } data
- * @param {object} tagobject
+ * @param {object} tagName
  * @desc {method} get single tag
  */
-export const fetchSingleTag = (tagName) => (dispatch) => {
+export const fetchSingleTag = tagName => (dispatch) => {
   dispatch(fetchTagRequest);
   const options = {
     headers: {
@@ -84,13 +85,13 @@ export const fetchSingleTag = (tagName) => (dispatch) => {
   };
 
   return http.get(`http://localhost:5000/api/v1/search/tag/${tagName}`, options).then((response) => {
-    console.log('RESPONSE', response)
-    dispatch(fetchTagSuccess(response.data))
+    console.log('RESPONSE', response);
+    dispatch(fetchTagSuccess(response.data));
   })
     .catch((err) => {
-      dispatch(fetchTagFailure(err.response))
+      dispatch(fetchTagFailure(err.response));
     });
-}
+};
 
 /**
  * @returns { object } data
@@ -107,9 +108,9 @@ export const getAllTags = () => (dispatch) => {
   };
 
   return http.post(`${BASE_URL}/alltags`, options).then((response) => {
-    dispatch(fetchTagSuccess(response.data))
+    dispatch(fetchTagSuccess(response.data));
   })
     .catch((err) => {
-      dispatch(fetchTagFailure(err.response))
+      dispatch(fetchTagFailure(err.response));
     });
 };

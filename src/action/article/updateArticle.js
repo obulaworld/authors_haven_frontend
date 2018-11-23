@@ -1,28 +1,27 @@
 // third party libraries
 import http from 'axios';
-//action types
+// action types
 import {
-  UPDATE_ARTICLE,
   UPDATE_ARTICLE_REQUEST,
   UPDATE_ARTICLE_SUCCESS,
   UPDATE_ARTICLE_FAILURE
- } from "../../actionTypes/article";
+} from '../../actionTypes/article';
 
- const updateArticleSuccess = payload => ({
-   type: UPDATE_ARTICLE_SUCCESS,
-   payload
- })
- const updateArticleFailure = payload => ({
+const updateArticleSuccess = payload => ({
+  type: UPDATE_ARTICLE_SUCCESS,
+  payload
+});
+const updateArticleFailure = payload => ({
   type: UPDATE_ARTICLE_FAILURE,
   payload
-})
+});
 const updateArticleRequest = payload => ({
   type: UPDATE_ARTICLE_REQUEST,
   payload
-})
+});
 
-const updateArticle = (articleRequestObject, tags, articleSlug) => dispatch => {
-  dispatch(updateArticleRequest(articleRequestObject))
+const updateArticle = (articleRequestObject, articleSlug) => (dispatch) => {
+  dispatch(updateArticleRequest(articleRequestObject));
   const verificationToken = localStorage.getItem('authorsHavenAuthToken');
   const url = process.env.SERVER_URL || '';
   const options = {
@@ -36,10 +35,10 @@ const updateArticle = (articleRequestObject, tags, articleSlug) => dispatch => {
     articleRequestObject,
     options
   )
-  .then((response) => {
-    console.log('updatedResponse : ', response);
-     dispatch(updateArticleSuccess(response.data.article));
-     return response.data.article;
-  });
-}
+    .then((response) => {
+      console.log('updatedResponse : ', response);
+      dispatch(updateArticleSuccess(response.data.article));
+      return response.data.article;
+    });
+};
 export default updateArticle;

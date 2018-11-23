@@ -2,7 +2,13 @@
 import React from 'react';
 
 // third party libraries
+<<<<<<< HEAD
 import propTypes from 'prop-types';
+=======
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+>>>>>>> updating an article
 
 // component
 import Button from '../button/Button';
@@ -11,10 +17,10 @@ import Button from '../button/Button';
 import updateFollowView from '../../../helpers/follow/updateFollowView';
 
 /**
- * @desc
- * @param {object} user
- * @return UserDeatails
+ * @export UserDeatails
+ * @returns object
  */
+<<<<<<< HEAD
 
 const UserDeatails = ({
   author,
@@ -25,6 +31,9 @@ const UserDeatails = ({
   user
 }) => {
   const { text, action } = updateFollowView(followingAction, following);
+=======
+export default function UserDetail({ user, authorId, articleSlug }) {
+>>>>>>> updating an article
   return (
     <div className='userDetail'>
       <div className='container'>
@@ -55,12 +64,24 @@ const UserDeatails = ({
             <div className='l-ah-report'>
               <Button type='report-btn' text='Report' />
             </div>
+<<<<<<< HEAD
             )}
+=======
+            {
+              user
+              && (user.id === authorId
+                && <div className="l-ah-report">
+                  <Link to={`/article?slug=${articleSlug}`}><Button type="submit" href="" text="Edit"/></Link>
+                </div>
+              )
+            }
+>>>>>>> updating an article
           </div>
         </div>
       </div>
     </div>
   );
+<<<<<<< HEAD
 };
 
 UserDeatails.propTypes = {
@@ -70,6 +91,12 @@ UserDeatails.propTypes = {
   following: propTypes.array,
   followingAction: propTypes.object,
   user: propTypes.object
-};
+=======
+}
 
-export default UserDeatails;
+UserDetail.propTypes = {
+  user: PropTypes.object,
+  authorId: PropTypes.integer,
+  articleSlug: PropTypes.string,
+>>>>>>> updating an article
+};

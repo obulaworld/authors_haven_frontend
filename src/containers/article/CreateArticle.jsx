@@ -6,8 +6,9 @@ import CreateArticlePage from '../../components/article/CreateArticlePage';
 
 // actions
 import createNewArticle from '../../action/article/createNewArticle';
-import { fetchSingleArticle } from '../../action/article/viewArticle/fetchSingleArticle';
-import updateArticle  from '../../action/article/updateArticle'
+import fetchSingleArticle from '../../action/article/viewArticle/fetchSingleArticle';
+import updateArticle from '../../action/article/updateArticle';
+import { findOrCreateTag } from '../../action/tag/tag';
 
 // store
 import initialState from '../../store/initialState';
@@ -23,7 +24,8 @@ const mapStateToProps = (state = initialState.publishedArticle) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchSingleArticle: slug => dispatch(fetchSingleArticle(slug)),
-  createNewArticle: (articleObjects, tags) => dispatch(createNewArticle(articleObjects,tags)),
+  createNewArticle: articleObjects => dispatch(createNewArticle(articleObjects)),
+  findOrCreateTag: tags => dispatch(findOrCreateTag(tags)),
   updateArticle: (articleObject, tags, slug) => dispatch(updateArticle(articleObject, tags, slug))
 });
 

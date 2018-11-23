@@ -19,7 +19,7 @@ import editorOptions from './editorConfig';
 /**
  * @class CreateArticle
  * @extends {Component}
- * @param {object} event
+ * @param {event} body
  */
 class CreateArticlePage extends Component {
   state = {
@@ -51,7 +51,7 @@ class CreateArticlePage extends Component {
         .then((fetched) => {
           console.log('======', fetched.Articles.Tags);
           const fetchedTags = fetched.Articles.Tags;
-          fetchedTags.map((tag, index) => {
+          fetchedTags.map((tag) => {
             console.log(tag.name);
             fetchedlistTags.push(tag.name);
           });
@@ -63,7 +63,7 @@ class CreateArticlePage extends Component {
           });
         })
         .catch(err => console.log(err));
-    } else{
+    } else {
       return null;
     }
   };
@@ -78,8 +78,13 @@ class CreateArticlePage extends Component {
       body,
       description,
     } = this.state.article;
-    console.log('THIS IS THE Tags', this.state.tags);
-
+    const articleObject =
+    {
+      imageUrl,
+      title,
+      body,
+      description
+    };
     const tagArray = this.state.tags;
     // const formData = new FormData();
     // formData.append('image', imageUrl);
@@ -87,19 +92,23 @@ class CreateArticlePage extends Component {
     // formData.append('title', title);
     // formData.append('body', body);
     const tags = tagArray.join(',');
-    this.props.updateArticle(this.state.article, tags, articleSlug)
-      .then((response) => {
-        let errorMessages = '';
-        Object.keys(this.props.publishedArticle.error)
-          .forEach(key => errorMessages = `${errorMessages + this.props.publishedArticle.error[key][0]  }\n`);
-        response
-          ? swal('Success', 'Article updated Successfully', 'success')
-          : swal('Failed', errorMessages, 'error') 
-;});
+    this.props.findOrCreateTag(tags).then((fetchTags) => {
+      const tagString = fetchTags.data.join(',');
+      articleObject.tags = tagString
+      ;
+      this.props.updateArticle(articleObject, articleSlug)
+        .then((response) => {
+          let errorMessages = '';
+          Object.keys(this.props.publishedArticle.error)
+            .forEach(key => errorMessages = `${errorMessages + this.props.publishedArticle.error[key][0]}\n`);
+          response ? swal('Success', 'Article updated Successfully', 'success')
+            : swal('Failed', errorMessages, 'error');
+        });
+    });
   };
 
  handleEnterKey = (event) => {
-   const tags = this.state.tags;
+   const { tags } = this.state;
    const tagName = event.target.value;
    const convertedTagName = tagName.trim().toLowerCase();
    if (tags.length <= 4) {
@@ -120,7 +129,7 @@ class CreateArticlePage extends Component {
  }
 
   handleAddToTags = (event) => {
-    const tags = this.state.tags;
+    const { tags } = this.state;
     const tagName = event.target.textContent;
     const convertedTagName = tagName.trim().toLowerCase();
     if (tags.includes(convertedTagName) === false) {
@@ -132,7 +141,7 @@ class CreateArticlePage extends Component {
   };
 
   handleRemoveTag = (event) => {
-    const tags = this.state.tags;
+    const { tags } = this.state;
     const tagIndex = event.target.dataset.key;
     const currentTag = tags.filter(tag => tag !== tags[tagIndex]);
     this.setState({
@@ -193,15 +202,18 @@ class CreateArticlePage extends Component {
     formData.append('title', title);
     formData.append('body', body);
     const tags = tagArray.join(',');
-    this.props.createNewArticle(formData, tags)
-      .then((response) => {
-        let errorMessages = '';
-        Object.keys(this.props.publishedArticle.error)
-          .forEach(key => errorMessages = `${errorMessages + this.props.publishedArticle.error[key][0]}\n`);
-        response
-          ? swal('Success', 'Article published Successfully', 'success')
-          : swal('Failed', errorMessages, 'error');
-      });
+    this.props.findOrCreateTag(tags).then((fetchTags) => {
+      formData.set('tags', fetchTags.data);
+      this.props.createNewArticle(formData)
+        .then((response) => {
+          let errorMessages = '';
+          Object.keys(this.props.publishedArticle.error)
+            .forEach(key => errorMessages = `${errorMessages + this.props.publishedArticle.error[key][0]}\n`);
+          response
+            ? swal('Success', 'Article published Successfully', 'success')
+            : swal('Failed', errorMessages, 'error');
+        });
+    });
   };
 
   render() {
@@ -308,7 +320,17 @@ class CreateArticlePage extends Component {
 }
 CreateArticlePage.propTypes = {
   createNewArticle: propTypes.func,
+<<<<<<< HEAD
   notifications: propTypes.object,
   publishedArticle: propTypes.object
+=======
+  notifications: propTypes.func,
+  updateArticle: propTypes.func,
+  fetchSingleArticle: propTypes.func,
+  findOrCreateTag: propTypes.func,
+  publishedArticle: propTypes.object,
+  location: propTypes.object,
+  loginUser: propTypes.object
+>>>>>>> updating an article
 };
 export default CreateArticlePage;
