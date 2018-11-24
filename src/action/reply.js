@@ -54,16 +54,6 @@ export function replyFailure(data) {
     payload: data,
   };
 }
-/**
- * @param {object} data
- * @desc clear error while reply
- * @returns {object} type
- */
-export function clearError() {
-  return {
-    type: REPLY_ERROR_CLEARED,
-  };
-}
 
 export const commentReplyRequest = (replyBody, commentId) => (dispatch) => {
   dispatch(replyPosting(true));
