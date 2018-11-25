@@ -24,12 +24,20 @@ const history = createBrowserHistory();
  */
 class HeaderSearch extends Component {
   state = {
-    searchBy: 'article',
+    searchBy: 'keyword',
     query: '',
+    searchPlaceholder: 'Search article by keyword'
   };
 
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    if (event.target.name === 'searchBy') {
+      this.setState({
+        [event.target.name]: event.target.value,
+        searchPlaceholder: `Search article by ${event.target.value}`
+      });
+    } else {
+      this.setState({ [event.target.name]: event.target.value });
+    }
   };
 
   handleSubmit = () => {
@@ -67,7 +75,7 @@ class HeaderSearch extends Component {
             onChange={this.handleChange}
             id=''
             className='form-control'
-            placeholder='Search'
+            placeholder={this.state.searchPlaceholder}
             aria-describedby='helpId'
           />
           <form className='root'>
@@ -81,7 +89,7 @@ class HeaderSearch extends Component {
                 <MenuItem value='' disabled>
                   Placeholder
                 </MenuItem>
-                <MenuItem value={'article'}>Article</MenuItem>
+                <MenuItem value={'keyword'}>Article</MenuItem>
                 <MenuItem value={'tag'}>Tag</MenuItem>
                 <MenuItem value={'author'}>Author</MenuItem>
               </Select>

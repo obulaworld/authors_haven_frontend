@@ -129,8 +129,8 @@ class Search extends Component {
     if (searchBy === 'tag') {
       data = tags;
       return data.map(tag => (
-        <div key={tag.id}>
-          <div className='follow-title pad-body'>
+        <div key={tag.id} className='pad-bottom'>
+          <div className='follow-title'>
             <h3>Tagged {tag.name}</h3>
           </div>
           <div className='col-md-12 tag-search-body pad-search'>
@@ -150,8 +150,8 @@ class Search extends Component {
     if (searchBy === 'author') {
       data = authors;
       return data.map(author => (
-        <div key={author.id}>
-          <div className='follow-title pad-body'>
+        <div key={author.id} className='pad-bottom'>
+          <div className='follow-title'>
             <h3>Authored by {author.username}</h3>
           </div>
           <div className='col-md-12 tag-search-body pad-search'>
@@ -204,22 +204,17 @@ class Search extends Component {
           }>
           <div className='container'>
             {!this.state.error404 ? (
-              ''
-            ) : (
-              <ErrorPage
-                type={this.state.searchBy}
-                keyword={this.state.query}
-              />
-            )}
-            {!this.state.error404 ? (
-              <div className={!this.state.error404 ? '' : 'row'}>
+              <div className='row'>
                 <div className='follow-title pad-body'>
                   <h3>{this.state.message}</h3>
                 </div>
                 {filterArticle}
               </div>
             ) : (
-              ''
+              <ErrorPage
+              type={this.state.searchBy}
+              keyword={this.state.query}
+            />
             )}
           </div>
         </section>
