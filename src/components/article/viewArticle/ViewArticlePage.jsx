@@ -122,7 +122,6 @@ class ViewArticle extends Component {
           notifications={notifications}
           markNotificationAsRead={markNotificationAsRead}
         />
-<<<<<<< HEAD
         {this.props.loading ? (
           <div className=''>
             <Loader color='#0FC86F' speed={1} className='spinner' />
@@ -151,18 +150,20 @@ class ViewArticle extends Component {
                     <div className='col-md-10'>
                       <div className='l-ah-detail-title'>
                         <p>{title}</p>
-=======
-        {this.props.loading
-          ? (<div className="">
-            <Loader color="#0FC86F" speed={1} className="spinner" />
-          </div>)
-          : (<div>
+                  {this.props.loading
+                    ? (<div className="">
+                       <Loader color="#0FC86F" speed={1} className="spinner" />
+                      </div>)
+                    : (<div>
 
             <div className="l-ah-view-article">
               <UserDetail
+              loggedUser={loggedUser}
               authorId={userId}
+              user= {users}
               articleSlug={slug}
-                user={users}
+              readTime={readTimeObject}
+
               />
               <div className="container">
                 <div className="row">
@@ -170,7 +171,6 @@ class ViewArticle extends Component {
                     <div className="col-md-10">
                       <div className="l-ah-detail-title">
                         <p>{ReactHtmlParser(title)}</p>
->>>>>>> updating an article
                       </div>
                     </div>
                     <div className='col-md-12'>
@@ -187,12 +187,6 @@ class ViewArticle extends Component {
                     <Reaction slug={slug} rating={rating} reactions={this.props.reactions} id={id}
                       rate={this.props.rate} liked={this.props.liked}
                       mark={this.props.mark} />
-<<<<<<< HEAD
-=======
-                    {/* <div className="l-ah-detail-title">
-                          <ul >{title}</ul>
-                    </div> */}
->>>>>>> updating an article
                   </div>
                 </div>
               </div>

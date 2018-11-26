@@ -34,8 +34,6 @@ export class Comment extends Component {
     } = this.props;
     const { props } = this;
 
-    console.log(auth, '-=====');
-
     const authenticatedUser = auth.user;
     return (
       <div className='l-ah-comment'>

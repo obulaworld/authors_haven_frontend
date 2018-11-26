@@ -15,6 +15,7 @@ import Header from '../reusables/header/Header';
 import SearchTag from '../../containers/tag/SearchTag';
 import Button from '../reusables/button/Button';
 import editorOptions from './editorConfig';
+import submitAction from './submitAction';
 
 /**
  * @class CreateArticle
@@ -42,7 +43,7 @@ class CreateArticlePage extends Component {
 
   componentDidMount() {
     const value = queryString.parse(this.props.location.search);
-    if (value) {
+    if (value.slug) {
       this.setState({
         editMode: true
       });
@@ -72,30 +73,12 @@ class CreateArticlePage extends Component {
     event.preventDefault();
     const value = queryString.parse(this.props.location.search);
     const articleSlug = value.slug;
-    const {
-      imageUrl,
-      title,
-      body,
-      description,
-    } = this.state.article;
-    const articleObject =
-    {
-      imageUrl,
-      title,
-      body,
-      description
-    };
-    const tagArray = this.state.tags;
-    // const formData = new FormData();
-    // formData.append('image', imageUrl);
-    // formData.append('description', description);
-    // formData.append('title', title);
-    // formData.append('body', body);
-    const tags = tagArray.join(',');
-    this.props.findOrCreateTag(tags).then((fetchTags) => {
-      const tagString = fetchTags.data.join(',');
-      articleObject.tags = tagString
-      ;
+    const { article } = this.state;
+    const { tags } = this.state;
+    const articleObject = submitAction(article);
+    const stringifyTags = tags.join(',');
+    this.props.findOrCreateTag(stringifyTags).then((fetchTags) => {
+      articleObject.set('tags', fetchTags.data);
       this.props.updateArticle(articleObject, articleSlug)
         .then((response) => {
           let errorMessages = '';
@@ -192,19 +175,13 @@ class CreateArticlePage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const {
-      imageUrl, title, body, description
-    } = this.state.article;
-    const tagArray = this.state.tags;
-    const formData = new FormData();
-    formData.append('image', imageUrl);
-    formData.append('description', description);
-    formData.append('title', title);
-    formData.append('body', body);
-    const tags = tagArray.join(',');
-    this.props.findOrCreateTag(tags).then((fetchTags) => {
-      formData.set('tags', fetchTags.data);
-      this.props.createNewArticle(formData)
+    const { article } = this.state;
+    const { tags } = this.state;
+    const articleObject = submitAction(article);
+    const stringifyTags = tags.join(',');
+    this.props.findOrCreateTag(stringifyTags).then((fetchTags) => {
+      articleObject.set('tags', fetchTags.data);
+      this.props.createNewArticle(articleObject)
         .then((response) => {
           let errorMessages = '';
           Object.keys(this.props.publishedArticle.error)
@@ -272,14 +249,11 @@ class CreateArticlePage extends Component {
                         <img className='img-fluid' src={this.state.displayImage} />
                       </div>
                     </div>
-                    <div className='article-editor-wrap'>
-                      <Editor
-                        text={this.state.article.body}
-                        value={this.state.article.body}
-                        onChange={this.handleEditorChange}
-                        options={editorOptions}
-                        className='article-editor'
-                      />
+                    <div>
+                      { editMode
+                      && <img className="img-fluid" src={this.state.article.imageUrl} />
+                      }
+                      <img className="img-fluid" src={this.state.displayImage} />
                     </div>
                   </form>
                 </div>
@@ -302,12 +276,14 @@ class CreateArticlePage extends Component {
               handleRemoveTag={this.handleRemoveTag}
             />
             <div className="cta-btn">
-            {
-              editMode && <Button type="publish-btn" text="Update" onClick={this.handleUpdateSubmit}/>
-
-            }
-              <Button type="publish-btn" text="Publish" onClick={this.handleSubmit}/>
-              <Button type="discard-btn" text="Discard" />
+              {
+                editMode
+                  ? <Button type="publish-btn" text="Update" onClick={this.handleUpdateSubmit}/>
+                  : <Fragment>
+               <Button type="publish-btn" text="Publish" onClick={this.handleSubmit}/>
+                <Button type="discard-btn" text="Discard" />
+                </Fragment>
+              }
               <div style={loading}>
                   <Loader color="#0FC86F" speed={1}className="spinner"/>
               </div>
