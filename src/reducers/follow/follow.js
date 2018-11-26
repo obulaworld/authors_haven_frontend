@@ -1,4 +1,4 @@
-// modular importation
+// action types
 import {
   FOLLOW_ACTION,
   FOLLOW_ACTION_FAILURE,

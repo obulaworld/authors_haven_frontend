@@ -4,7 +4,7 @@ import React, { Fragment, Component } from 'react';
 // third-party libraries
 import PropTypes from 'prop-types';
 
-// modules
+// components
 import Header from '../reusables/header/Header';
 import FollowDetail from './followDetail/FollowDetail';
 

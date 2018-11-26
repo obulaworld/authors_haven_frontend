@@ -28,6 +28,9 @@ describe('Renders followers page', () => {
         listFollows ={
           listFollows
         }
+        follow={{
+          progress: 'done'
+        }}
         listFollowing = {
           listFollowing
         }
@@ -54,6 +57,9 @@ describe('Renders following page', () => {
         listFollowing = {
           listFollowing
         }
+        follow={{
+          progress: 'done'
+        }}
         match={{
           params: {
             username: '@username_23'

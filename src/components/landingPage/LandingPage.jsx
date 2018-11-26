@@ -60,8 +60,8 @@ class LandingPage extends Component {
         />
         {
           this.props.homeLogin.isAuth
-          ? <HeroBlog />
-          : <HeroSection />
+            ? <HeroBlog />
+            : <HeroSection />
           }
         <section className="l-ah-3">
           <PopularArticle />

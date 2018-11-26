@@ -76,7 +76,6 @@ class Header extends Component {
     } else {
       notificationCount = 0;
     }
-
     return (
       <header className="l-ah-1">
         <Logo whiteLogo="true"/>

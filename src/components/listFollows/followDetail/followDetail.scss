@@ -1,31 +1,3 @@
-// .follow-details {
-//   border: 1px solid #ECECEC;
-//   height: 5vw;
-//   width: 25rem;
-//   padding-top: .5rem;
-//   .username-wrap {
-//     margin: 0 2rem;
-//     .username {
-//       font-weight: 600;
-//     }
-//     .follow-action-btn{
-//       background-color: #0FC86F;
-//       color: #FFFFFF;
-//       padding: 2px 2rem;
-//       border-radius: 2px;
-//     }
-//   }
-//   .user-mage {
-//     height: 6vh;
-//     width: 4vw;
-//   }
-// }
-
-// .l-ah-report {
-//   flex-grow: 1;
-//   text-align: right;
-// }
-
 .follow-card-wrap {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));

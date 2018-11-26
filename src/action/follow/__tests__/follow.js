@@ -53,10 +53,6 @@ describe('Actions with following a user following', () => {
           progress: undefined,
         },
       },
-      {
-        type: GET_FOLLOWERS,
-        payload: { }
-      },
     ];
 
     const store = mockStore({ notifications: {} });
@@ -124,10 +120,6 @@ describe('Actions with following a user following', () => {
           isFollowing: undefined,
           progress: undefined,
         },
-      },
-      {
-        type: GET_FOLLOWERS,
-        payload: { }
       },
     ];
 
