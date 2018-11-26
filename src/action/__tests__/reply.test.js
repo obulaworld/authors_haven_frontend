@@ -8,7 +8,9 @@ import MockAdapter from 'axios-mock-adapter';
 import { commentReplyRequest, commentReplyInit } from '../reply';
 
 // actionType
-import { REPLY_SUCCESS, REPLY_POSTING, REPLY_FAILURE, INITIALIZE_REPLY } from '../../actionTypes/reply';
+import {
+  REPLY_SUCCESS, REPLY_POSTING, REPLY_FAILURE, INITIALIZE_REPLY
+} from '../../actionTypes/reply';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

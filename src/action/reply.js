@@ -6,7 +6,6 @@ import {
   REPLY_SUCCESS,
   REPLY_POSTING,
   REPLY_FAILURE,
-  REPLY_ERROR_CLEARED,
   INITIALIZE_REPLY,
 } from '../actionTypes/reply';
 

@@ -44,6 +44,12 @@ const initialState = {
     comments: [],
     error: ''
   },
+  replies: {
+    posting: false,
+    replies: [],
+    comment: [],
+    error: ''
+  },
   reset: {}
 };
 
