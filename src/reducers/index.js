@@ -12,9 +12,10 @@ import fetchSingleArticleReducer from './article/fetchSingleArticle';
 import userProfile from './userProfile';
 import reset from './reset';
 import ratingArticle from './article/ratingArticle';
-import tagReducer from "./tag/tag";
+import tagReducer from './tag/tag';
 import comment from './comment';
 import getNotification from './notification/getNotification';
+import reply from './reply';
 
 /**
  * @desc combines all the reducers
@@ -33,4 +34,5 @@ export default combineReducers({
   comment,
   tagReducer,
   getNotification,
+  reply
 });

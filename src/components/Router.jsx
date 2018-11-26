@@ -22,6 +22,7 @@ import Profile from '../containers/profile/Profile';
 import ResetPassword from './ResetPassword/ResetPassword';
 import ForgotPassword from './ForgotPassword/ForgotPassword';
 import NotificationAction from '../containers/notification/NotificationAction';
+import CommentReply from '../containers/commentReply/CommentReply';
 
 const history = createBrowserHistory();
 
@@ -44,6 +45,7 @@ const AppRouter = () => (
       <Route exact path='/reset_password' component={ResetPassword} />
       <Route exact path='/forgot_password' component={ForgotPassword} />
       <Route exact path='/notify_action/:id' component={NotificationAction} />
+      <Route exact path='/comments/:id' component={CommentReply} />
       <Route component={NotFound} />
     </Switch>
   </Router>
