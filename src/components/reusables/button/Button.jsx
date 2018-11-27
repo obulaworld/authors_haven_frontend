@@ -1,6 +1,8 @@
 // react libraries
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+
+// third-party libraries
+import PropTypes from 'prop-types';
 
 /**
  * desc renders Button
@@ -10,11 +12,17 @@ class Button extends Component {
     const {
       type,
       text,
-      onClick
+      onClick,
+      id,
+      action
     } = this.props;
-
     return (
-      <button className={ type } onClick={ onClick }>
+      <button
+        className={ type }
+        onClick={ onClick }
+        data-id={id}
+        data-action={action}
+      >
         { text }
       </button>
     );
@@ -22,9 +30,11 @@ class Button extends Component {
 }
 
 Button.propTypes = {
-  type: propTypes.string,
-  text: propTypes.string,
-  onClick: propTypes.func
-}
+  type: PropTypes.string,
+  text: PropTypes.string,
+  onClick: PropTypes.func,
+  id: PropTypes.number,
+  action: PropTypes.string,
+};
 
 export default Button;

@@ -45,7 +45,7 @@ const markNotificationAsReadError = error => ({
  * @description action to dispatch for signup with email
  * @param {object} token
  * @param {integer} id
- * @param {strig} mark
+ * @param {string} mark
  * @returns object
 */
 const markNotificationAsReadAction = (token, id, mark) => (dispatch) => {

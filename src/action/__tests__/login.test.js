@@ -13,6 +13,8 @@ import {
   LOGIN_FAILURE,
 } from '../../actionTypes/login';
 import { AUTHENTICATE_USER } from '../../actionTypes/auth';
+import { VIEW_NOTIFICATION } from '../../actionTypes/notification';
+
 
 // action
 import {
@@ -50,6 +52,18 @@ describe('Actions related with login', () => {
         type: AUTHENTICATE_USER,
         payload: user,
       },
+      {
+        type: VIEW_NOTIFICATION,
+        payload:
+        {
+          notifications:
+            {
+              count: null,
+              rows: null
+            },
+          progress: 'ongoing'
+        },
+      }
     ];
 
     const store = mockStore({ auth: {} });

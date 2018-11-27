@@ -61,6 +61,19 @@ const initialState = {
       layoutBy: 'loading',
       data: {}
     }
+  },
+  follow: {
+    isFollowing: undefined,
+    followAction: '',
+    followers: {
+      followers: [],
+      followersCount: 0,
+    },
+    following: {
+      following: [],
+      followingCount: 0,
+    },
+    progress: undefined,
   }
 };
 

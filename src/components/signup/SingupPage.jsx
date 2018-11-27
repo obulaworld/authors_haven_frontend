@@ -43,13 +43,13 @@ class Signup extends Component {
     }
   )
 
-   render = () =>{
+   render = () => {
      const { progress, registered } = this.props.signup;
      if (progress === 'done' && registered === true) {
-        return (
+       return (
           <Redirect
             to={{
-              pathname: "/",
+              pathname: '/',
               alert: true,
               text: 'A verification email has been sent to your mail box'
             }}
@@ -95,8 +95,8 @@ class Signup extends Component {
             />
         </Modal>
       </Fragment>
-    )
-  }
+     );
+   }
 }
 
 Signup.propTypes = {

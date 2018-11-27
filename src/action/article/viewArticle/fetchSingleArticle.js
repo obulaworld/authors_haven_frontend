@@ -38,6 +38,7 @@ const fetchSingleArticle = slug => (dispatch) => {
       dispatch(fetchArticleSuccess(response.data));
       dispatch(commentInit(response.data.Articles.comments));
       dispatch(reactionsInit(response.data.Articles.reactions));
+      return response.data;
     })
     .catch((err) => {
       dispatch(fetchArticleFailure(err.response.data.message));
