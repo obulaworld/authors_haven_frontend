@@ -6,6 +6,7 @@ import {
   FETCH_SINGLE_ARTICLE_FAILURE,
   FETCH_SINGLE_ARTICLE_SUCCESS,
   FETCH_SINGLE_ARTICLE_REQUEST,
+  LIKEORDISLIKE_INIT
 } from '../../../actionTypes/article';
 
 // actions
@@ -21,6 +22,11 @@ const fetchArticleFailure = errorMessage => ({
   payload: errorMessage,
 });
 
+const reactionsInit = payload => ({
+  type: LIKEORDISLIKE_INIT,
+  payload,
+});
+
 const fetchSingleArticle = slug => (dispatch) => {
   const url = process.env.SERVER_URL || '';
   dispatch({
@@ -31,6 +37,7 @@ const fetchSingleArticle = slug => (dispatch) => {
     .then((response) => {
       dispatch(fetchArticleSuccess(response.data));
       dispatch(commentInit(response.data.Articles.comments));
+      dispatch(reactionsInit(response.data.Articles.reactions));
     })
     .catch((err) => {
       dispatch(fetchArticleFailure(err.response.data.message));

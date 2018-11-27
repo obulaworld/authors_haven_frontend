@@ -63,7 +63,6 @@ class ViewArticle extends Component {
       body,
       slug,
       rating,
-      reactions,
       userId,
       users,
     } = this.props.publishedArticle.Articles;
@@ -88,8 +87,8 @@ class ViewArticle extends Component {
 
             <div className="l-ah-view-article">
               <UserDetail
-              authorId={userId}
-              articleSlug={slug}
+                authorId={userId}
+                articleSlug={slug}
                 user={users}
               />
               <div className="container">
@@ -111,13 +110,9 @@ class ViewArticle extends Component {
                         <div>{ReactHtmlParser(body)}</div>
                       </div>
                     </div>
-                    <Reaction slug={slug} rating={rating} reactions={reactions} id={id}
+                    <Reaction slug={slug} rating={rating} reactions={this.props.reactions} id={id}
                       rate={this.props.rate} liked={this.props.liked}
                       mark={this.props.mark} />
-                    <div className="l-ah-detail-title">
-                        <ul >{title}</ul>
-                      </div>
-                    <Reaction />
                   </div>
                 </div>
               </div>
@@ -149,6 +144,7 @@ ViewArticle.propTypes = {
   location: propTypes.object,
   notifications: propTypes.object,
   markNotificationAsRead: propTypes.func,
+  reactions: propTypes.array,
 };
 
 export default ViewArticle;

@@ -6,7 +6,7 @@ import {
   FETCH_SINGLE_ARTICLE_REQUEST,
   FETCH_SINGLE_ARTICLE_SUCCESS,
   FETCH_SINGLE_ARTICLE_FAILURE,
-  RATING_SUCCESS
+  RATING_SUCCESS,
 } from '../../actionTypes/article';
 
 const fetchedSingleArticleReducer = (state = initialState.publishedArticle, action) => {
