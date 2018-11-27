@@ -50,24 +50,19 @@ class CreateArticlePage extends Component {
       const fetchedlistTags = [];
       this.props.fetchSingleArticle(value.slug)
         .then((fetched) => {
-          console.log('======', fetched.Articles.Tags);
           const fetchedTags = fetched.Articles.Tags;
-          fetchedTags.map((tag) => {
-            console.log(tag.name);
-            fetchedlistTags.push(tag.name);
-          });
+          fetchedTags.map(tag => fetchedlistTags.push(tag.name));
           const tags = fetchedlistTags;
           const article = { ...fetched.Articles };
           this.setState({
             article,
             tags
           });
-        })
-        .catch(err => console.log(err));
+        });
     } else {
       return null;
     }
-  };
+  }
 
   handleUpdateSubmit = (event) => {
     event.preventDefault();
@@ -245,15 +240,22 @@ class CreateArticlePage extends Component {
                           onChange={this.fileSelectedHandler}
                         />
                       </div>
-                      <div>
-                        <img className='img-fluid' src={this.state.displayImage} />
-                      </div>
-                    </div>
                     <div>
-                      { editMode
-                      && <img className="img-fluid" src={this.state.article.imageUrl} />
-                      }
+                      { editMode ? (
+                        <img className="img-fluid" src={this.state.article.imageUrl} />
+                      ) : (
                       <img className="img-fluid" src={this.state.displayImage} />
+                      )}
+                    </div>
+                    </div>
+                    <div className='article-editor-wrap'>
+                      <Editor
+                        text={this.state.article.body}
+                        value={this.state.article.body}
+                        onChange={this.handleEditorChange}
+                        options={editorOptions}
+                        className='article-editor'
+                      />
                     </div>
                   </form>
                 </div>
@@ -267,6 +269,15 @@ class CreateArticlePage extends Component {
                 aria-hidden='true'
                 onClick={this.handleActiveSidebar}
               />
+               <div className='sidebar-desc'>
+                <p>Description</p>
+                <textarea
+                  type='text'
+                  onChange={this.handleChange}
+                  name='description'
+                  placeholder='Type here...'
+                  value={this.state.article.description}
+                />
             </div>
             <p>Tags will help readers to know what your story is about. Add or Change Tags(max 5)</p>
             <SearchTag
@@ -290,23 +301,19 @@ class CreateArticlePage extends Component {
             </div>
           </div>
         </div>
+        </div>
       </Fragment>
     );
   }
 }
 CreateArticlePage.propTypes = {
   createNewArticle: propTypes.func,
-<<<<<<< HEAD
   notifications: propTypes.object,
-  publishedArticle: propTypes.object
-=======
-  notifications: propTypes.func,
+  publishedArticle: propTypes.object,
   updateArticle: propTypes.func,
   fetchSingleArticle: propTypes.func,
   findOrCreateTag: propTypes.func,
-  publishedArticle: propTypes.object,
   location: propTypes.object,
   loginUser: propTypes.object
->>>>>>> updating an article
 };
 export default CreateArticlePage;

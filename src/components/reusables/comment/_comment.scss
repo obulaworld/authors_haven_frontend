@@ -4,19 +4,15 @@
   .user-thumbnail {
     background-color: $white;
     padding: 1rem;
-  
     p {
       margin: 0;
       padding: 0;
     }
-  
     .thumbnail {
       margin-right: 1rem;
     }
-  
     .user-full-name {
       p {
-  
         &:first-child {
           font-weight: 600;
           opacity: 1;

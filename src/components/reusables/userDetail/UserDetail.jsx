@@ -16,7 +16,7 @@ import updateFollowView from '../../../helpers/follow/updateFollowView';
  * @returns object
  */
 
-const UserDeatails = ({
+const UserDetail = ({
   author,
   onClick,
   userId,
@@ -63,7 +63,7 @@ const UserDeatails = ({
   );
 };
 
-UserDeatails.propTypes = {
+UserDetail.propTypes = {
   author: propTypes.object,
   onClick: propTypes.func,
   userId: propTypes.number,
@@ -71,3 +71,5 @@ UserDeatails.propTypes = {
   followingAction: propTypes.object,
   user: propTypes.object
 };
+
+export default UserDetail;

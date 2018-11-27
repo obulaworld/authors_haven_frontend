@@ -7,21 +7,22 @@
 
   .l-ah-view-article {
     margin-top: 12rem;
-  
     .l-ah-detail-title {
       margin: 5rem 0;
-  
       p {
         font-size: $detail-font-size;
         line-height: 5rem;
         font-weight: 600;
       }
     }
+    .l-ah-edit-article {
+      position: absolute;
+      right: 5%;
+    }
 
     .l-ah-detail-featured-image {
       text-align: center;
     }
-  
     .l-ah-article-body {
       padding-top: 3rem;
       p {

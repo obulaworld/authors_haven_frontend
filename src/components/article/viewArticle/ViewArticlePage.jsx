@@ -105,15 +105,6 @@ class ViewArticle extends Component {
       );
     }
     const { followingAction } = this.props;
-
-    if (this.state.editArticle) {
-      return (
-        <Redirect to={{
-          pathname: `/article?slug=${slug}`
-        }}
-        />
-      );
-    }
     return (
       <div className='detail'>
         <Header
@@ -141,7 +132,9 @@ class ViewArticle extends Component {
                 />
               {userId === user.id && (
                 <div className='l-ah-edit-article'>
-                    <Button type='report-btn' text='Edit' onClick={this.showEdit}/>
+                <a href ={`/article?slug=${slug}`}>
+                    <Button type='report-btn' href='' text='Edit' />
+                  </a>
                 </div>
               )}
               <div className='container'>
@@ -150,27 +143,6 @@ class ViewArticle extends Component {
                     <div className='col-md-10'>
                       <div className='l-ah-detail-title'>
                         <p>{title}</p>
-                  {this.props.loading
-                    ? (<div className="">
-                       <Loader color="#0FC86F" speed={1} className="spinner" />
-                      </div>)
-                    : (<div>
-
-            <div className="l-ah-view-article">
-              <UserDetail
-              loggedUser={loggedUser}
-              authorId={userId}
-              user= {users}
-              articleSlug={slug}
-              readTime={readTimeObject}
-
-              />
-              <div className="container">
-                <div className="row">
-                  <div className="col-md-12">
-                    <div className="col-md-10">
-                      <div className="l-ah-detail-title">
-                        <p>{ReactHtmlParser(title)}</p>
                       </div>
                     </div>
                     <div className='col-md-12'>
@@ -210,7 +182,6 @@ class ViewArticle extends Component {
     );
   }
 }
-
 ViewArticle.propTypes = {
   title: propTypes.string,
   body: propTypes.string,
@@ -233,5 +204,6 @@ ViewArticle.propTypes = {
   followers: propTypes.object,
   followingAction: propTypes.object,
 };
+
 
 export default ViewArticle;

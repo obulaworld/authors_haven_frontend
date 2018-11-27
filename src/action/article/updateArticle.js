@@ -36,9 +36,12 @@ const updateArticle = (articleRequestObject, articleSlug) => (dispatch) => {
     options
   )
     .then((response) => {
-      console.log('updatedResponse : ', response);
       dispatch(updateArticleSuccess(response.data.article));
       return response.data.article;
+    })
+    .catch((error) => {
+      dispatch(updateArticleFailure(error.response));
+      return error.response.data;
     });
 };
 export default updateArticle;
