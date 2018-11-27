@@ -10,7 +10,7 @@ import ForgotPasswordForm from '../ForgotPassword/ForgotPasswordForm';
 describe('ForgotPasswordForm Component', () => {
   test('renders the ForgotPasswordForm Component', () => {
     const wrapper = shallow(
-          <ForgotPasswordForm 
+          <ForgotPasswordForm
             onHandleChange={() => {}}
             onHandleSubmit={() => {}}
             properties={{}}

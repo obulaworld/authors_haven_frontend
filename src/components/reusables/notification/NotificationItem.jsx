@@ -5,7 +5,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TimeAgo from 'javascript-time-ago';
-import en from 'javascript-time-ago/locale/en'
+import en from 'javascript-time-ago/locale/en';
 
 /**
  * @desc Dropdown for use actions

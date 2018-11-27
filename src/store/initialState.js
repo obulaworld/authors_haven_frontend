@@ -1,6 +1,6 @@
 /**
  * @desc the initial state on the application
-*/
+ */
 const initialState = {
   auth: {
     login: {
@@ -50,7 +50,14 @@ const initialState = {
     comment: [],
     error: ''
   },
-  reset: {}
+  reset: {},
+  search: {
+    result: {
+      status: 0,
+      layoutBy: 'loading',
+      data: {}
+    }
+  }
 };
 
 export default initialState;

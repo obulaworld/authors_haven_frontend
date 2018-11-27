@@ -41,7 +41,7 @@ const validation = {
     if (!validation.isValid(email)) {
       return 'Email incorrect';
     }
-    return true
+    return true;
   },
 
   /**
@@ -90,7 +90,7 @@ const validation = {
       }
     }
     if (!pass) {
-      return errors
+      return errors;
     }
     return true;
   },
@@ -107,7 +107,7 @@ const validation = {
     if (!validation.isDefined(password) || !password.replace(/\s/g, '').length) {
       return false;
     }
-    return true
+    return true;
   },
 
 };
