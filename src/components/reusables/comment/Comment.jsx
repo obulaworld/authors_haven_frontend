@@ -15,6 +15,7 @@ import { userCommentRequest, commentInit } from '../../../action/comment';
  * @desc renders login page
  */
 export class Comment extends Component {
+
   onSubmit = (event) => {
     if (event.keyCode === 13) {
       const value = event.target.innerHTML;
@@ -106,9 +107,14 @@ export class Comment extends Component {
 }
 
 Comment.propTypes = {
-  comment: PropTypes.func.isRequired,
-  article: PropTypes.object.isRequired,
-  initialize: PropTypes.func.isRequired,
+  comment: PropTypes.func,
+  article: PropTypes.object,
+  initialize: PropTypes.func,
+  showEditor: PropTypes.func,
+  onClick: PropTypes.func,
+  auth: PropTypes.object,
+  comments: PropTypes.object
+
 };
 const mapDispatchToProps = dispatch => ({
   comment: (detail) => {

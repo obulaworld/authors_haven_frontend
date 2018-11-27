@@ -42,6 +42,7 @@ const fetchSingleArticle = slug => (dispatch) => {
     })
     .catch((err) => {
       dispatch(fetchArticleFailure(err.response.data.message));
+      return err.response.data.message;
     });
 };
 

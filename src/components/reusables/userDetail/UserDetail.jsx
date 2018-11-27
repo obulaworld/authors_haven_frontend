@@ -4,6 +4,7 @@ import React from 'react';
 // third party libraries
 import propTypes from 'prop-types';
 
+
 // component
 import Button from '../button/Button';
 
@@ -11,12 +12,11 @@ import Button from '../button/Button';
 import updateFollowView from '../../../helpers/follow/updateFollowView';
 
 /**
- * @desc
- * @param {object} user
- * @return UserDeatails
+ * @export UserDeatails
+ * @returns object
  */
 
-const UserDeatails = ({
+const UserDetail = ({
   author,
   onClick,
   userId,
@@ -63,7 +63,7 @@ const UserDeatails = ({
   );
 };
 
-UserDeatails.propTypes = {
+UserDetail.propTypes = {
   author: propTypes.object,
   onClick: propTypes.func,
   userId: propTypes.number,
@@ -72,4 +72,4 @@ UserDeatails.propTypes = {
   user: propTypes.object
 };
 
-export default UserDeatails;
+export default UserDetail;

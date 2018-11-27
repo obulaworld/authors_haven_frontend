@@ -3,17 +3,17 @@ import initialState from '../../store/initialState';
 
 // action types
 import {
-FETCH_TAG_FAILURE,
-FETCH_TAG_SUCCESS,
-FETCH_TAG_REQUEST,
-CREATE_TAG_FAILURE,
-CREATE_TAG_REQUEST,
-CREATE_TAG_SUCCESS
+  FETCH_TAG_FAILURE,
+  FETCH_TAG_SUCCESS,
+  FETCH_TAG_REQUEST,
+  CREATE_TAG_FAILURE,
+  CREATE_TAG_REQUEST,
+  CREATE_TAG_SUCCESS
 
 } from '../../actionTypes/tag';
 
 // Article reducer
-export const tagReducer = (state = initialState.tag, action) => {
+const tagReducer = (state = initialState.tag, action) => {
   switch (action.type) {
     case CREATE_TAG_REQUEST:
       return {

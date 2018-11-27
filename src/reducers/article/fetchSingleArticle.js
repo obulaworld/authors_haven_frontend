@@ -12,7 +12,6 @@ import {
 const fetchedSingleArticleReducer = (state = initialState.publishedArticle, action) => {
   switch (action.type) {
     case FETCH_SINGLE_ARTICLE_REQUEST:
-
       return {
         ...state,
         processing: true

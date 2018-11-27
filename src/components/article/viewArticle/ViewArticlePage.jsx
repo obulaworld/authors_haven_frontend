@@ -105,15 +105,6 @@ class ViewArticle extends Component {
       );
     }
     const { followingAction } = this.props;
-
-    if (this.state.editArticle) {
-      return (
-        <Redirect to={{
-          pathname: `/article?slug=${slug}`
-        }}
-        />
-      );
-    }
     return (
       <div className='detail'>
         <Header
@@ -141,7 +132,9 @@ class ViewArticle extends Component {
                 />
               {userId === user.id && (
                 <div className='l-ah-edit-article'>
-                    <Button type='report-btn' text='Edit' onClick={this.showEdit}/>
+                <a href ={`/article?slug=${slug}`}>
+                    <Button type='report-btn' href='' text='Edit' />
+                  </a>
                 </div>
               )}
               <div className='container'>
@@ -189,7 +182,6 @@ class ViewArticle extends Component {
     );
   }
 }
-
 ViewArticle.propTypes = {
   title: propTypes.string,
   body: propTypes.string,
@@ -212,5 +204,6 @@ ViewArticle.propTypes = {
   followers: propTypes.object,
   followingAction: propTypes.object,
 };
+
 
 export default ViewArticle;
